@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {
   getAuth,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword, 
+  createUserWithEmailAndPassword,
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
@@ -20,8 +20,8 @@ const initialState = {
   user: storedUser,
   loading: false,
   error: null,
-  isAuthenticated: !!storedUser ,
-  isAdmin:false
+  isAuthenticated: !!storedUser,
+  isAdmin: false,
 };
 
 // Function to convert Firebase error codes to user-friendly messages
@@ -59,11 +59,11 @@ export const registerUser = createAsyncThunk(
         password
       );
       const user = userCredential.user;
-      const userData = { uid: user.uid, email, name };
-      
+      const userData = { uid: user.uid, email, name, isAdmin: false };
+
       // Save user in Firestore DB with email as document ID
       await setDoc(doc(db, "users", email), userData);
-      
+
       // Save user in localStorage
       localStorage.setItem("user", JSON.stringify(userData));
       return userData;
@@ -84,7 +84,7 @@ export const loginUser = createAsyncThunk(
       );
       const user = userCredential.user;
       const userData = { uid: user.uid, email };
-      
+
       // Save user in localStorage
       localStorage.setItem("user", JSON.stringify(userData));
       return userData;
@@ -106,10 +106,10 @@ export const googleLogin = createAsyncThunk(
         email: user.email,
         name: user.displayName,
       };
-      
+
       // Save user in Firestore DB with email as document ID
       await setDoc(doc(db, "users", user.email), userData, { merge: true });
-      
+
       // Save user in localStorage
       localStorage.setItem("user", JSON.stringify(userData));
       return userData;
@@ -120,7 +120,7 @@ export const googleLogin = createAsyncThunk(
 );
 
 export const logoutUser = createAsyncThunk(
-  "auth/logout", 
+  "auth/logout",
   async (_, { rejectWithValue }) => {
     try {
       await signOut(auth);
@@ -139,7 +139,7 @@ const authSlice = createSlice({
   reducers: {
     clearError: (state) => {
       state.error = null;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
