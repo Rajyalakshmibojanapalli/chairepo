@@ -3,17 +3,16 @@ import { getAnalytics } from "firebase/analytics";
 
 // Your Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAEfGEtsAR6cD3GJpcbLMCivZOc72otbVI",
-  authDomain: "authntication-e22bf.firebaseapp.com",
-  projectId: "authntication-e22bf",
-  storageBucket: "authntication-e22bf.appspot.com", // Fix the storage bucket domain
-  messagingSenderId: "748503619109",
-  appId: "1:748503619109:web:caa76fd793f3e2d68611cc",
-  measurementId: "G-GBNP7K6M6W",
+  apiKey: "AIzaSyAqI9mC1kdF-Xu9jjiGcGZ6Y2T7jdGDWs4",
+  authDomain: "inu-choose-int-education.firebaseapp.com",
+  projectId: "inu-choose-int-education",
+  storageBucket: "inu-choose-int-education.firebasestorage.app",
+  messagingSenderId: "962618782382",
+  appId: "1:962618782382:web:d935342096f8d420d8733f",
+  measurementId: "G-CHXQHSWNSL",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 
 export { app };
