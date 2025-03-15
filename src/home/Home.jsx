@@ -90,7 +90,6 @@ const Home = () => {
         </h3>
         <AnimatedTestimonials />
       </section>
-      <section>hii</section>
     </div>
   );
 };
