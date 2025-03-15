@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Sora", serif;
+  font-optical-sizing: auto;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  background-color: #f3f4f6;
+}
+
+h1 {
+  font-family: "Playfair Display", serif !important;
+  font-optical-sizing: auto;
+  line-height: auto;
+}
+
+@media screen and (min-width: 1441px) {
+  body {
+    overflow: hidden;
+    padding: 0 10%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c8de6ec1;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

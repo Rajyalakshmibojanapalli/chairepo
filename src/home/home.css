@@ -1,0 +1,9 @@
+.overlayhomeTop {
+  backdrop-filter: blur(10px);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.second-home-hero {
+  /* background: radial-gradient(circle, #f5f7fa 62%, #e3e4e4 100%); */
+}

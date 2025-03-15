@@ -1,0 +1,127 @@
+.aoi-page .who {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.who h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.who .line-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background-color: rgba(20, 17, 17, 0.404);
+  height: 100%;
+  z-index: 2;
+}
+
+@media screen and (max-width: 650px) {
+  .who .line-container {
+    left: 0;
+    transform: translateX(-15px);
+  }
+}
+
+.who .ball-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background-color: black;
+  border-radius: 50%;
+  will-change: top;
+  box-shadow: 1px 1px 8px 4px black;
+}
+
+@media screen and (max-width: 650px) {
+  .who .ball-container {
+    left: 0;
+    transform: translateX(-20px);
+  }
+}
+
+.who .blocks-container {
+  margin-top: 20px;
+  position: relative;
+}
+
+.who .blocks-container .block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10%;
+  border-radius: 10px;
+  padding: 40px 20px;
+}
+
+@media screen and (max-width: 650px) {
+  .who .blocks-container .block {
+    padding: 0;
+    margin-bottom: 30px;
+  }
+}
+
+.who .blocks-container .block img {
+  width: 70%;
+
+  margin: 0 auto;
+}
+
+.who .blocks-container .block .text {
+  margin: auto;
+}
+
+.who .blocks-container .block .text h4,
+.who .blocks-container .block .text p {
+  line-height: 20px;
+  text-align: left;
+}
+
+.who .blocks-container .block .text h4 {
+  line-height: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 650px) {
+  .who .blocks-container .block .text h4 {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+.who .blocks-container .block .text p {
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 650px) {
+  .who .blocks-container .block .text p {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .who .blocks-container .block {
+    transform: translateX(20px);
+    grid-template-columns: none;
+    grid-template-areas: "img" "p";
+  }
+
+  .who .blocks-container .block img {
+    grid-area: img;
+  }
+
+  .who .blocks-container .block .text {
+    margin-top: 10px;
+    text-align: center;
+    grid-area: p;
+  }
+}
