@@ -9,13 +9,13 @@ import Dashboard from "./dashboard/Dashboard";
 import { useSelector } from "react-redux";
 import Login from "./autntication/Login";
 import Register from "./autntication/Register";
-import IndependentIntakeForm from "./test/IndependentIntakeForm";
+import MultiStepForm from "./test/MultiStepForm";
 
 const App = () => {
+  const isAuthenticated = useSelector(
+    (state) => state.authSlice.isAuthenticated
+  );
 
-  const isAuthenticated = useSelector((state) => state.authSlice.isAuthenticated);
-
-  
   return (
     <BrowserRouter>
       <Navbar />
@@ -23,10 +23,22 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Login />} />
-        <Route path="/elgibility-test" element={isAuthenticated ? <IndependentIntakeForm /> : <Login />} />
-        <Route path="/login" element={isAuthenticated? <Dashboard /> : <Login />} />
-        <Route path="/register" element={isAuthenticated? <Dashboard /> : <Register />} />
+        <Route
+          path="/dashboard"
+          element={isAuthenticated ? <Dashboard /> : <Login />}
+        />
+        <Route
+          path="/elgibility-test"
+          element={isAuthenticated ? <MultiStepForm /> : <Login />}
+        />
+        <Route
+          path="/login"
+          element={isAuthenticated ? <Dashboard /> : <Login />}
+        />
+        <Route
+          path="/register"
+          element={isAuthenticated ? <Dashboard /> : <Register />}
+        />
       </Routes>
       <Footer />
     </BrowserRouter>
