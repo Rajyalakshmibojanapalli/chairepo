@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#212121] text-gray-300 py-10">
+    <footer className="bg-[#212121] text-gray-300 py-10 relative">
       <div className="max-w-6xl mx-auto px-6">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8  md:text-left">
@@ -79,11 +79,41 @@ const Footer = () => {
             <FaLinkedinIn size={20} />
           </a>
         </div>
+        <button
+          // onClick={handleNext}
+          className="absolute right-3 h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button 
+  shadow-md hover:shadow-lg border-[2px] border-black transition-all duration-300 transform hover:scale-105"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 5v14" /> {/* Vertical line */}
+            <path d="M18 11l-6 -6l-6 6" /> {/* Upward-facing arrow */}
+          </svg>
+        </button>
 
         {/* Bottom Section */}
         <div className="border-t border-gray-700 mt-6 pt-4 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} All Rights Reserved.</p>
         </div>
+      </div>
+      <div>
+        <p className="text-center text-sm text-gray-600">
+          Developed by{" "}
+          <a href="https://veereshnaik.vercel.app/" target="_blank">
+            Veeresh naik
+          </a>
+        </p>
       </div>
     </footer>
   );

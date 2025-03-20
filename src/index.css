@@ -2,8 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Sora", serif;
-  font-optical-sizing: auto;
+  font-family: "Helvetica", sans-serif;
 }
 @tailwind base;
 @tailwind components;
@@ -15,11 +14,21 @@ html {
 body {
   background-color: #f3f4f6;
 }
+@font-face {
+  font-family: "DejaVu Sans";
+  src: url("/fonts/DejaVuSans.woff2") format("woff2"),
+    url("/fonts/DejaVuSans.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-h1 {
-  font-family: "Playfair Display", serif !important;
-  font-optical-sizing: auto;
-  line-height: auto;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "DejaVu Sans", sans-serif;
+  /* font-optical-sizing: auto;
+  line-height: auto; */
 }
 
 @media screen and (min-width: 1441px) {
@@ -45,4 +54,8 @@ h1 {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.about {
+  background-image: linear-gradient(180deg, #0a44b77b, #fff);
 }

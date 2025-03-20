@@ -35,23 +35,23 @@ const Home = () => {
   ];
   return (
     <div>
-      <section className="min-h-screen flex flex-col md:flex-row relative bg-[#c7de6e]">
+      <section className="min-h-screen flex flex-col md:flex-row relative bg-[#0a44b77b] ">
         <div className="flex-1 text-center px-4 md:text-left flex flex-col justify-center pt-40 pb-24  md:min-h-screen ">
           <div>
             <p>Premier Overseas Education Consultants</p>
             <SplitText />
 
-            <h5 className="mt-4">
+            <h5 className="mt-4 text-white">
               “We make studying abroad a seamless experience, guiding you every
               step of the way towards a brighter future.”
             </h5>
-            <button className="bg-[#404040] text-white px-5 py-2 rounded-md hover:bg-[#333333] transition-all duration-300 mt-4">
+            <button className="bg-[#f6f6f6] text-black font-semibold px-5 py-2 rounded-md hover:bg-[#ffffff] hover:scale-105 transition-all duration-300 mt-4">
               Take a test
             </button>
           </div>
         </div>
 
-        <div className="relative flex-1 flex flex-col items-center">
+        <div className="relative flex-1 flex flex-col items-center ">
           <div className="overlayhomeTop absolute bottom-10 md:bottom-[60px] text-center py-4">
             <div>
               <p>Quatation</p>
@@ -68,7 +68,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="p-4 second-home-hero py-10 pb-20">
+      <section className="p-4 second-home-hero py-10 pb-20 overflow-hidden">
         <div>
           <h3 className="text-3xl font-semibold md:text-6xl text-center">
             On boarding process
@@ -76,7 +76,7 @@ const Home = () => {
           <Process />
         </div>
       </section>
-      <section className="p-4 pt-10 bg-[#ddeba859]">
+      <section className="p-4 pt-10 bg-[#e6e6ed] ">
         <h3 className="text-3xl font-semibold md:text-6xl text-center pb-5">
           Our Services
         </h3>

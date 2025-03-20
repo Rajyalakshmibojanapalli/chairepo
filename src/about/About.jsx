@@ -49,7 +49,7 @@ const About = () => {
     },
   ];
   return (
-    <div className="pt-[120px] bg-[#ddeba862]">
+    <div className="pt-[120px] about">
       <section
         style={{
           backgroundImage:
@@ -99,7 +99,7 @@ const About = () => {
           </button>
         </div>
       </section>
-      <section className="bg-[#f3f4f6] p-4 py-10">
+      <section className="bg-[] p-4 py-10">
         <h3 className="text-3xl font-semibold md:text-6xl text-center pb-10">
           Our records
         </h3>

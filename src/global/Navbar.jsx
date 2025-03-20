@@ -33,7 +33,7 @@ const Navbar = () => {
           className="text-xl font-bold text-black cursor-pointer"
           onClick={() => navigate("/")}
         >
-          <img src={logo} alt="INU CHOOSE EDUCATION" className="h-[80px]" />
+          <img src={logo} alt="INU CHOOSE EDUCATION" className="h-[70px]" />
         </div>
 
         {/* Center: Navigation Links */}

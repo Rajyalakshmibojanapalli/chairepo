@@ -28,7 +28,7 @@ const Contact = () => {
     },
   });
   return (
-    <div className="pt-[120px] bg-[#f5f5f5]">
+    <div className="pt-[120px] about">
       <section
         style={{
           backgroundImage:
@@ -45,11 +45,11 @@ const Contact = () => {
         </h1>
       </section>
 
-      <section className=" flex flex-col gap-10 md:gap-0 md:flex-row relative p-4 py-10  bg-[#c7de6e] ">
+      <section className=" flex flex-col gap-10 md:gap-0 md:flex-row relative p-4 py-10  bg-[#] ">
         <div className="w-full md:w-3/5 flex flex-col gap-6 flex-col justify-center items-center">
           <div>
             <h2 className="text-5xl font-bold text-left mt-10 md:mt-0">
-              INU CHOOSE
+              INU choose international education
             </h2>
 
             <div className="flex items-center gap-3  mt-2">
@@ -72,7 +72,7 @@ const Contact = () => {
         </div>
 
         {/* Contact Form (65% width on larger screens) */}
-        <div className="w-full md:w-3/5 flex flex-col justify-start  gap-6  bg-[#ffffff] pt-10 pb-20 px-2 rounded-lg">
+        <div className="w-full md:w-3/5 flex flex-col justify-start  gap-6  bg-[#ffffff] pt-10 pb-20 px-5 rounded-lg">
           <form onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
             <input
               type="text"
