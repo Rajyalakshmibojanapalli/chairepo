@@ -97,8 +97,8 @@ const Footer = () => {
             strokeLinejoin="round"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M12 5v14" /> {/* Vertical line */}
-            <path d="M18 11l-6 -6l-6 6" /> {/* Upward-facing arrow */}
+            <path d="M12 5v14" /> 
+            <path d="M18 11l-6 -6l-6 6" /> 
           </svg>
         </button>
 
