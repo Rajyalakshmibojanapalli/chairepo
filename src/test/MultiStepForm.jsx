@@ -1,9 +1,22 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { logoutUser } from "../redux/authSlice";
 
 const MultiStepForm = () => {
   const data = useSelector((state) => state.authSlice.user);
+  const [personalDetailsFromDB, setpersonalDetailsFromDB] = useState(null);
+  const dispatch = useDispatch();
+  useEffect(async () => {
+    const response = await axios.post(
+      "http://127.0.0.1:5001/inu-choose-int-education/us-central1/api/intial-data-if-present",
+      {
+        email: data?.email,
+      }
+    );
+  }, []);
+
   const [currentStep, setCurrentStep] = useState(1);
   const [completedSteps, setCompletedSteps] = useState(new Set());
   const [finalData, setFinalData] = useState(null);
@@ -34,16 +47,106 @@ const MultiStepForm = () => {
   const [quizScoreError, setQuizScoreError] = useState("");
 
   const quizQuestions = [
-    { question: "What is React?", correctAnswer: "a" },
-    { question: "What is a component?", correctAnswer: "b" },
-    { question: "What is JSX?", correctAnswer: "a" },
-    { question: "What is state?", correctAnswer: "c" },
-    { question: "What are props?", correctAnswer: "d" },
-    { question: "What is a hook?", correctAnswer: "b" },
-    { question: "What is useEffect?", correctAnswer: "a" },
-    { question: "What is useState?", correctAnswer: "c" },
-    { question: "What is virtual DOM?", correctAnswer: "d" },
-    { question: "What is reconciliation?", correctAnswer: "b" },
+    {
+      question: "Which number comes next in the series: 2, 4, 8, 16, ?",
+      options: {
+        a: "18",
+        b: "20",
+        c: "24",
+        d: "32",
+      },
+      correctAnswer: "d",
+    },
+    {
+      question: "If CAT is coded as DBU, what is DOG?",
+      options: {
+        a: "EPI",
+        b: "DPI",
+        c: "FQH",
+        d: "EPH",
+      },
+      correctAnswer: "a",
+    },
+    {
+      question: "Find the odd one out: Apple, Banana, Carrot, Mango",
+      options: {
+        a: "Apple",
+        b: "Banana",
+        c: "Carrot",
+        d: "Mango",
+      },
+      correctAnswer: "c",
+    },
+    {
+      question: "If ALL = 36 and ADD = 12, then what is DAD?",
+      options: {
+        a: "9",
+        b: "12",
+        c: "15",
+        d: "18",
+      },
+      correctAnswer: "d",
+    },
+    {
+      question: "Which of the following is the mirror image of 'M'? ",
+      options: {
+        a: "W",
+        b: "N",
+        c: "V",
+        d: "M",
+      },
+      correctAnswer: "d",
+    },
+    {
+      question: "What comes next in the pattern: A, C, F, J, O, ?",
+      options: {
+        a: "Q",
+        b: "T",
+        c: "U",
+        d: "V",
+      },
+      correctAnswer: "b",
+    },
+    {
+      question: "Which number is the odd one out: 9, 16, 25, 36, 49, 55",
+      options: {
+        a: "25",
+        b: "36",
+        c: "49",
+        d: "55",
+      },
+      correctAnswer: "d",
+    },
+    {
+      question: "If 1 = 5, 2 = 25, 3 = 325, what is 4?",
+      options: {
+        a: "4325",
+        b: "425",
+        c: "432",
+        d: "None",
+      },
+      correctAnswer: "a",
+    },
+    {
+      question: "Which word cannot be formed from 'TRANSPORT'?",
+      options: {
+        a: "SPORT",
+        b: "TRAP",
+        c: "RANT",
+        d: "PORTAL",
+      },
+      correctAnswer: "d",
+    },
+    {
+      question: "Which direction is opposite to North-East?",
+      options: {
+        a: "South",
+        b: "South-West",
+        c: "East",
+        d: "North-West",
+      },
+      correctAnswer: "b",
+    },
   ];
 
   const validatePersonalData = () => {
@@ -92,17 +195,13 @@ const MultiStepForm = () => {
         isValid = validatePersonalData();
         if (isValid) {
           const response = await axios.post(
-            "https://us-central1-your-project-id.cloudfunctions.net/validatePersonal",
+            "https://api-prxc6of3fa-uc.a.run.app/validatePersonal",
             personalData
           );
           if (response.data.success) {
             isValid = true;
           } else {
-            if (response.data.message) {
-              setServerError(response.data.message);
-            } else {
-              setPersonalErrors(response.data.errors || {});
-            }
+            setServerError(response.data.message);
             isValid = false;
           }
         }
@@ -110,30 +209,31 @@ const MultiStepForm = () => {
         isValid = validateQuizData();
         if (isValid) {
           const response = await axios.post(
-            "https://us-central1-your-project-id.cloudfunctions.net/validateQuiz",
+            "https://api-prxc6of3fa-uc.a.run.app/validateQuiz",
             { email: personalData.email, answers: quizData.answers }
           );
-
           if (response.data.success) {
             setQuizScoreError("");
             isValid = true;
           } else {
-            if (response.data.message) {
-              setQuizScoreError(response.data.message);
-            } else {
-              setQuizErrors(response.data.errors || {});
-            }
+            setQuizScoreError(response.data.message);
             isValid = false;
           }
         }
       } else if (currentStep === 3) {
         isValid = validateIntakeData();
         if (isValid) {
-          setFinalData({
-            personal: personalData,
-            quiz: { answers: quizData.answers },
-            intake: intakeData,
-          });
+          const response = await axios.post(
+            "https://api-prxc6of3fa-uc.a.run.app/submitIntake",
+            { email: personalData.email, ...intakeData }
+          );
+          if (response.data.success) {
+            setFinalData(response.data.data);
+            isValid = true;
+          } else {
+            setServerError(response.data.message);
+            isValid = false;
+          }
         }
       }
 
@@ -180,6 +280,8 @@ const MultiStepForm = () => {
     });
   };
 
+  const navigate = useNavigate();
+
   const handleReset = () => {
     setFinalData(null);
     setCurrentStep(1);
@@ -197,6 +299,7 @@ const MultiStepForm = () => {
     setIntakeErrors({});
     setQuizScoreError("");
     setServerError("");
+    navigate(`/dashboard/${data?.email}`);
   };
 
   const renderStepIndicators = () => (
@@ -365,10 +468,11 @@ const MultiStepForm = () => {
                     }`}
                   >
                     <option value="">Select an answer</option>
-                    <option value="a">Option A</option>
-                    <option value="b">Option B</option>
-                    <option value="c">Option C</option>
-                    <option value="d">Option D</option>
+                    {Object.entries(questionObj.options).map(([key, value]) => (
+                      <option key={key} value={key}>
+                        {key.toUpperCase()}. {value}
+                      </option>
+                    ))}
                   </select>
                 </div>
               ))}
@@ -467,14 +571,11 @@ const MultiStepForm = () => {
         {finalData ? (
           <div className="space-y-4">
             <h2 className="text-xl font-bold">Submission Successful!</h2>
-            <pre className="bg-gray-100 p-4 rounded overflow-auto text-sm md:text-base">
-              {JSON.stringify(finalData, null, 2)}
-            </pre>
             <button
               onClick={handleReset}
               className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 text-sm md:text-base"
             >
-              Start Over
+              Go to DashBoard
             </button>
           </div>
         ) : (
@@ -510,6 +611,8 @@ const MultiStepForm = () => {
             </div>
           </>
         )}
+
+        <button onClick={() => dispatch(logoutUser())}>logout</button>
       </div>
     </div>
   );

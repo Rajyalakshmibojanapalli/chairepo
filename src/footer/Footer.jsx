@@ -8,6 +8,9 @@ import {
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <footer className="bg-[#212121] text-gray-300 py-10 relative">
       <div className="max-w-6xl mx-auto px-6">
@@ -29,16 +32,36 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/">Home</Link>
+                <Link className="relative" to="/" onClick={scrollToTop}>
+                  <span className="relative inline-block after:content-[''] after:block after:w-full after:h-0.5 after:bg-white after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+                    Home
+                  </span>
+                </Link>
               </li>
               <li>
-                <Link to="/dashboard">Dashoard</Link>
+                <Link
+                  to="/dashboard"
+                  onClick={scrollToTop}
+                  className="relative"
+                >
+                  <span className="relative inline-block after:content-[''] after:block after:w-full after:h-0.5 after:bg-white after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+                    Dashoard
+                  </span>
+                </Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/about" onClick={scrollToTop} className="relative">
+                  <span className="relative inline-block after:content-[''] after:block after:w-full after:h-0.5 after:bg-white after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+                    About
+                  </span>
+                </Link>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact" onClick={scrollToTop} className="relative">
+                  <span className="relative inline-block after:content-[''] after:block after:w-full after:h-0.5 after:bg-white after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+                    Contact
+                  </span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -97,8 +120,8 @@ const Footer = () => {
             strokeLinejoin="round"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M12 5v14" /> 
-            <path d="M18 11l-6 -6l-6 6" /> 
+            <path d="M12 5v14" />
+            <path d="M18 11l-6 -6l-6 6" />
           </svg>
         </button>
 

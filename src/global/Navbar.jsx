@@ -60,7 +60,10 @@ const Navbar = () => {
         </ul>
 
         {/* Right: CTA Button */}
-        <button className="hidden md:block bg-[#404040] text-white px-5 py-2 rounded-full hover:bg-[#333333] transition-all duration-300">
+        <button
+          onClick={() => navigate("/elgibility-test")}
+          className="hidden md:block bg-[#404040] text-white px-5 py-2 rounded-full hover:bg-[#333333] transition-all duration-300"
+        >
           Take Test now
         </button>
 

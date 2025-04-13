@@ -7,6 +7,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+  /* background-color: #eff0f0; */
+  /* background-color: #151c4b; */
+  /* background-color: #69bfef; */
+  /* background-color: #5a7a9a; */
 html {
   scroll-behavior: smooth !important;
 }
@@ -57,5 +64,5 @@ h4 {
 }
 
 .about {
-  background-image: linear-gradient(180deg, #0a44b77b, #fff);
+  background-image: linear-gradient(180deg, #5a7a9a, #fff);
 }
