@@ -590,14 +590,14 @@ const StudentDashboard = ({ userData }) => {
   // Special handling for 404 error (profile not found)
   if (error === "404") {
     return (
-      <div className="bg-yellow-50 border-l-4 border-yellow-600 p-4 rounded-lg">
+      <div className="flex justify-center items-center w-full bg-white border border-gray-200 rounded-lg p-5 shadow-sm ">
         <div className="flex flex-col items-center">
           <p className="text-sm text-yellow-700 mb-4">
-            No profile found. Let's get started with your application!
+            Let's get started with your application!
           </p>
           <button
             onClick={() => navigate("/elgibility-test")}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-[#404040] text-white px-5 py-2 rounded-full hover:bg-[#333333] transition-all duration-300"
           >
             Start Application
           </button>
