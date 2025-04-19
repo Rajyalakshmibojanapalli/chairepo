@@ -62,70 +62,85 @@ const MultiStepForm = () => {
           }
         );
 
-        const userData = response.data.userData;
+        // Check if userData exists in the response
+        if (response.data && response.data.userData) {
+          const userData = response.data.userData;
 
-        // Check if personal details exist
-        if (userData.personal) {
-          setPersonalDetailsFromDB(userData.personal);
-          // Update personal data state with DB values
-          setPersonalData({
-            firstName: userData.personal.firstName || "",
-            lastName: userData.personal.lastName || "",
-            email: data?.email ?? "",
-            phone: userData.personal.phone || "",
-          });
+          // Check if personal details exist
+          if (userData.personal) {
+            setPersonalDetailsFromDB(userData.personal);
+            // Update personal data state with DB values
+            setPersonalData({
+              firstName: userData.personal.firstName || "",
+              lastName: userData.personal.lastName || "",
+              email: data?.email ?? "",
+              phone: userData.personal.phone || "",
+            });
 
-          // Mark personal details step as completed
-          setCompletedSteps((prev) => new Set([...prev, 1]));
+            // Mark personal details step as completed
+            setCompletedSteps((prev) => new Set([...prev, 1]));
 
-          // Automatically skip to step 2 if personal details exist
-          setCurrentStep(2);
-        }
+            // Automatically skip to step 2 if personal details exist
+            setCurrentStep(2);
+          }
 
-        // Check if quiz is completed with passing score
-        if (userData.quiz && userData.quiz.score >= 70) {
-          setQuizIfPresent(true);
-          // Mark quiz step as completed
-          setCompletedSteps((prev) => new Set([...prev, 2]));
+          // Check if quiz is completed with passing score
+          if (userData.quiz && userData.quiz.score >= 70) {
+            setQuizIfPresent(true);
+            // Mark quiz step as completed
+            setCompletedSteps((prev) => new Set([...prev, 2]));
 
-          // Automatically skip to step 3 if quiz is passed
-          setCurrentStep(3);
-        }
+            // Automatically skip to step 3 if quiz is passed
+            setCurrentStep(3);
+          }
 
-        // Check if intake data exists
-        if (userData.intake) {
-          setIntake(true);
-          // Update intake data state with DB values
-          setIntakeData({
-            destination: userData.intake.destination || "",
-            program: userData.intake.program || "",
-            intakeDate: userData.intake.intakeDate || "",
-          });
-          // Mark intake step as completed
-          setCompletedSteps((prev) => new Set([...prev, 3]));
-        }
+          // Check if intake data exists
+          if (userData.intake) {
+            setIntake(true);
+            // Update intake data state with DB values
+            setIntakeData({
+              destination: userData.intake.destination || "",
+              program: userData.intake.program || "",
+              intakeDate: userData.intake.intakeDate || "",
+            });
+            // Mark intake step as completed
+            setCompletedSteps((prev) => new Set([...prev, 3]));
+          }
 
-        // Check if all steps are completed and show modal
-        if (
-          userData.personal &&
-          userData.quiz?.score >= 70 &&
-          userData.intake
-        ) {
-          setShowCompletedModal(true);
-        }
-        // Determine which step to show initially based on completed steps
-        else if (
-          userData.personal &&
-          userData.quiz?.score >= 70 &&
-          !userData.intake
-        ) {
-          setCurrentStep(3); // Skip to intake step
-        } else if (userData.personal && !userData.quiz?.score >= 70) {
-          setCurrentStep(2); // Skip to quiz step
+          // Check if all steps are completed and show modal
+          if (
+            userData.personal &&
+            userData.quiz?.score >= 70 &&
+            userData.intake
+          ) {
+            setShowCompletedModal(true);
+          }
+          // Determine which step to show initially based on completed steps
+          else if (
+            userData.personal &&
+            userData.quiz?.score >= 70 &&
+            !userData.intake
+          ) {
+            setCurrentStep(3); // Skip to intake step
+          } else if (userData.personal && !userData.quiz?.score >= 70) {
+            setCurrentStep(2); // Skip to quiz step
+          }
+        } else {
+          // For first-time users with no data, we simply start at step 1
+          // without showing an error
+          console.log("No existing user data found. Starting from step 1.");
+          setCurrentStep(1);
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
-        setServerError("Failed to load user data. Please try again.");
+        // Only set server error if it's not a 404 (Not Found) error
+        // This way we don't show an error for first-time users
+        if (error.response && error.response.status !== 404) {
+          setServerError("Failed to load user data. Please try again.");
+        } else {
+          // For 404 errors (no user data found), just log it and continue
+          console.log("No user data found. Starting fresh.");
+        }
       } finally {
         setInitialLoading(false); // Set loading state to false after fetching completes
       }
@@ -459,7 +474,7 @@ const MultiStepForm = () => {
                 completedSteps.has(step)
                   ? "bg-green-500 cursor-pointer"
                   : currentStep === step
-                  ? "bg-blue-500"
+                  ? "bg-yellow-300"
                   : step < currentStep
                   ? "bg-blue-300 cursor-pointer"
                   : "bg-gray-300"
@@ -720,39 +735,22 @@ const MultiStepForm = () => {
     <div className="fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center z-50">
       <div className="text-center p-6 max-w-sm mx-auto">
         <div className="mb-4">
-          <svg
-            className="animate-spin h-12 w-12 text-blue-500 mx-auto"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="4"
-            ></circle>
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-            ></path>
-          </svg>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
         </div>
-        <h3 className="text-lg font-medium text-gray-900 mb-2">
-          Loading your information
-        </h3>
-        <p className="text-sm text-gray-500">
-          Please wait while we retrieve your application data...
-        </p>
       </div>
     </div>
   );
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col items-center pt-[140px] w-full px-4 md:px-0">
+    <div className="min-h-screen mb-[100px] flex flex-col items-center pt-[140px] w-full px-4 md:px-0">
       {/* Show loading screen while initial data is being fetched */}
       {initialLoading && <LoadingScreen />}
 

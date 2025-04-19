@@ -70,6 +70,7 @@ const Home = () => {
           <img
             src={mainHero}
             alt=""
+            loading="lazy"
             className="main-heroimg w-full max-w-xs md:max-w-full rounded-full"
           />
         </div>
