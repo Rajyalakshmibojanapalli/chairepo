@@ -7,9 +7,11 @@ import { useNavigate } from "react-router-dom";
 // Admin Dashboard Component
 const AdminDashboard = ({ userData }) => {
   const [applications, setApplications] = useState([]);
+  const [allApplications, setAllApplications] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filterLoading, setFilterLoading] = useState(false); // New state for filter loading
   const [error, setError] = useState(null);
-  const [statusFilter, setStatusFilter] = useState("");
+  const [statusFilter, setStatusFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [lastId, setLastId] = useState(null);
   const [hasMore, setHasMore] = useState(false);
@@ -23,18 +25,24 @@ const AdminDashboard = ({ userData }) => {
       const response = await axios.get(
         "https://api-prxc6of3fa-uc.a.run.app/admin/applications",
         {
-          status: statusFilter || null,
-          limit: 10,
-          startAfter,
+          params: {
+            limit: 10,
+            startAfter,
+          },
         }
       );
 
+      const fetchedApplications = response.data.applications;
+
       if (resetPagination) {
-        setApplications(response.data.applications);
+        setAllApplications(fetchedApplications);
         setCurrentPage(1);
       } else {
-        setApplications(response.data.applications);
+        setAllApplications((prev) => [...prev, ...fetchedApplications]);
       }
+
+      // Apply any existing filter to the fetched data
+      applyStatusFilter(fetchedApplications, statusFilter);
 
       setLastId(response.data.pagination.lastId);
       setHasMore(response.data.pagination.hasMore);
@@ -46,12 +54,42 @@ const AdminDashboard = ({ userData }) => {
     }
   };
 
+  // Function to apply status filter without triggering a new fetch
+  const applyStatusFilter = (data, status) => {
+    if (!data || data.length === 0) return;
+
+    setFilterLoading(true); // Show filter loading indicator
+
+    setTimeout(() => {
+      // Wrap in setTimeout to ensure state update and UI refresh
+      if (status === "All") {
+        setApplications(data);
+      } else {
+        const filteredRecords = data.filter((item) => item.status === status);
+        setApplications(filteredRecords);
+      }
+      setFilterLoading(false);
+    }, 300); // Small delay to make the loading state visible
+  };
+
+  // Initial data fetch
   useEffect(() => {
     fetchApplications(true);
-  }, [statusFilter]);
+  }, []);
+
+  // Apply filter whenever statusFilter changes or when allApplications changes
+  useEffect(() => {
+    applyStatusFilter(allApplications, statusFilter);
+  }, [statusFilter, allApplications]);
 
   const handleStatusChange = (e) => {
-    setStatusFilter(e.target.value);
+    const selectedStatus = e.target.value;
+    setStatusFilter(selectedStatus);
+  };
+
+  const handleRefresh = () => {
+    setStatusFilter("All");
+    fetchApplications(true);
   };
 
   const loadNextPage = () => {
@@ -81,12 +119,19 @@ const AdminDashboard = ({ userData }) => {
         }
       );
 
-      // Update local state to reflect changes
+      // Update both the filtered and full application lists
       setApplications((apps) =>
         apps.map((app) =>
           app.id === applicationId ? { ...app, status: newStatus } : app
         )
       );
+
+      setAllApplications((apps) =>
+        apps.map((app) =>
+          app.id === applicationId ? { ...app, status: newStatus } : app
+        )
+      );
+
       setIsUpdating(false);
     } catch (err) {
       console.error("Error updating status:", err);
@@ -131,30 +176,66 @@ const AdminDashboard = ({ userData }) => {
             <select
               value={statusFilter}
               onChange={handleStatusChange}
-              className="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+              disabled={loading || filterLoading} // Disable during loading
+              className={`block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                loading || filterLoading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
-              <option value="">All Statuses</option>
+              <option value="All">All Statuses</option>
               <option value="pending">Pending</option>
               <option value="approved">Approved</option>
               <option value="rejected">Rejected</option>
               <option value="waitlisted">Waitlisted</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg
-                className="fill-current h-4 w-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
+              {filterLoading ? (
+                <div className="animate-spin h-4 w-4 border-t-2 border-blue-500 rounded-full"></div>
+              ) : (
+                <svg
+                  className="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              )}
             </div>
           </div>
 
           <button
-            onClick={() => fetchApplications(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            onClick={handleRefresh}
+            disabled={loading || filterLoading} // Disable during loading
+            className={`bg-[#404040] text-white px-5 py-2 rounded-md hover:bg-[#333333] transition-all duration-300 ${
+              loading || filterLoading ? "opacity-90 cursor-not-allowed" : ""
+            }`}
           >
-            Refresh Data
+            {loading ? (
+              <span className="flex items-center">
+                <svg
+                  className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+                Loading...
+              </span>
+            ) : (
+              "Refresh Data"
+            )}
           </button>
         </div>
       </div>
@@ -183,9 +264,17 @@ const AdminDashboard = ({ userData }) => {
         </div>
       )}
 
-      {loading && applications.length === 0 ? (
+      {/* Show loading spinner for both initial load and filtering */}
+      {(loading && applications.length === 0) || filterLoading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          <div className="flex flex-col items-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+            <p className="mt-4 text-gray-500">
+              {filterLoading
+                ? "Applying filters..."
+                : "Loading applications..."}
+            </p>
+          </div>
         </div>
       ) : applications.length === 0 ? (
         <div className="bg-gray-50 rounded-lg p-8 text-center">
@@ -196,6 +285,18 @@ const AdminDashboard = ({ userData }) => {
         </div>
       ) : (
         <div className="overflow-x-auto">
+          {/* Overlay for filtering */}
+          {filterLoading && applications.length > 0 && (
+            <div className="absolute inset-0 bg-white bg-opacity-60 flex justify-center items-center z-10">
+              <div className="flex flex-col items-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+                <p className="mt-4 text-gray-700 font-medium">
+                  Filtering applications...
+                </p>
+              </div>
+            </div>
+          )}
+
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
@@ -237,7 +338,11 @@ const AdminDashboard = ({ userData }) => {
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody
+              className={`bg-white divide-y divide-gray-200 ${
+                filterLoading ? "opacity-50" : ""
+              }`}
+            >
               {applications.map((app) => (
                 <tr key={app.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -291,40 +396,58 @@ const AdminDashboard = ({ userData }) => {
                         onClick={() =>
                           updateApplicationStatus(app.id, "approved")
                         }
-                        disabled={app.status === "approved" || isUpdating}
+                        disabled={
+                          app.status === "approved" ||
+                          isUpdating ||
+                          filterLoading
+                        }
                         className={`${
-                          app.status === "approved"
+                          app.status === "approved" ||
+                          isUpdating ||
+                          filterLoading
                             ? "bg-gray-300 cursor-not-allowed"
                             : "bg-green-600 hover:bg-green-700"
                         } text-white text-xs px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-green-500 transition`}
                       >
-                        Approve
+                        {isUpdating ? "Updating..." : "Approve"}
                       </button>
                       <button
                         onClick={() =>
                           updateApplicationStatus(app.id, "rejected")
                         }
-                        disabled={app.status === "rejected" || isUpdating}
+                        disabled={
+                          app.status === "rejected" ||
+                          isUpdating ||
+                          filterLoading
+                        }
                         className={`${
-                          app.status === "rejected"
+                          app.status === "rejected" ||
+                          isUpdating ||
+                          filterLoading
                             ? "bg-gray-300 cursor-not-allowed"
                             : "bg-red-600 hover:bg-red-700"
                         } text-white text-xs px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-red-500 transition`}
                       >
-                        Reject
+                        {isUpdating ? "Updating..." : "Reject"}
                       </button>
                       <button
                         onClick={() =>
                           updateApplicationStatus(app.id, "waitlisted")
                         }
-                        disabled={app.status === "waitlisted" || isUpdating}
+                        disabled={
+                          app.status === "waitlisted" ||
+                          isUpdating ||
+                          filterLoading
+                        }
                         className={`${
-                          app.status === "waitlisted"
+                          app.status === "waitlisted" ||
+                          isUpdating ||
+                          filterLoading
                             ? "bg-gray-300 cursor-not-allowed"
                             : "bg-blue-600 hover:bg-blue-700"
                         } text-white text-xs px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition`}
                       >
-                        Waitlist
+                        {isUpdating ? "Updating..." : "Waitlist"}
                       </button>
                     </div>
                   </td>
@@ -337,13 +460,15 @@ const AdminDashboard = ({ userData }) => {
 
       {/* Pagination Controls */}
       <div className="flex justify-between items-center mt-6">
-        <div className="text-sm text-gray-700">Showing page {currentPage}</div>
+        <div className="text-sm text-gray-700">
+          {applications.length > 0 ? `Showing page ${currentPage}` : ""}
+        </div>
         <div className="flex space-x-2">
           <button
             onClick={loadPrevPage}
-            disabled={currentPage === 1 || loading}
+            disabled={currentPage === 1 || loading || filterLoading}
             className={`${
-              currentPage === 1 || loading
+              currentPage === 1 || loading || filterLoading
                 ? "bg-gray-300 cursor-not-allowed"
                 : "bg-gray-200 hover:bg-gray-300"
             } px-4 py-2 rounded text-sm font-medium transition`}
@@ -352,9 +477,9 @@ const AdminDashboard = ({ userData }) => {
           </button>
           <button
             onClick={loadNextPage}
-            disabled={!hasMore || loading}
+            disabled={!hasMore || loading || filterLoading}
             className={`${
-              !hasMore || loading
+              !hasMore || loading || filterLoading
                 ? "bg-gray-300 cursor-not-allowed"
                 : "bg-blue-600 hover:bg-blue-700 text-white"
             } px-4 py-2 rounded text-sm font-medium transition`}
@@ -373,34 +498,48 @@ const StudentDashboard = ({ userData }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const email = userData?.email;
+
+  const fetchUserProfile = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.post(
+        "https://api-prxc6of3fa-uc.a.run.app/user/profile",
+        { email },
+        { validateStatus: (status) => status >= 200 && status < 300 } // Treat non-2xx as errors
+      );
+
+      setProfile(response.data.profile);
+      setLoading(false);
+    } catch (err) {
+      console.error("Error fetching profile:", err);
+
+      if (err.response && err.response.status === 404) {
+        // We'll handle the 404 case in the rendering logic
+        setError("404");
+      } else if (err.response) {
+        // Server responded with a non-2xx status other than 404
+        setError(err.response.data.message || "Unable to load your profile.");
+      } else if (err.request) {
+        // Request was made but no response received
+        setError("Server did not respond. Please try again later.");
+      } else {
+        // Something else went wrong
+        setError("Something went wrong. Please try again later.");
+      }
+
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchUserProfile = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.post(
-          "https://api-prxc6of3fa-uc.a.run.app/user/profile",
-          { email: userData.email }
-        );
-        console.log(response);
-
-        if (response.data.success) {
-          setProfile(response.data.profile);
-        } else {
-          setError(response.data.message || "Unable to load your profile.");
-        }
-      } catch (err) {
-        console.error("Error fetching profile:", err);
-        setError("Something went wrong. Please try again later.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (userData?.email) {
+    if (email) {
       fetchUserProfile();
+    } else {
+      setLoading(false);
+      setError("Please log in to view your profile.");
     }
-  }, []);
+  }, [userData?.email]);
 
   const formatDate = (dateString) => {
     if (!dateString) return "Not yet submitted";
@@ -444,6 +583,25 @@ const StudentDashboard = ({ userData }) => {
     return (
       <div className="flex justify-center items-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
+
+  // Special handling for 404 error (profile not found)
+  if (error === "404") {
+    return (
+      <div className="bg-yellow-50 border-l-4 border-yellow-600 p-4 rounded-lg">
+        <div className="flex flex-col items-center">
+          <p className="text-sm text-yellow-700 mb-4">
+            No profile found. Let's get started with your application!
+          </p>
+          <button
+            onClick={() => navigate("/elgibility-test")}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Start Application
+          </button>
+        </div>
       </div>
     );
   }
@@ -757,6 +915,7 @@ const StudentDashboard = ({ userData }) => {
                     !profile.quizPassed ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                   disabled={!profile.quizPassed}
+                  onClick={() => navigate("/elgibility-test")}
                 >
                   {profile.quizPassed ? "Add Preferences" : "Pass Quiz First"}
                 </button>
@@ -798,7 +957,7 @@ const StudentDashboard = ({ userData }) => {
                   {formatDate(profile.updatedAt)}
                 </span>
               </div>
-              <div className="mt-4 pt-4 border-t border-gray-100">
+              {/* <div className="mt-4 pt-4 border-t border-gray-100">
                 <div className="flex items-start">
                   <svg
                     className="h-5 w-5 text-blue-600 mt-0.5"
@@ -822,12 +981,12 @@ const StudentDashboard = ({ userData }) => {
                       : "Your application is under review. We'll keep you updated!"}
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
           {/* Documents */}
-          <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm lg:col-span-2">
+          {/* <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm lg:col-span-2">
             <h2 className="flex items-center text-lg font-semibold text-gray-900 mb-4">
               <svg
                 className="w-5 h-5 mr-2 text-blue-600"
@@ -901,6 +1060,31 @@ const StudentDashboard = ({ userData }) => {
                 </button>
               </div>
             )}
+          </div> */}
+        </div>
+        <div className=" mt-4 flex justify-center items-center w-full bg-white border border-gray-200 rounded-lg p-5 shadow-sm lg:col-span-2 ">
+          <div className="flex items-start">
+            <svg
+              className="h-5 w-5 text-blue-600 mt-0.5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <p className="ml-3 text-sm text-gray-700">
+              {profile.status === "approved"
+                ? "Fantastic! Your application is approved. Check your email for next steps."
+                : profile.status === "rejected"
+                ? "We're sorry, your application wasn't approved this time. Reach out to support for feedback."
+                : profile.status === "waitlisted"
+                ? "You're on the waitlist. We'll notify you if a spot opens up."
+                : "Your application is under review. We'll keep you updated!"}
+            </p>
           </div>
         </div>
       </div>
@@ -930,12 +1114,11 @@ const Dashboard = () => {
         setLoading(false);
       });
   }, [userData.email]);
-  console.log(isAdmin);
 
   if (loading) {
     return (
-      <div className="pt-[120px] text-center">
-        <p>Loading dashboard...</p>
+      <div className="pt-[120px] text-center min-h-screen flex justify-center items-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
       </div>
     );
   }

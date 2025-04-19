@@ -6,24 +6,27 @@ import { logoutUser } from "../redux/authSlice";
 
 const MultiStepForm = () => {
   const data = useSelector((state) => state.authSlice.user);
-  const [personalDetailsFromDB, setpersonalDetailsFromDB] = useState(null);
   const dispatch = useDispatch();
-  useEffect(async () => {
-    const response = await axios.post(
-      "http://127.0.0.1:5001/inu-choose-int-education/us-central1/api/intial-data-if-present",
-      {
-        email: data?.email,
-      }
-    );
-  }, []);
+  const navigate = useNavigate();
 
+  // States for tracking completed steps from database
+  const [personalDetailsFromDB, setPersonalDetailsFromDB] = useState(null);
+  const [quizIfPresent, setQuizIfPresent] = useState(false);
+  const [intake, setIntake] = useState(false);
+
+  // Add state for completed modal
+  const [showCompletedModal, setShowCompletedModal] = useState(false);
+
+  // Form state variables
   const [currentStep, setCurrentStep] = useState(1);
   const [completedSteps, setCompletedSteps] = useState(new Set());
   const [finalData, setFinalData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [initialLoading, setInitialLoading] = useState(true); // New loading state for initial data fetch
   const [serverError, setServerError] = useState("");
   const totalSteps = 3;
 
+  // Form data states
   const [personalData, setPersonalData] = useState({
     firstName: "",
     lastName: "",
@@ -41,10 +44,99 @@ const MultiStepForm = () => {
     intakeDate: "",
   });
 
+  // Error states
   const [personalErrors, setPersonalErrors] = useState({});
   const [quizErrors, setQuizErrors] = useState({});
   const [intakeErrors, setIntakeErrors] = useState({});
   const [quizScoreError, setQuizScoreError] = useState("");
+
+  // Fetch user data and determine which steps to show
+  useEffect(() => {
+    const fetchUserData = async () => {
+      setInitialLoading(true); // Set loading state to true before fetching
+      try {
+        const response = await axios.post(
+          "https://api-prxc6of3fa-uc.a.run.app/initial-data-if-present",
+          {
+            email: data?.email,
+          }
+        );
+
+        const userData = response.data.userData;
+
+        // Check if personal details exist
+        if (userData.personal) {
+          setPersonalDetailsFromDB(userData.personal);
+          // Update personal data state with DB values
+          setPersonalData({
+            firstName: userData.personal.firstName || "",
+            lastName: userData.personal.lastName || "",
+            email: data?.email ?? "",
+            phone: userData.personal.phone || "",
+          });
+
+          // Mark personal details step as completed
+          setCompletedSteps((prev) => new Set([...prev, 1]));
+
+          // Automatically skip to step 2 if personal details exist
+          setCurrentStep(2);
+        }
+
+        // Check if quiz is completed with passing score
+        if (userData.quiz && userData.quiz.score >= 70) {
+          setQuizIfPresent(true);
+          // Mark quiz step as completed
+          setCompletedSteps((prev) => new Set([...prev, 2]));
+
+          // Automatically skip to step 3 if quiz is passed
+          setCurrentStep(3);
+        }
+
+        // Check if intake data exists
+        if (userData.intake) {
+          setIntake(true);
+          // Update intake data state with DB values
+          setIntakeData({
+            destination: userData.intake.destination || "",
+            program: userData.intake.program || "",
+            intakeDate: userData.intake.intakeDate || "",
+          });
+          // Mark intake step as completed
+          setCompletedSteps((prev) => new Set([...prev, 3]));
+        }
+
+        // Check if all steps are completed and show modal
+        if (
+          userData.personal &&
+          userData.quiz?.score >= 70 &&
+          userData.intake
+        ) {
+          setShowCompletedModal(true);
+        }
+        // Determine which step to show initially based on completed steps
+        else if (
+          userData.personal &&
+          userData.quiz?.score >= 70 &&
+          !userData.intake
+        ) {
+          setCurrentStep(3); // Skip to intake step
+        } else if (userData.personal && !userData.quiz?.score >= 70) {
+          setCurrentStep(2); // Skip to quiz step
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        setServerError("Failed to load user data. Please try again.");
+      } finally {
+        setInitialLoading(false); // Set loading state to false after fetching completes
+      }
+    };
+
+    if (data?.email) {
+      fetchUserData();
+    } else {
+      setInitialLoading(false); // If no email, we're not loading
+    }
+  }, [data?.email]);
 
   const quizQuestions = [
     {
@@ -259,7 +351,17 @@ const MultiStepForm = () => {
   };
 
   const handleStepClick = (step) => {
-    if (step <= currentStep || completedSteps.has(step)) {
+    // Allow clicking on a step if it's completed or the current step
+    // or if previous steps are completed (i.e., user can navigate linearly)
+    const canAccessStep =
+      step <= currentStep ||
+      completedSteps.has(step) ||
+      (step > 1 &&
+        [...Array(step - 1).keys()]
+          .map((i) => i + 1)
+          .every((s) => completedSteps.has(s)));
+
+    if (canAccessStep) {
       setCurrentStep(step);
       setServerError("");
       setQuizScoreError("");
@@ -280,8 +382,6 @@ const MultiStepForm = () => {
     });
   };
 
-  const navigate = useNavigate();
-
   const handleReset = () => {
     setFinalData(null);
     setCurrentStep(1);
@@ -301,6 +401,50 @@ const MultiStepForm = () => {
     setServerError("");
     navigate(`/dashboard/${data?.email}`);
   };
+
+  const handleGotoDashboard = () => {
+    setShowCompletedModal(false);
+    navigate(`/dashboard`);
+  };
+
+  // Completed steps modal component
+  const CompletedModal = () => (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+        <div className="text-center">
+          <div className="mb-4 flex justify-center">
+            <svg
+              className="w-16 h-16 text-green-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">
+            All Steps Completed!
+          </h2>
+          <p className="text-gray-600 mb-6">
+            You have successfully completed all required steps of the
+            application process.
+          </p>
+          <button
+            onClick={handleGotoDashboard}
+            className="bg-[#404040] text-white px-5 py-2 rounded-full hover:bg-[#333333] transition-all duration-300"
+          >
+            Go to Dashboard
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 
   const renderStepIndicators = () => (
     <div className="w-full px-4 md:w-[700px] md:px-0 mb-6">
@@ -415,6 +559,7 @@ const MultiStepForm = () => {
                   className={`w-full rounded border p-2 text-sm md:text-base ${
                     personalErrors.email ? "border-red-500" : "border-gray-300"
                   }`}
+                  readOnly={true}
                 />
                 {personalErrors.email && (
                   <p className="text-xs md:text-sm text-red-500 mt-1">
@@ -454,30 +599,36 @@ const MultiStepForm = () => {
                 {serverError || quizScoreError}
               </div>
             )}
-            <div className="max-h-96 overflow-y-auto pr-2">
-              {quizQuestions.map((questionObj, index) => (
-                <div key={index} className="mb-4">
-                  <p className="font-medium text-sm md:text-base">{`${
-                    index + 1
-                  }. ${questionObj.question}`}</p>
-                  <select
-                    value={quizData.answers[index]}
-                    onChange={(e) => handleQuizAnswerChange(e, index)}
-                    className={`mt-1 w-full rounded border p-2 text-sm md:text-base ${
-                      quizErrors.answers ? "border-red-500" : "border-gray-300"
-                    }`}
-                  >
-                    <option value="">Select an answer</option>
-                    {Object.entries(questionObj.options).map(([key, value]) => (
-                      <option key={key} value={key}>
-                        {key.toUpperCase()}. {value}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              ))}
+            <div className="max-h-96 overflow-y-auto pr-2 pb-2 border border-gray-200 rounded">
+              <div className="p-4 space-y-4">
+                {quizQuestions.map((questionObj, index) => (
+                  <div key={index} className="mb-4">
+                    <p className="font-medium text-sm md:text-base">{`${
+                      index + 1
+                    }. ${questionObj.question}`}</p>
+                    <select
+                      value={quizData.answers[index]}
+                      onChange={(e) => handleQuizAnswerChange(e, index)}
+                      className={`mt-1 w-full rounded border p-2 text-sm md:text-base ${
+                        quizErrors.answers
+                          ? "border-red-500"
+                          : "border-gray-300"
+                      }`}
+                    >
+                      <option value="">Select an answer</option>
+                      {Object.entries(questionObj.options).map(
+                        ([key, value]) => (
+                          <option key={key} value={key}>
+                            {key.toUpperCase()}. {value}
+                          </option>
+                        )
+                      )}
+                    </select>
+                  </div>
+                ))}
+              </div>
               {quizErrors.answers && (
-                <p className="text-xs md:text-sm text-red-500 mt-1">
+                <p className="text-xs md:text-sm text-red-500 mt-1 px-4">
                   {quizErrors.answers}
                 </p>
               )}
@@ -564,8 +715,50 @@ const MultiStepForm = () => {
     }
   };
 
+  // Loading screen component
+  const LoadingScreen = () => (
+    <div className="fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center z-50">
+      <div className="text-center p-6 max-w-sm mx-auto">
+        <div className="mb-4">
+          <svg
+            className="animate-spin h-12 w-12 text-blue-500 mx-auto"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+        </div>
+        <h3 className="text-lg font-medium text-gray-900 mb-2">
+          Loading your information
+        </h3>
+        <p className="text-sm text-gray-500">
+          Please wait while we retrieve your application data...
+        </p>
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen flex flex-col items-center pt-[140px] w-full px-4 md:px-0">
+      {/* Show loading screen while initial data is being fetched */}
+      {initialLoading && <LoadingScreen />}
+
+      {/* Show completion modal if all steps are already completed */}
+      {showCompletedModal && <CompletedModal />}
+
       {renderStepIndicators()}
       <div className="bg-white p-6 rounded-lg shadow-md w-full md:w-[700px]">
         {finalData ? (
@@ -575,7 +768,7 @@ const MultiStepForm = () => {
               onClick={handleReset}
               className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 text-sm md:text-base"
             >
-              Go to DashBoard
+              Go to Dashboard
             </button>
           </div>
         ) : (
@@ -585,10 +778,10 @@ const MultiStepForm = () => {
               <button
                 onClick={handleBack}
                 disabled={currentStep === 1 || loading}
-                className={`px-4 py-2 rounded text-sm md:text-base ${
+                className={`bg-[#404040] text-white px-5 py-2 rounded-full hover:bg-[#333333] transition-all duration-300 ${
                   currentStep === 1 || loading
-                    ? "bg-gray-300 cursor-not-allowed"
-                    : "bg-blue-500 text-white hover:bg-blue-600"
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
                 }`}
               >
                 Back
@@ -596,10 +789,8 @@ const MultiStepForm = () => {
               <button
                 onClick={handleNext}
                 disabled={loading}
-                className={`px-4 py-2 rounded text-sm md:text-base ${
-                  loading
-                    ? "bg-gray-300 cursor-not-allowed"
-                    : "bg-blue-500 text-white hover:bg-blue-600"
+                className={`bg-[#404040] text-white px-5 py-2 rounded-full hover:bg-[#333333] transition-all duration-300 ${
+                  loading ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
                 {loading
@@ -611,8 +802,6 @@ const MultiStepForm = () => {
             </div>
           </>
         )}
-
-        <button onClick={() => dispatch(logoutUser())}>logout</button>
       </div>
     </div>
   );

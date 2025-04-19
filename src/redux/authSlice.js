@@ -6,6 +6,7 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { doc, setDoc, getFirestore } from "firebase/firestore";
 import { app } from "../../firebaseConfig"; // Import Firebase config
@@ -132,6 +133,19 @@ export const logoutUser = createAsyncThunk(
   }
 );
 
+// New async thunk for password reset
+export const resetPassword = createAsyncThunk(
+  "auth/resetPassword",
+  async (email, { rejectWithValue }) => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      return { success: true };
+    } catch (error) {
+      return rejectWithValue(getErrorMessage(error.code));
+    }
+  }
+);
+
 // Redux Slice
 const authSlice = createSlice({
   name: "auth",
@@ -195,6 +209,19 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(logoutUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      // Handle password reset states
+      .addCase(resetPassword.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(resetPassword.fulfilled, (state) => {
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(resetPassword.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

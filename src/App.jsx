@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import Login from "./autntication/Login";
 import Register from "./autntication/Register";
 import MultiStepForm from "./test/MultiStepForm";
+import ResetPassword from "./autntication/ResetPassword";
 
 const App = () => {
   const isAuthenticated = useSelector(
@@ -39,6 +40,7 @@ const App = () => {
           path="/register"
           element={isAuthenticated ? <Dashboard /> : <Register />}
         />
+          <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
       <Footer />
     </BrowserRouter>
