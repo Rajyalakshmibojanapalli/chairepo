@@ -100,7 +100,10 @@ const Carousel = ({ items = [] }) => {
   }, []);
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4">
+    <div
+      className="w-full max-w-6xl mx-auto px-4"
+      style={{ backgroundColor: "#eff0f0" }}
+    >
       <div
         ref={carouselRef}
         className="relative overflow-hidden rounded-lg shadow-lg"
@@ -133,11 +136,22 @@ const Carousel = ({ items = [] }) => {
                 .map((item) => (
                   <div
                     key={item.id}
-                    className="h-full flex flex-col items-center justify-center bg-[#121212] text-white font-bold p-2 rounded-md"
-                    style={{ width: `${100 / itemsPerView}%` }}
+                    className="h-full flex flex-col items-center justify-center text-white font-bold p-2 rounded-md shadow-md"
+                    style={{
+                      width: `${100 / itemsPerView}%`,
+                      backgroundColor: "#151c4b",
+                      borderLeft: "4px solid #69bfef",
+                    }}
                   >
                     <h3 className="text-xl md:text-2xl">{item.title}</h3>
-                    <button className="bg-[#404040] text-white px-5 py-2 rounded-md hover:bg-[#333333] transition-all duration-300 mt-4">
+                    <button
+                      className="text-white px-5 py-2 rounded-md transition-all duration-300 mt-4 hover:shadow-lg"
+                      style={{
+                        backgroundColor: "#69bfef",
+                        border: "1px solid #5a7a9a",
+                        boxShadow: "0 2px 4px rgba(106, 122, 154, 0.3)",
+                      }}
+                    >
                       Apply Now
                     </button>
                   </div>
@@ -148,13 +162,18 @@ const Carousel = ({ items = [] }) => {
 
         {/* Navigation Arrows */}
         <button
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-1 md:p-2 focus:outline-none focus:ring-2 focus:ring-white transition-all z-10"
+          className="absolute left-2 top-1/2 -translate-y-1/2 hover:bg-opacity-75 rounded-full p-1 md:p-2 focus:outline-none focus:ring-2 transition-all z-10"
           onClick={handlePrev}
           aria-label="Previous slide"
+          style={{
+            backgroundColor: "#5a7a9a",
+            color: "#eff0f0",
+            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300"
+            className="h-5 w-5 group-hover/button:rotate-12 transition-transform duration-300"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -172,13 +191,18 @@ const Carousel = ({ items = [] }) => {
         </button>
 
         <button
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-1 md:p-2 focus:outline-none focus:ring-2 focus:ring-white transition-all z-10"
+          className="absolute right-2 top-1/2 -translate-y-1/2 hover:bg-opacity-75 rounded-full p-1 md:p-2 focus:outline-none focus:ring-2 transition-all z-10"
           onClick={handleNext}
           aria-label="Next slide"
+          style={{
+            backgroundColor: "#5a7a9a",
+            color: "#eff0f0",
+            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300"
+            className="h-5 w-5 group-hover/button:-rotate-12 transition-transform duration-300"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -203,10 +227,11 @@ const Carousel = ({ items = [] }) => {
             key={index}
             onClick={() => handleDotClick(index)}
             className={`h-2 rounded-full transition-all focus:outline-none ${
-              index === activeIndex
-                ? "bg-black w-6"
-                : "bg-gray-300 hover:bg-gray-400 w-2"
+              index === activeIndex ? "w-6" : "hover:bg-opacity-75 w-2"
             }`}
+            style={{
+              backgroundColor: index === activeIndex ? "#151c4b" : "#5a7a9a",
+            }}
             aria-label={`Go to page ${index + 1}`}
           />
         ))}
@@ -214,7 +239,7 @@ const Carousel = ({ items = [] }) => {
 
       {/* Counter */}
       <div className="flex justify-center items-center mt-2">
-        <div className="text-sm font-medium">
+        <div className="text-sm font-medium" style={{ color: "#151c4b" }}>
           {activeIndex + 1} / {totalPages}
         </div>
       </div>

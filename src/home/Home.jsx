@@ -76,7 +76,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="p-4 second-home-hero py-10 pb-20 overflow-hidden">
+      <section className="p-4 second-home-hero py-10 pb-20 overflow-hidden bg-[#eff0f0]">
         <div>
           <h3 className="text-3xl font-semibold md:text-6xl text-center">
             On boarding process
@@ -84,7 +84,7 @@ const Home = () => {
           <Process />
         </div>
       </section>
-      <section className="p-4 pt-10 bg-[#151c4b] ">
+      <section className="p-4 pt-10 ">
         <h3 className="text-3xl font-semibold md:text-6xl text-center pb-5">
           Our Services
         </h3>
