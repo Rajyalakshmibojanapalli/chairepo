@@ -38,7 +38,7 @@ const Navbar = () => {
 
         {/* Center: Navigation Links */}
         <ul className="hidden md:flex space-x-8 text-black font-medium">
-          {["/", "/about", "/dashboard", "/contact"].map((path, index) => (
+          {["/", "/about", "/dashboard", "/contact","/faqs"].map((path, index) => (
             <li key={index} className="relative">
               <NavLink
                 to={path}
@@ -87,7 +87,7 @@ const Navbar = () => {
         }`}
       >
         <ul className="flex flex-col items-center space-y-4 text-black">
-          {["/", "/about", "/dashboard", "/contact"].map((path, index) => (
+          {["/", "/about", "/dashboard", "/contact","faqs"].map((path, index) => (
             <li key={index}>
               <NavLink
                 to={path}

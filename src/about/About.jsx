@@ -72,26 +72,26 @@ const About = () => {
           <img
             src={about}
             alt="About Us"
-            className="w-full h-[400px] md:h-[500px] lg:h-screen rounded-lg object-cover"
+            className="w-full h-[400px] md:h-[700px] lg:h-[600px] rounded-lg object-cover"
           />
         </div>
 
         {/* Content Section (65% width on larger screens) */}
         <div className="w-full md:w-3/5 flex flex-col justify-start md:justify-start  md:items-start  md:px-12 gap-6 ">
-          <h2 className="text-5xl font-bold  text-left mt-10 md:mt-0">
-            INU choose international education
+          <h2 className="text-3xl font-bold text-left mt-5 md:mt-0">
+            INU Choose International Education
           </h2>
-          <p className="text-left text-xl">Founder name</p>
-          <p className="text-left">Education details</p>
-          <p className="text-sm text-gray-800  text-left leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in
-            velit vel nunc hendrerit semper. Sed in neque a massa efficitur
-            tincidunt. Nullam sed arcu vel risus fringilla faucibus. Sed varius,
-            diam vitae hendrerit dictum, ligula metus semper velit, ut pharetra
-            nunc enim in velit. Sed in nisi ac arcu ultricies placerat.
-            Pellentesque habitant morbi tristique senectus et netus et malesuada
-            fames ac turpis egestas.
+          <p className="text-left text-2xl mt-2">Powered by Global Alliance Academy</p>
+          <p className="text-lg text-gray-800 text-left leading-relaxed mt-4">
+            <strong>Our Story:</strong> Born from a vision to make international education accessible, INU Choose empowers Indian graduates to study in the UK—without worrying about the financial burden.
+            <br /><br />
+            <strong>Our Mission:</strong> To create equal opportunities for students through a transparent, knowledge-driven selection system backed by chance.
+            <br /><br />
+            <strong>Our Partners:</strong> (Add UK partner universities/consultancy tie-ups when ready)
+            <br /><br />
+            <strong>Parent Company:</strong> Global Alliance Academy – With a proven track record in global education consulting and admissions, we bring trust, transparency, and transformative impact.
           </p>
+
 
           <AvatarCircles avatarUrls={users} numPeople={99} />
           <button className="bg-[#404040] text-white px-5 py-2 rounded-full hover:bg-[#333333] transition-all duration-300">
@@ -99,7 +99,7 @@ const About = () => {
           </button>
         </div>
       </section>
-      <section className="bg-[] p-4 py-10">
+      <section className="p-4 py-10">
         <h3 className="text-3xl font-semibold md:text-6xl text-center pb-10">
           Our records
         </h3>

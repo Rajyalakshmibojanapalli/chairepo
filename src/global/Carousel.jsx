@@ -12,16 +12,16 @@ const Carousel = ({ items = [] }) => {
   const carouselItems =
     items.length > 0
       ? items
-      : [
-          { id: 1, title: "university 1" },
-          { id: 2, title: "university 2" },
-          { id: 3, title: "university 3" },
-          { id: 4, title: "university 4" },
-          { id: 5, title: "university 5" },
-          { id: 6, title: "university 6" },
-          { id: 7, title: "university 7" },
-          { id: 8, title: "university 8" },
-        ];
+      :[
+        { id: 1, title: "University of Oxford", location: "Oxford, England" },
+        { id: 2, title: "University of Cambridge", location: "Cambridge, England" },
+        { id: 3, title: "Imperial College London", location: "London, England" },
+        { id: 4, title: "University of Edinburgh", location: "Edinburgh, Scotland" },
+        { id: 5, title: "University of Manchester", location: "Manchester, England" },
+        { id: 6, title: "University of Glasgow", location: "Glasgow, Scotland" },
+        { id: 7, title: "University of Birmingham", location: "Birmingham, England" },
+        { id: 8, title: "University of Bristol", location: "Bristol, England" },
+      ];
 
   // Check if mobile on initial render and when window is resized
   useEffect(() => {
@@ -143,7 +143,9 @@ const Carousel = ({ items = [] }) => {
                       borderLeft: "4px solid #69bfef",
                     }}
                   >
-                    <h3 className="text-xl md:text-2xl">{item.title}</h3>
+                    <h3 className="text-xl md:text-2xl text-center">{item.title}</h3>
+                    <p className="text-center">{item.location}</p>
+
                     <button
                       className="text-white px-5 py-2 rounded-md transition-all duration-300 mt-4 hover:shadow-lg"
                       style={{

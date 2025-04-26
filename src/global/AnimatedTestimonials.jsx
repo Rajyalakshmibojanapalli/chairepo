@@ -6,40 +6,41 @@ export const AnimatedTestimonials = () => {
   const testimonials = [
     {
       quote:
-        "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
-      name: "Sarah Chen",
-      designation: "Product Manager at TechFlow",
+        "Winning the INU scholarship was a dream come true. I’m now studying in the UK without financial stress, and it's all thanks to this platform!",
+      name: "Aarav Patel",
+      designation: "MSc Data Science, University of Leeds",
       src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       quote:
-        "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
-      name: "Michael Rodriguez",
-      designation: "CTO at InnovateSphere",
+        "The quiz really challenged me and made me feel prepared. When my name came up in the lottery, I knew my life was about to change.",
+      name: "Sneha Reddy",
+      designation: "MBA, University of Birmingham",
       src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       quote:
-        "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
-      name: "Emily Watson",
-      designation: "Operations Director at CloudScale",
+        "Thanks to INU, I’ve started my Master’s in the UK. The support, transparency, and process were amazing from start to finish.",
+      name: "Ashwitha Konderu",
+      designation: "MSc Artificial Intelligence, University of Glasgow",
       src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       quote:
-        "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
-      name: "James Kim",
-      designation: "Engineering Lead at DataPro",
+        "I never imagined I’d be studying abroad. INU’s quiz and lottery gave me the opportunity of a lifetime. Eternally grateful!",
+      name: "Priya Sharma",
+      designation: "MA International Relations, University of Sussex",
       src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       quote:
-        "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
-      name: "Lisa Thompson",
-      designation: "VP of Technology at FutureNet",
+        "The whole process—from registration to winning—was smooth and trustworthy. Now I’m chasing my dreams in the UK.",
+      name: "Abhiram Kaleru",
+      designation: "MSc Cybersecurity, University of Southampton",
       src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];
+  
 
   const [active, setActive] = useState(0);
   const autoplay = true;
@@ -135,9 +136,10 @@ export const AnimatedTestimonials = () => {
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold dark:text-white text-black">
-              {testimonials[active].name}
-            </h3>
+         <h3 className="text-2xl font-bold text-black">
+  {testimonials[active].name}
+</h3>
+
             <p className="text-sm text-gray-500 dark:text-neutral-500">
               {testimonials[active].designation}
             </p>

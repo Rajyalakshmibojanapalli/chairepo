@@ -76,13 +76,11 @@ const Process = () => {
                   <UserPlus className="h-10 w-10 text-[#ffff]" />
                 </div>
                 <h4 className="heading text-xl font-semibold text-[#151c4b] ">
-                  1. Create Account
+                  Step 1: Register with Rs. 888
                 </h4>
               </div>
               <p className="text-[#5a7a9a]">
-                Get started on your journey by creating a personalized account.
-                This allows us to understand your academic background and career
-                goals to provide you with the most relevant opportunities.
+                Secure your spot and get a unique registration number.
               </p>
             </div>
             <div className="md:w-[calc(50%-20px)]"></div>
@@ -97,14 +95,13 @@ const Process = () => {
                   <FileText className="h-10 w-10 text-[#fff]" />
                 </div>
                 <h4 className="heading text-xl font-semibold text-[#151c4b] ">
-                  2. Take an Eligibility Test
+                  Step 2: Take a Quiz (15-20 Questions)
                 </h4>
               </div>
               <p className="text-[#5a7a9a]">
-                Complete our comprehensive assessment to determine your
-                eligibility for various international education opportunities.
-                This helps us match you with programs that suit your academic
-                profile.
+                2.1 Questions based on study in the UK (see sample below).
+                2.2 Designed to prepare and assess your intent and knowledge.
+
               </p>
             </div>
           </div>
@@ -117,14 +114,11 @@ const Process = () => {
                   <GraduationCap className="h-10 w-10 text-[#fff] " />
                 </div>
                 <h4 className="heading text-xl font-semibold text-[#151c4b] ">
-                  3. Apply for Free Education
+                Step 3: Enter Lottery Draw 
                 </h4>
               </div>
               <p className="text-[#5a7a9a]">
-                Submit your application for scholarship programs and
-                tuition-free opportunities. Our team will guide you through each
-                step of the application process to maximize your chances of
-                success.
+              Every intake, 3 lucky winners are selected via a transparent lottery system. 
               </p>
             </div>
             <div className="md:w-[calc(50%-20px)]"></div>
@@ -139,14 +133,11 @@ const Process = () => {
                   <Award className="h-10 w-10 text-[#fff]" />
                 </div>
                 <h4 className="heading text-xl font-semibold text-[#151c4b] ">
-                  4. Get Selected to Study in UK for Free
+                Step 4: Full Sponsorship 
                 </h4>
               </div>
               <p className="text-[#5a7a9a]">
-                Once selected, we'll support you through the visa process,
-                pre-departure orientation, and provide ongoing assistance during
-                your studies abroad. Your journey to free education in the UK
-                begins here.
+              We pay their tuition, application, and visa fees for a UK master’s course. 
               </p>
             </div>
           </div>

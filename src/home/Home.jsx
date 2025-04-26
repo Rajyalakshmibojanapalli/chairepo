@@ -6,6 +6,7 @@ import SplitText from "../global/SplitText";
 import Carousel from "../global/Carousel";
 import Process from "../global/Process";
 import { useNavigate } from "react-router-dom";
+import CountdownTimer from "../intakeCounter/NextIntake";
 
 const Home = () => {
   const cardContent = [
@@ -40,12 +41,17 @@ const Home = () => {
       <section className="min-h-screen flex flex-col md:flex-row relative bg-[#5a7a9a] ">
         <div className="flex-1 text-center px-4 md:text-left flex flex-col justify-center pt-40 pb-24  md:min-h-screen ">
           <div>
-            <p>Premier Overseas Education Consultants</p>
+            <p style={{ fontWeight: 'bold' }}>
+              “Your Gateway to UK Master’s Education – Let Luck & Knowledge Choose You!”
+            </p>
+
             <SplitText />
 
             <h5 className="mt-4 text-white">
-              “We make studying abroad a seamless experience, guiding you every
-              step of the way towards a brighter future.”
+              {/* “We make studying abroad a seamless experience, guiding you every
+              step of the way towards a brighter future.” */}
+
+              “We pick 3 students each intake as a lottery system so they will have to pay rs.888 and do quiz questions for masters in UK”
             </h5>
             <button
               onClick={() => {
@@ -63,7 +69,7 @@ const Home = () => {
             <div>
               <p>Quatation</p>
               <div className="mt-2">
-                <button>+91 7777777777</button>
+                <button>+917272772911</button>
               </div>
             </div>
           </div>
@@ -79,14 +85,14 @@ const Home = () => {
       <section className="p-4 second-home-hero py-10 pb-20 overflow-hidden bg-[#eff0f0]">
         <div>
           <h3 className="text-3xl font-semibold md:text-6xl text-center">
-            On boarding process
+            How It Works
           </h3>
           <Process />
         </div>
       </section>
       <section className="p-4 pt-10 ">
         <h3 className="text-3xl font-semibold md:text-6xl text-center pb-5">
-          Our Services
+          Our University
         </h3>
         <div className="flex w-full  p-4 gap-4">
           <Carousel />
@@ -94,9 +100,12 @@ const Home = () => {
       </section>
       <section className="p-4 py-10">
         <h3 className="text-3xl font-semibold md:text-6xl text-center">
-          Testmonials
+        Success Stories 
         </h3>
         <AnimatedTestimonials />
+      </section>
+      <section className="m-20">
+        <CountdownTimer />
       </section>
     </div>
   );

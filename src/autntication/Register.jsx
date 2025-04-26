@@ -28,9 +28,9 @@ const Register = () => {
   };
 
   return (
-    <div className="pt-[50px] bg-[#ddeba862]">
+    <div className="pt-[50px] bg-[#5a7a9a]">
       <section className="min-h-screen flex items-center justify-center px-4 md:px-0">
-        <div className="bg-white p-5 py-10 rounded-lg shadow-md w-96">
+        <div className="bg-black bg-opacity-80 p-5 py-10 rounded-lg shadow-md w-96">
           <h2 className="text-2xl font-bold text-center text-gray-700 mb-4">
             Register
           </h2>
@@ -101,11 +101,11 @@ const Register = () => {
             )}
           </Formik>
 
-          <p className="text-center text-sm text-gray-600 mt-4">
+          <p className="text-center text-sm text-blue-600 mt-4">
             Already have an account?{" "}
             <button
               onClick={() => navigate("/login")}
-              className="text-[#121212] font-semibold"
+              className="text-gray-600 font-semibold"
             >
               Login here
             </button>

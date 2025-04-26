@@ -72,7 +72,7 @@ const Contact = () => {
         </div>
 
         {/* Contact Form (65% width on larger screens) */}
-        <div className="w-full md:w-3/5 flex flex-col justify-start  gap-6  bg-[#ffffff] pt-10 pb-20 px-5 rounded-lg">
+        <div className="w-full md:w-3/5 flex flex-col justify-start  gap-6  bg-[#000] bg-opacity-80 pt-10 pb-20 px-5 rounded-lg">
           <form onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
             <input
               type="text"

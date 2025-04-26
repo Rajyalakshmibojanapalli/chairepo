@@ -11,6 +11,7 @@ import Login from "./autntication/Login";
 import Register from "./autntication/Register";
 import MultiStepForm from "./test/MultiStepForm";
 import ResetPassword from "./autntication/ResetPassword";
+import FAQ from "./faqs/Faqs";
 
 const App = () => {
   const isAuthenticated = useSelector(
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/faqs" element={<FAQ />} />
         <Route
           path="/dashboard"
           element={isAuthenticated ? <Dashboard /> : <Login />}
