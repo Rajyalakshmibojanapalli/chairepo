@@ -53,13 +53,13 @@ const App = () => {
         />
       )}
 
-      {/* <main>
+      <main>
         {currentPage === 'home' && <HomePage navigateTo={navigateTo} />}
         {currentPage === 'about' && <AboutPage />}
         {currentPage === 'testimonials' && <TestimonialsPage navigateTo={navigateTo} />}
         {currentPage === 'services' && <ServicesPage />}
         {currentPage === 'contact' && <ContactPage />}
-      </main> */}
+      </main>
 
       <Footer navigateTo={navigateTo} />
     </div>

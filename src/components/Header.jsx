@@ -1,34 +1,95 @@
-// import React from "react";
+// import React, { useState, useEffect } from "react";
 // import icon from "../assets/logo.png";
+
 // const Header = ({ currentPage, navigateTo, toggleMobileMenu }) => {
+//   // Track scroll direction and position
+//   const [isScrollingUp, setIsScrollingUp] = useState(false);
+//   const [lastScrollY, setLastScrollY] = useState(0);
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       const currentScrollY = window.scrollY;
+      
+//       if (currentScrollY < lastScrollY) {
+//         setIsScrollingUp(true);
+//       } else {
+//         setIsScrollingUp(false);
+//       }
+      
+//       setLastScrollY(currentScrollY);
+//     };
+    
+//     window.addEventListener('scroll', handleScroll, { passive: true });
+//     return () => window.removeEventListener('scroll', handleScroll);
+//   }, [lastScrollY]);
+
+//   // Split navigation items for balanced layout
+//   const navItems = [
+//     "Home",
+//     "About us",
+//     "Franchise",
+//     "Our Flavours",
+//     "Startup Kit",
+//     "Brand",
+//     "FAQ's",
+//   ];
+  
+//   const leftNavItems = navItems.slice(0, Math.ceil(navItems.length / 2));
+//   const rightNavItems = navItems.slice(Math.ceil(navItems.length / 2));
+
 //   return (
 //     <>
-//       <nav className="hidden md:flex items-center justify-between bg-white px-6 py-4 shadow-md">
-//         <div
-//           className="font-bold cursor-pointer transform hover:scale-105 transition-all duration-300"
-//           onClick={() => navigateTo("home")}
-//         >
-//           <h1 className="text-xl lg:text-3xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
-//             <img src={icon} alt="" width={100} />
-//           </h1>
-//         </div>
-//         <div className="flex space-x-8">
-//           {[
-//             "Home",
-//             "About us",
-//             "Franchise",
-//             "Our Flavours",
-//             "Startup Kit",
-//             "Brand",
-//             "FAQ's",
-//           ].map((page) => (
+//       <nav 
+//         className={`fixed w-full hidden md:flex items-center px-6 py-4 transition-all duration-300 z-50 ${
+//           isScrollingUp ? 'bg-white shadow-md' : 'bg-transparent'
+//         }`}
+//       >
+//         {/* Left navigation items */}
+//         <div className="flex-1 flex justify-end space-x-8">
+//           {leftNavItems.map((page) => (
 //             <button
 //               key={page}
 //               onClick={() => navigateTo(page)}
 //               className={`relative ${
 //                 currentPage === page
 //                   ? "text-amber-600 font-medium"
-//                   : "text-gray-700 hover:text-amber-600"
+//                   : isScrollingUp 
+//                     ? "text-gray-700 hover:text-amber-600" 
+//                     : "text-white hover:text-amber-200"
+//               } transition-colors duration-300`}
+//             >
+//               <span className="capitalize">{page}</span>
+//               <span
+//                 className={`absolute left-0 bottom-0 h-0.5 bg-amber-500 transition-all duration-300 ${
+//                   currentPage === page ? "w-full" : "w-0"
+//                 } group-hover:w-full`}
+//               ></span>
+//             </button>
+//           ))}
+//         </div>
+        
+//         {/* Center logo */}
+//         <div className="mx-8">
+//           <div
+//             className="font-bold cursor-pointer transform hover:scale-105 transition-all duration-300"
+//             onClick={() => navigateTo("home")}
+//           >
+//             <img src={icon} alt="Logo" width={100} />
+//           </div>
+//         </div>
+        
+//         {/* Right navigation items and contact button */}
+//         <div className="flex-1 flex justify-start space-x-8">
+//           {rightNavItems.map((page) => (
+//             <button
+//               key={page}
+//               onClick={() => navigateTo(page)}
+//               className={`relative ${
+//                 currentPage === page
+//                   ? "text-amber-600 font-medium"
+//                   : isScrollingUp 
+//                     ? "text-gray-700 hover:text-amber-600" 
+//                     : "text-white hover:text-amber-200"
 //               } transition-colors duration-300`}
 //             >
 //               <span className="capitalize">{page}</span>
@@ -41,7 +102,11 @@
 //           ))}
 //           <button
 //             onClick={() => navigateTo("contact")}
-//             className="border border-amber-600 px-6 py-2 text-amber-600 hover:bg-amber-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+//             className={`border px-6 py-2 transition-all duration-300 shadow-md hover:shadow-lg ${
+//               isScrollingUp
+//                 ? "border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white" 
+//                 : "border-white text-white hover:bg-white hover:text-amber-600"
+//             }`}
 //           >
 //             CONTACT
 //           </button>
@@ -52,124 +117,224 @@
 // };
 
 // export default Header;
+
 import React, { useState, useEffect } from "react";
 import icon from "../assets/logo.png";
 
-const Header = ({ currentPage, navigateTo, toggleMobileMenu }) => {
-  const [scrolled, setScrolled] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState(null);
-  
-  // Handle scroll effect
+const Header = ({ currentPage, navigateTo }) => {
+  // Track scroll position
+  const [scrollY, setScrollY] = useState(0);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(null);
+
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
     };
     
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleDropdown = (index) => {
+    if (isDropdownOpen === index) {
+      setIsDropdownOpen(null);
+    } else {
+      setIsDropdownOpen(index);
+    }
+  };
+
+  // Navigation items with possible submenus
   const navItems = [
-    "Home",
-    "About us",
-    "Franchise",
-    "Our Flavours",
-    "Startup Kit",
-    "Brand",
-    "FAQ's",
+    { title: "Home", link: "home" },
+    { title: "Menu", link: "menu" },
+    { title: "Booking", link: "booking" },
+    // Logo will be positioned here
+    { 
+      title: "About", 
+      link: "about",
+      submenu: [
+        { title: "About", link: "about" },
+        { title: "Gallery", link: "gallery" }
+      ]
+    },
+    { title: "Blog", link: "blog" },
+    { title: "Contact", link: "contact" }
   ];
 
+  const leftNavItems = navItems.slice(0, 3);
+  const rightNavItems = navItems.slice(3);
+  
+  // Determine header state
+  const isTop = scrollY < 50;
+  const isSmaller = scrollY > 100;
+  
+  // Always keep the header visible, just change its style
+  const headerClasses = `
+    fixed w-full transition-all duration-500 z-50
+    ${!isTop ? "header-bg bg-[#d16b02] bg-opacity-95 shadow-md" : "transparent"}
+  `;
+
+  // Background gradient for when at top
+  const gradientStyle = isTop ? {
+    background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)"
+  } : {};
+
   return (
-    <>
-      {/* Desktop Navigation */}
-      <nav 
-        className={`fixed top-0 left-0 right-0 z-50 hidden md:flex items-center justify-between px-8 py-4
-          ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-white/80 backdrop-blur-sm'} 
-          transition-all duration-500 ease-in-out`}
-      >
-        <div
-          className="cursor-pointer transform hover:scale-105 transition-all duration-300"
-          onClick={() => navigateTo("home")}
-        >
-          <div className="flex items-center space-x-2">
-            <img src={icon} alt="Logo" className="h-12 w-auto" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
-              BrandName
-            </span>
-          </div>
+    <header 
+      className={headerClasses} 
+      style={gradientStyle}
+    >
+      <div className="w-full mx-auto">
+        {/* Main Navigation */}
+        <nav className="h-full">
+          <ul 
+            id="mainmenu" 
+            className="flex justify-center items-center h-full text-white text-center mx-auto relative"
+            style={{ padding: isSmaller ? '0' : '50px 0 0 0', transition: 'all 0.3s ease' }}
+          >
+            {/* Left side nav items */}
+            {leftNavItems.map((item, index) => (
+              <li key={`left-${index}`} className="relative inline-block text-center">
+                <a 
+                  href={`#${item.link}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateTo(item.link);
+                  }}
+                  className={`
+                    inline-block font-medium transition-all
+                    ${currentPage === item.link ? "text-[#8dcb3f]" : "text-white hover:text-[#8dcb3f]"}
+                  `}
+                  style={{ padding: isSmaller ? '18px 20px' : '18px 20px' }}
+                >
+                  {item.title}
+                </a>
+                {item.submenu && (
+                  <>
+                    <span 
+                      className="ml-1 cursor-pointer" 
+                      onClick={() => toggleDropdown(index)}
+                    >
+                      ▼
+                    </span>
+                    
+                    {/* Dropdown menu */}
+                    {isDropdownOpen === index && (
+                      <ul className="absolute top-full left-0 bg-[#d16b02] min-w-[160px] shadow-md text-left z-10">
+                        {item.submenu.map((subitem, subindex) => (
+                          <li key={subindex} className="block w-full">
+                            <a 
+                              href={`#${subitem.link}`}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                navigateTo(subitem.link);
+                              }}
+                              className="block px-4 py-2 text-white hover:text-[#8dcb3f] border-b border-[#8dcb3f] border-opacity-20 w-full"
+                            >
+                              {subitem.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                )}
+              </li>
+            ))}
+            
+            {/* Center Logo */}
+            <li className="logo_pos inline-block mx-10 transition-all duration-300 relative">
+              <img 
+                src={icon} 
+                alt="Logo" 
+                className={`
+                  c_logo_light transition-all duration-300
+                  ${isSmaller ? 'h-[50px]' : 'h-[105px]'}
+                `} 
+                onClick={() => navigateTo("home")}
+                style={{ 
+                  cursor: 'pointer',
+                  marginTop: isSmaller ? '10px' : '-15px',
+                  marginLeft: '40px',
+                  marginRight: '40px'
+                }}
+              />
+            </li>
+            
+            {/* Right side nav items */}
+            {rightNavItems.map((item, index) => (
+              <li key={`right-${index}`} className="relative inline-block text-center">
+                <a 
+                  href={`#${item.link}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateTo(item.link);
+                  }}
+                  className={`
+                    inline-block font-medium transition-all
+                    ${currentPage === item.link ? "text-[#8dcb3f]" : "text-white hover:text-[#8dcb3f]"}
+                  `}
+                  style={{ padding: isSmaller ? '18px 20px' : '18px 20px' }}
+                >
+                  {item.title}
+                </a>
+                {item.submenu && (
+                  <>
+                    <span 
+                      className="ml-1 cursor-pointer" 
+                      onClick={() => toggleDropdown(index + leftNavItems.length)}
+                    >
+                      ▼
+                    </span>
+                    
+                    {/* Dropdown menu */}
+                    {isDropdownOpen === (index + leftNavItems.length) && (
+                      <ul className="absolute top-full left-0 bg-[#d16b02] min-w-[160px] shadow-md text-left z-10">
+                        {item.submenu.map((subitem, subindex) => (
+                          <li key={subindex} className="block w-full">
+                            <a 
+                              href={`#${subitem.link}`}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                navigateTo(subitem.link);
+                              }}
+                              className="block px-4 py-2 text-white hover:text-[#8dcb3f] border-b border-[#8dcb3f] border-opacity-20 w-full"
+                            >
+                              {subitem.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+        
+        {/* Mobile Navigation Button (hidden on desktop) */}
+        <div className="md:hidden absolute right-4 top-1/2 transform -translate-y-1/2">
+          <button className="text-white focus:outline-none">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
         
-        <div className="flex items-center space-x-8">
-          <div className="relative">
-            <div className="flex space-x-6">
-              {navItems.map((page) => (
-                <button
-                  key={page}
-                  onClick={() => navigateTo(page)}
-                  onMouseEnter={() => setHoveredItem(page)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                  className={`relative px-2 py-1 overflow-hidden group`}
-                >
-                  <span className={`relative z-10 capitalize ${
-                    currentPage === page 
-                      ? "text-amber-600 font-medium" 
-                      : "text-gray-700 group-hover:text-amber-600"
-                  } transition-colors duration-300`}>
-                    {page}
-                  </span>
-                  
-                  {/* Animated background effect */}
-                  <span className={`absolute bottom-0 left-0 w-full h-0.5 ${
-                    currentPage === page ? "bg-amber-500" : "bg-amber-400"
-                  } transition-all duration-300 ${
-                    currentPage === page || hoveredItem === page ? "h-full opacity-10" : "h-0 opacity-0"
-                  }`}></span>
-                  
-                  {/* Underline effect */}
-                  <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-500 transition-all duration-300 ${
-                    currentPage === page || hoveredItem === page ? "w-full" : "w-0"
-                  }`}></span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <button
-            onClick={() => navigateTo("contact")}
-            className="relative overflow-hidden group px-6 py-2.5 rounded-md font-medium tracking-wide text-white bg-gradient-to-r from-amber-500 to-amber-600 shadow-md hover:shadow-lg transition-all duration-300"
-          >
-            <span className="relative z-10">CONTACT</span>
-            <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-amber-600 to-amber-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            <span className="absolute -top-1 -right-1 w-12 h-12 rounded-full bg-white/10 transform scale-0 group-hover:scale-100 transition-transform duration-500 ease-out"></span>
-          </button>
-        </div>
-      </nav>
-      
-      {/* Mobile Navigation */}
-      <div className="md:hidden">
-        <div className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 ${
-          scrolled ? 'bg-white shadow-md' : 'bg-white'
-        } transition-all duration-300`}>
-          <div className="flex items-center" onClick={() => navigateTo("home")}>
-            <img src={icon} alt="Logo" className="h-10 w-auto" />
-            <span className="ml-2 text-xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
-              BrandName
-            </span>
-          </div>
-          
-          <button 
-            onClick={toggleMobileMenu}
-            className="p-2 rounded-md focus:outline-none"
-          >
-            <div className="w-6 flex flex-col gap-1.5">
-              <span className="h-0.5 w-6 bg-amber-600 rounded-full block"></span>
-              <span className="h-0.5 w-6 bg-amber-600 rounded-full block"></span>
-              <span className="h-0.5 w-6 bg-amber-600 rounded-full block"></span>
-            </div>
-          </button>
+        {/* Mobile Logo (hidden on desktop) */}
+        <div className="md:hidden absolute left-4 top-1/2 transform -translate-y-1/2">
+          <img 
+            src={icon} 
+            alt="Logo" 
+            className="h-12" 
+            onClick={() => navigateTo("home")}
+            style={{ cursor: 'pointer' }}
+          />
         </div>
       </div>
-    </>
+    </header>
   );
 };
 
