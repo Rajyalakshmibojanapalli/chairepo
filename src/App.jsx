@@ -26,7 +26,7 @@ import Footer from './components/Footer';
 const App = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
-  
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -36,31 +36,31 @@ const App = () => {
     setMobileMenuOpen(false);
     window.scrollTo(0, 0);
   };
-  
+
   return (
     <div className="min-h-screen font-sans">
-      <Header 
-        currentPage={currentPage} 
-        navigateTo={navigateTo} 
-        toggleMobileMenu={toggleMobileMenu} 
+      <Header
+        currentPage={currentPage}
+        navigateTo={navigateTo}
+        toggleMobileMenu={toggleMobileMenu}
       />
-      
+
       {mobileMenuOpen && (
-        <MobileMenu 
-          currentPage={currentPage} 
-          navigateTo={navigateTo} 
-          toggleMobileMenu={toggleMobileMenu} 
+        <MobileMenu
+          currentPage={currentPage}
+          navigateTo={navigateTo}
+          toggleMobileMenu={toggleMobileMenu}
         />
       )}
-      
-      <main>
+
+      {/* <main>
         {currentPage === 'home' && <HomePage navigateTo={navigateTo} />}
         {currentPage === 'about' && <AboutPage />}
         {currentPage === 'testimonials' && <TestimonialsPage navigateTo={navigateTo} />}
         {currentPage === 'services' && <ServicesPage />}
         {currentPage === 'contact' && <ContactPage />}
-      </main>
-      
+      </main> */}
+
       <Footer navigateTo={navigateTo} />
     </div>
   );
