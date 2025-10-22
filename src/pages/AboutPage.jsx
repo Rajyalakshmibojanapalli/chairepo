@@ -676,6 +676,14 @@ export default function AboutPage() {
 
       {/* Discover Our Story Section */}
       {/* Discover Our Story Section */}
+        <style jsx global>{`
+        @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+
+        .font-sacramento {
+          font-family: "Sacramento", cursive;
+        }
+      `}</style>
+
       <section
         className="relative text-white overflow-hidden min-h-[500px] flex items-center"
         style={{
@@ -690,16 +698,8 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative z-10 w-full text-center">
           <FadeInWhenVisible>
             <h2
-              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4"
-              style={{
-                fontFamily: "'Sacramento', cursive",
-                fontWeight: 400,
-                fontStyle: 'normal',
-                fontSize: 'clamp(36px, 8vw, 72px)',
-                color: '#d16b02',
-                margin: 0,
-                textShadow: '0 2px 4px rgba(0,0,0,0.1)'
-              }}
+              className="text-6xl text-[#d16b02] md:text-7xl lg:text-8xl font-bold mb-4 font-sacramento"
+             
             >
               Discover
             </h2>

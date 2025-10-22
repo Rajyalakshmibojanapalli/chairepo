@@ -176,7 +176,7 @@ const HomePage = () => {
                       damping: 20 
                     }}
                     className={`
-                      text-[#d16b02] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[80px] 
+                      text-[#d16b02] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[100px] 
                       leading-[1] sm:leading-[1.1] m-0 tracking-wide
                       ${index === 0 ? 'font-sacramento' : 'font-sacramento'}
                     `}
@@ -192,6 +192,7 @@ const HomePage = () => {
                       opacity: isActive ? 1 : 0, 
                       y: isActive ? 0 : 100 
                     }}
+                    
                     transition={{ 
                       duration: 0.8, 
                       delay: 0.5, 
@@ -199,11 +200,15 @@ const HomePage = () => {
                       stiffness: 90, 
                       damping: 20 
                     }}
-                    className={`
-                      text-[#8dcb3f] text-[36px] sm:text-[45px] md:text-[55px] lg:text-[70px]
-                      m-0 mb-4 leading-[1] font-sans font-semibold
-                    `}
-                  >
+                   className="uppercase font-bold inline-block border-y border-white/50 m-0"
+              style={{
+                fontSize: "40px",
+                lineHeight: "40px",
+                letterSpacing: "10px",
+                fontFamily: "serif",
+                color: "#fff",
+              }}
+                              >
                     {slide.line2}
                   </motion.p>
 
@@ -1016,13 +1021,18 @@ const HomePage = () => {
 
   {/* Second Line - Bold Title */}
   <motion.h2
-    className="text-[#d16b02] font-bold text-[clamp(48px,12vw,120px)] leading-none"
-    initial={{ opacity: 0, y: 120 }} // start slightly lower than the first line
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-  >
-    Coffee
+ className="uppercase font-bold inline-block border-y border-white/50 m-0"
+              style={{
+                fontSize: "40px",
+                lineHeight: "40px",
+                letterSpacing: "10px",
+                fontFamily: "serif",
+                color: "#fff",
+              }}
+            >
+              Coffee
   </motion.h2>
+  
 </div>
 
 
@@ -1396,13 +1406,16 @@ const HomePage = () => {
       variants={fadeInUp}
     >
       <motion.span 
-        className="inline-block text-[#d16b02] text-xl sm:text-2xl font-bold relative mb-2"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        Taste With Your Eyes
+        className="uppercase font-bold inline-block border-y border-white/50 m-0"
+              style={{
+                fontSize: "40px",
+                lineHeight: "40px",
+                letterSpacing: "10px",
+                fontFamily: "serif",
+                color: "#d16b02",
+              }}
+            >
+              Our Story
         <motion.span 
           className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#d16b02]"
           initial={{ width: 0 }}
@@ -1883,7 +1896,16 @@ const HomePage = () => {
             variants={fadeInUp}
           >
             <h2 className="text-[#8dcb3f] text-2xl mb-4 font-bold font-sacramento text-[clamp(60px,10vw,100px)]">We are</h2>
-            <h3 className="text-4xl md:text-5xl font-bold mb-16 ">Open</h3>
+            <h3  className="uppercase font-bold inline-block border-y border-white/50 m-0"
+              style={{
+                fontSize: "40px",
+                lineHeight: "40px",
+                letterSpacing: "10px",
+                fontFamily: "serif",
+                color: "#fff",
+              }}
+            >
+              Open</h3>
 
             <motion.div
               className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"

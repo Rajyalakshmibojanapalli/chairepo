@@ -23,6 +23,7 @@ import TestimonialsPage from './pages/TestimonialsPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import Gallery from './components/Gallery';
+import BlogList from './pages/BlogPage';
 
 const App = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -58,7 +59,7 @@ const App = () => {
         {currentPage === 'home' && <HomePage navigateTo={navigateTo} />}
         {currentPage === 'about' && <AboutPage />}
         {currentPage === 'gallery' && <Gallery />}
-
+        {currentPage === 'blog' && <BlogList navigateTo={navigateTo} />}
         {currentPage === 'testimonials' && <TestimonialsPage navigateTo={navigateTo} />}
         {currentPage === 'services' && <ServicesPage />}
         {currentPage === 'contact' && <ContactPage />}
