@@ -982,225 +982,193 @@ const HomePage = () => {
 
 
       {/* Favorite Coffee Section */}
-      <section
-        ref={coffeeRef}
-        className="py-28 bg-cover bg-center text-white relative"
-        id="menu"
-        style={{
-          backgroundImage: `url(${bg2})`,
-          backgroundAttachment: "fixed",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            className="text-center mb-16"
-            initial="hidden"
-            animate={coffeeControls}
-            variants={fadeInUp}
-          >
-            <h2 className="text-[#8dcb3f] text-2xl mb-4 font-bold">Favorite</h2>
-            <h3 className="text-4xl md:text-5xl font-bold">Coffee</h3>
-            <motion.div
-              className="w-20 h-1 bg-[#d16b02] mx-auto mt-6"
-              initial={{ width: 0 }}
-              animate={{ width: 80 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-            />
-          </motion.div>
+     <section
+  ref={coffeeRef}
+  className="py-16 sm:py-24 md:py-32 bg-cover bg-center text-white relative"
+  id="menu"
+  style={{
+    backgroundImage: `url(${bg2})`,
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* Enhanced gradient overlay */}
+  <div className="absolute inset-0 "></div>
+  
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <motion.div
+      className="text-center mb-12 md:mb-16"
+      initial={{ opacity: 0, y: 30 }}
+      animate={coffeeControls}
+      variants={fadeInUp}
+    >
+<div className="text-center">
+  {/* First Line - Elegant Script Style */}
+  <motion.h2
+    className="font-sacramento text-[#8dcb3f] text-[clamp(40px,10vw,90px)] leading-none"
+    initial={{ opacity: 0, y: 100 }}  // start far below
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}  // smooth ease-out
+  >
+    Favorite
+  </motion.h2>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-            initial="hidden"
-            animate={coffeeControls}
-            variants={staggerChildren}
-          >
-            {[
-              {
-                name: "Espresso",
-                image:
-                  "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-                price: "$2.75",
-                description:
-                  "Rich, robust, and aromatic perfection in a single shot.",
-              },
-              {
-                name: "Cappuccino",
-                image:
-                  "https://images.unsplash.com/photo-1534778101976-62847782c213?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-                price: "$3.95",
-                description:
-                  "The perfect balance of espresso, steamed milk and foam.",
-              },
-              {
-                name: "Caramel Macchiato",
-                image:
-                  "https://images.unsplash.com/photo-1587075448451-6335696b841b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-                price: "$4.50",
-                description:
-                  "Sweet indulgence with layers of espresso and caramel.",
-              },
-            ].map((coffee, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInScale}
-                whileHover={{ y: -10, scale: 1.03 }}
-                className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg overflow-hidden group"
-              >
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={coffee.image}
-                    alt={coffee.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="text-xl font-bold">{coffee.name}</h4>
-                    <span className="text-[#8dcb3f] font-bold">
-                      {coffee.price}
-                    </span>
-                  </div>
-                  <p className="text-gray-300">{coffee.description}</p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="mt-4 px-6 py-2 bg-[#d16b02] text-white rounded-full hover:bg-[#8dcb3f] transition-colors"
-                  >
-                    Order Now
-                  </motion.button>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+  {/* Second Line - Bold Title */}
+  <motion.h2
+    className="text-[#d16b02] font-bold text-[clamp(48px,12vw,120px)] leading-none"
+    initial={{ opacity: 0, y: 120 }} // start slightly lower than the first line
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+  >
+    Coffee
+  </motion.h2>
+</div>
+
+
+      
+      <motion.div
+        className="h-1 w-20 md:w-24 mx-auto mt-6 rounded-full bg-gradient-to-r from-[#d16b02] to-[#8dcb3f]"
+        initial={{ width: 0, opacity: 0 }}
+        animate={{ width: "6rem", opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+      />
+      
+      <motion.p
+        className="text-gray-300 max-w-xl mx-auto mt-5 text-sm md:text-base"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+      >
+        Expertly crafted beverages using sustainably sourced beans from around the world
+      </motion.p>
+    </motion.div>
+
+
+  </div>
+  
+</section>
+
+
 
       {/* Coffee Menu Section */}
-      <section
-        className="py-20 bg-cover bg-fixed bg-center relative"
-        style={{
-          backgroundImage:
-            "url('https://madebydesignesia.com/themes/baresto/02_images/background/bg-3.jpg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            className="max-w-xl"
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <motion.div
-              className="bg-white bg-opacity-90 p-8 rounded-lg shadow-2xl"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className="grid grid-cols-3 mb-6 font-bold text-[#d16b02] border-b pb-4">
-                <div>Espresso</div>
-                <div>
-                  Medium <span className="text-xs block">16 oz</span>
-                </div>
-                <div>
-                  Large <span className="text-xs block">20 oz</span>
-                </div>
-              </div>
-
-              {[
-                {
-                  name: "Espresso",
-                  description: "Espresso, where passion meets perfection.",
-                  medium: "1.75",
-                  large: "2.20",
-                },
-                {
-                  name: "Mocchiato",
-                  description: "The perfect harmony of espresso and sweetness",
-                  medium: "1.94",
-                  large: "2.25",
-                },
-                {
-                  name: "Classic Cappucino",
-                  description: "A timeless delight brewed just for you.",
-                  medium: "2.90",
-                  large: "3.90",
-                },
-                {
-                  name: "Cappucino",
-                  description: "Where rich espresso meets frothy perfection.",
-                  medium: "3.15",
-                  large: "4.15",
-                },
-                {
-                  name: "Mocha latte",
-                  description: "The perfect blend of chocolate and espresso.",
-                  medium: "3.45",
-                  large: "4.35",
-                },
-                {
-                  name: "Caramel late",
-                  description:
-                    "Where smooth espresso meets golden caramel bliss.",
-                  medium: "3.45",
-                  large: "4.35",
-                },
-                {
-                  name: "Cafe americano",
-                  description: "The essence of pure coffee bliss.",
-                  medium: "2.25",
-                  large: "3.50",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="grid grid-cols-3 py-4 border-b border-amber-100"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ backgroundColor: "rgba(209, 107, 2, 0.05)" }}
-                >
-                  <div>
-                    <h4 className="font-medium text-black">{item.name}</h4>
-                    <p className="text-xs text-gray-600 mt-1">
-                      {item.description}
-                    </p>
-                  </div>
-                  <div className="text-[#d16b02] font-medium">
-                    ${item.medium}
-                  </div>
-                  <div className="text-[#d16b02] font-medium">
-                    ${item.large}
-                  </div>
-                </motion.div>
-              ))}
-
-              <motion.div
-                className="mt-8"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.7 }}
-                viewport={{ once: true }}
-              >
-                <motion.a
-                  href="#menu"
-                  className="px-8 py-3 border-2 border-[#d16b02] text-[#d16b02] hover:bg-[#d16b02] hover:text-white transition-all duration-300 inline-block"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  View All Menu
-                </motion.a>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+<section 
+  className="py-20 bg-cover bg-fixed bg-center relative"
+  style={{
+    backgroundImage: "url('https://madebydesignesia.com/themes/baresto/02_images/background/bg-3.jpg')",
+  }}
+  data-jarallax
+>
+  {/* Background overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
+  
+<div className="container mx-auto px-4 relative z-10">
+  <motion.div 
+    className="max-w-2xl mx-auto lg:mx-0"
+    initial={{ opacity: 0, x: -50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+  >
+    <div className="p-6 sm:p-8 rounded-lg shadow-lg bg-black/40 backdrop-blur-sm border border-white/10">
+      {/* Header */}
+      <div className="flex mb-6 font-bold text-[#8dcb3f] border-b border-white/20 pb-4">
+        <div className="flex-1 text-left uppercase tracking-wider">espresso</div>
+        <div className="flex-1 text-center uppercase tracking-wider">
+          Medium<span className="block text-xs text-gray-400">16 oz</span>
         </div>
-      </section>
+        <div className="flex-1 text-right uppercase tracking-wider">
+          Large<span className="block text-xs text-gray-400">20 oz</span>
+        </div>
+      </div>
+
+      {/* Menu items */}
+      <div className="space-y-1">
+        {[
+          {
+            name: "Espresso",
+            description: "Espresso, where passion meets perfection.",
+            medium: "1.75",
+            large: "2.20",
+          },
+          {
+            name: "Mocchiato",
+            description: "The perfect harmony of espresso and sweetness",
+            medium: "1.94",
+            large: "2.25",
+          },
+          {
+            name: "Classic Cappucino",
+            description: "A timeless delight brewed just for you.",
+            medium: "2.90",
+            large: "3.90",
+          },
+          {
+            name: "Cappucino",
+            description: "Where rich espresso meets frothy perfection.",
+            medium: "3.15",
+            large: "4.15",
+          },
+          {
+            name: "Mocha latte",
+            description: "The perfect blend of chocolate and espresso.",
+            medium: "3.45",
+            large: "4.35",
+          },
+          {
+            name: "Caramel late",
+            description: "Where smooth espresso meets golden caramel bliss.",
+            medium: "3.45",
+            large: "4.35",
+          },
+          {
+            name: "Cafe americano",
+            description: "The essence of pure coffee bliss.",
+            medium: "2.25",
+            large: "3.50",
+          }
+        ].map((item, index) => (
+          <motion.div 
+            key={index}
+            className="flex py-4 border-b border-white/10 items-center"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            viewport={{ once: true }}
+            whileHover={{ backgroundColor: "rgba(209, 107, 2, 0.15)" }}
+          >
+            <div className="flex-1 pr-3">
+              <div className="font-medium text-white">{item.name}</div>
+              <span className="block text-xs text-gray-400 mt-1">{item.description}</span>
+            </div>
+            <div className="flex-1 text-[#d16b02] font-medium text-center">${item.medium}</div>
+            <div className="flex-1 text-[#d16b02] font-medium text-right">${item.large}</div>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="h-8 mt-4"></div>
+
+      <motion.a 
+        href="#menu" 
+        className="px-6 sm:px-8 py-3 border-2 border-[#d16b02] text-[#d16b02] hover:bg-[#d16b02] hover:text-white transition-all duration-300 inline-flex items-center group"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        View All Menu
+        <svg 
+          className="w-4 h-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </motion.a>
+    </div>
+  </motion.div>
+</div>
+</section>
 
       {/* Favorite Foods Section */}
       <section
@@ -1212,7 +1180,6 @@ const HomePage = () => {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="text-center mb-16"
@@ -1220,8 +1187,8 @@ const HomePage = () => {
             animate={foodControls}
             variants={fadeInUp}
           >
-            <h2 className="text-[#8dcb3f] text-2xl mb-4 font-bold">Favorite</h2>
-            <h3 className="text-4xl md:text-5xl font-bold">Foods</h3>
+            <h2 className="text-[#8dcb3f]  mb-4 font-bold font-sacramento text-[clamp(40px,6vw,80px)]">Favorite</h2>
+            <h3 className="text-4xl md:text-5xl text-[#d16b02] font-bold">Foods</h3>
             <motion.div
               className="w-20 h-1 bg-[#d16b02] mx-auto mt-6"
               initial={{ width: 0 }}
@@ -1230,251 +1197,441 @@ const HomePage = () => {
             />
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-            initial="hidden"
-            animate={foodControls}
-            variants={staggerChildren}
-          >
-            {[
-              {
-                name: "Avocado Toast",
-                image:
-                  "https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-                price: "$8.95",
-                description:
-                  "Fresh avocado, cherry tomatoes, and feta on artisan sourdough.",
-              },
-              {
-                name: "Berry Parfait",
-                image:
-                  "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-                price: "$6.50",
-                description:
-                  "Layers of yogurt, granola, and fresh seasonal berries.",
-              },
-              {
-                name: "Chicken Pesto",
-                image:
-                  "https://images.unsplash.com/photo-1512852939750-1305098529bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-                price: "$10.95",
-                description:
-                  "Grilled chicken with homemade pesto on a brioche bun.",
-              },
-            ].map((food, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInScale}
-                whileHover={{ y: -10, scale: 1.03 }}
-                className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg overflow-hidden group"
-              >
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={food.image}
-                    alt={food.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="text-xl font-bold">{food.name}</h4>
-                    <span className="text-[#8dcb3f] font-bold">
-                      {food.price}
-                    </span>
-                  </div>
-                  <p className="text-gray-300">{food.description}</p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="mt-4 px-6 py-2 bg-[#d16b02] text-white rounded-full hover:bg-[#8dcb3f] transition-colors"
-                  >
-                    Order Now
-                  </motion.button>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
       {/* Foods Menu Section */}
-      <section
-        className="py-20 bg-cover bg-fixed bg-center relative"
-        style={{
-          backgroundImage:
-            "url('https://madebydesignesia.com/themes/baresto/02_images/background/bg-5.jpg')",
-        }}
+     <section
+  className="py-16 sm:py-20 md:py-28 bg-cover bg-fixed bg-center relative"
+  style={{
+    backgroundImage:
+      "url('https://madebydesignesia.com/themes/baresto/02_images/background/bg-5.jpg')",
+  }}
+>
+  {/* Enhanced overlay with gradient */}
+  <div className="absolute inset-0 bg-black/60"></div>
+  
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="flex justify-center lg:justify-end">
+      <motion.div
+        className="w-full max-w-xl"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex justify-end">
-            <motion.div
-              className="max-w-xl"
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                className="bg-white bg-opacity-90 p-8 rounded-lg shadow-2xl"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <div className="grid grid-cols-3 mb-6 font-bold text-[#d16b02] border-b pb-4">
-                  <div className="col-span-2">Snacks</div>
-                  <div>Price</div>
-                </div>
-
-                {[
-                  {
-                    name: "Plain bread",
-                    description: "Soft and golden with a tantalizing aroma",
-                    price: "2.75",
-                  },
-                  {
-                    name: "Milk bread",
-                    description: "Infused with the richness of milk",
-                    price: "2.75",
-                  },
-                  {
-                    name: "Sandwich bread",
-                    description: "Classic combinations like ham and cheese",
-                    price: "2.75",
-                  },
-                  {
-                    name: "Brown bread",
-                    description: "Crafted from whole grain flour",
-                    price: "2.75",
-                  },
-                  {
-                    name: "Garlic bread",
-                    description: "Infused with aromatic garlic and rich butter",
-                    price: "2.75",
-                  },
-                  {
-                    name: "Wheat bread",
-                    description: "With hearty texture and nutty flavor",
-                    price: "2.75",
-                  },
-                  {
-                    name: "Banana bread",
-                    description: "With its banana taste and delightful aroma",
-                    price: "2.75",
-                  },
-                  {
-                    name: "Burger bun",
-                    description: "With fluffy texture and subtle sweetness",
-                    price: "2.75",
-                  },
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="grid grid-cols-3 py-4 border-b border-amber-100"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ backgroundColor: "rgba(209, 107, 2, 0.05)" }}
-                  >
-                    <div className="col-span-2">
-                      <h4 className="font-medium text-black">{item.name}</h4>
-                      <p className="text-xs text-gray-600 mt-1">
-                        {item.description}
-                      </p>
-                    </div>
-                    <div className="text-[#d16b02] font-medium">
-                      ${item.price}
-                    </div>
-                  </motion.div>
-                ))}
-
-                <motion.div
-                  className="mt-8"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.7 }}
-                  viewport={{ once: true }}
-                >
-                  <motion.a
-                    href="#menu"
-                    className="px-8 py-3 border-2 border-[#d16b02] text-[#d16b02] hover:bg-[#d16b02] hover:text-white transition-all duration-300 inline-block"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    View All Menu
-                  </motion.a>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+        {/* Title visible only on mobile/tablet */}
+        <motion.h2 
+          className="text-3xl sm:text-4xl font-bold text-white mb-6 text-center lg:hidden"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          Our <span className="text-[#d16b02]">Snacks</span> Menu
+        </motion.h2>
+        
+        <motion.div
+          className="bg-black/40 backdrop-blur-sm p-6 sm:p-8 rounded-lg shadow-2xl border border-white/10"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <div className="flex mb-6 font-bold text-[#8dcb3f] border-b border-white/20 pb-4">
+            <div className="flex-1 text-left uppercase tracking-wider">Snacks</div>
+            <div className="w-24 sm:w-32 text-right uppercase tracking-wider">Price</div>
           </div>
-        </div>
-      </section>
 
-      {/* Gallery Section */}
-      <section ref={galleryRef} className="py-20 bg-[#ffffff]" id="gallery">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-16"
-            initial="hidden"
-            animate={galleryControls}
-            variants={fadeInUp}
-          >
-            <h2 className="text-[#d16b02] text-2xl mb-4 font-bold">Our</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-black">
-              Gallery
-            </h3>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2"
-            initial="hidden"
-            animate={galleryControls}
-            variants={staggerChildren}
-          >
-            {[1, 2, 3, 4, 5, 6].map((num) => (
-              <motion.div
-                key={num}
-                className="relative group overflow-hidden rounded-lg"
-                variants={fadeInScale}
-                whileHover={{ scale: 1.03 }}
-              >
-                <img
-                  src={`https://madebydesignesia.com/themes/baresto/02_images/menu/${num}.png`}
-                  alt={`Gallery item ${num}`}
-                  className="w-full h-auto transform transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-[#d16b02] bg-opacity-0 group-hover:bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <motion.span
-                    className="text-white font-medium"
-                    whileHover={{ scale: 1.2 }}
-                  >
-                    View
-                  </motion.span>
+          {[
+            {
+              name: "Plain bread",
+              description: "Soft and golden with a tantalizing aroma",
+              price: "2.75",
+              popular: true
+            },
+            {
+              name: "Milk bread",
+              description: "Infused with the richness of milk",
+              price: "2.75",
+            },
+            {
+              name: "Sandwich bread",
+              description: "Classic combinations like ham and cheese",
+              price: "2.75",
+              popular: true
+            },
+            {
+              name: "Brown bread",
+              description: "Crafted from whole grain flour",
+              price: "2.75",
+            },
+            {
+              name: "Garlic bread",
+              description: "Infused with aromatic garlic and rich butter",
+              price: "2.75",
+              popular: true
+            },
+            {
+              name: "Wheat bread",
+              description: "With hearty texture and nutty flavor",
+              price: "2.75",
+            },
+            {
+              name: "Banana bread",
+              description: "With its banana taste and delightful aroma",
+              price: "2.75",
+            },
+            {
+              name: "Burger bun",
+              description: "With fluffy texture and subtle sweetness",
+              price: "2.75",
+            },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              className="flex py-4 border-b border-white/10 items-center relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                delay: index * 0.08,
+                duration: 0.5 
+              }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                backgroundColor: "rgba(209, 107, 2, 0.15)",
+                transition: { duration: 0.2 }
+              }}
+            >
+              {/* Left side (name and description) */}
+              <div className="flex-1 pr-4">
+                <div className="flex items-center">
+                  <h4 className="font-medium text-white">{item.name}</h4>
+                  {item.popular && (
+                    <span className="ml-2 bg-[#d16b02] text-white text-xs px-1.5 py-0.5 rounded">Hot</span>
+                  )}
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                  {item.description}
+                </p>
+              </div>
+              
+              {/* Right side (price) */}
+              <div className="w-24 sm:w-32 text-[#d16b02] font-medium text-right">${item.price}</div>
+              
+              {/* Animated line that appears when the item is in view */}
+              <motion.div 
+                className="absolute bottom-0 left-0 h-[1px] bg-white/20"
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                transition={{ delay: index * 0.08 + 0.3, duration: 0.8 }}
+                viewport={{ once: true }}
+              />
+            </motion.div>
+          ))}
 
           <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            className="mt-8 flex justify-between items-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
             viewport={{ once: true }}
           >
+            <div className="text-sm text-gray-400">
+              * All prices include tax
+            </div>
+            
             <motion.a
-              href="#gallery"
-              className="px-8 py-3 bg-[#d16b02] text-white rounded-full hover:bg-[#8dcb3f] transition-all duration-300 inline-block"
+              href="#menu"
+              className="px-6 py-3 border-2 border-[#d16b02] text-[#d16b02] hover:bg-[#d16b02] hover:text-white transition-all duration-300 inline-flex items-center gap-2 group rounded-md"
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.98 }}
             >
-              View Full Gallery
+              View All Menu
+              <svg 
+                className="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </motion.a>
           </motion.div>
-        </div>
-      </section>
+        </motion.div>
+        
+        {/* Decorative element */}
+        <motion.div 
+          className="hidden lg:block absolute -left-16 top-1/2 -translate-y-1/2"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          viewport={{ once: true }}
+        >
+          <div className="w-8 h-8 border-t-2 border-l-2 border-[#8dcb3f] transform -rotate-45"></div>
+        </motion.div>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
+      {/* Gallery Section */}
+<section ref={galleryRef} className="py-16 sm:py-24 bg-[#faf7f2] relative overflow-hidden" id="gallery">
+  {/* Decorative background elements */}
+  <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-white to-transparent opacity-70"></div>
+  <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#d16b02]/5 rounded-full blur-3xl"></div>
+  <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#8dcb3f]/5 rounded-full blur-3xl"></div>
+  
+  {/* Subtle pattern overlay */}
+  <div className="absolute inset-0 opacity-5" style={{ 
+    backgroundImage: 'url("data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath d="M0 0h20L0 20z"/%3E%3C/g%3E%3C/svg%3E")',
+    backgroundSize: '20px 20px'
+  }}></div>
+  
+  <div className="container mx-auto px-4 relative z-10">
+    <motion.div
+      className="text-center mb-16"
+      initial="hidden"
+      animate={galleryControls}
+      variants={fadeInUp}
+    >
+      <motion.span 
+        className="inline-block text-[#d16b02] text-xl sm:text-2xl font-bold relative mb-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        Taste With Your Eyes
+        <motion.span 
+          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#d16b02]"
+          initial={{ width: 0 }}
+          whileInView={{ width: "100%" }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          viewport={{ once: true }}
+        />
+      </motion.span>
+      
+      <motion.h3 
+        className="text-4xl sm:text-5xl md:text-6xl mt-6 font-bold text-[#8dcb3f] mb-4 font-sacramento text-[clamp(40px,6vw,80px)]"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        Our Culinary Gallery
+      </motion.h3>
+      
+      <motion.p
+        className="max-w-2xl mx-auto text-gray-600 mb-8"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        Feast your eyes on our exquisite dishes, crafted with passion and artistry. Each creation tells a story of flavor, tradition, and innovation.
+      </motion.p>
+      
+      {/* Category filters */}
+      <motion.div
+        className="flex flex-wrap justify-center gap-2 mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        {["All", "Coffee", "Pastries", "Main Course", "Desserts"].map((category, index) => (
+          <motion.button
+            key={category}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              index === 0 
+                ? "bg-[#d16b02] text-white" 
+                : "bg-white/80 text-gray-700 hover:bg-[#d16b02]/10"
+            }`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {category}
+          </motion.button>
+        ))}
+      </motion.div>
+    </motion.div>
+
+    {/* Masonry grid layout */}
+    <div className="mx-auto max-w-7xl">
+      <motion.div
+        className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4"
+        initial="hidden"
+        animate={galleryControls}
+        variants={staggerChildren}
+      >
+        {[
+          {
+            id: 1,
+            img: "https://i.pinimg.com/1200x/ae/69/2f/ae692f00a207ded5b8c9655681c6cf34.jpg",
+            title: "Signature Coffee",
+            height: "h-[250px] sm:h-[280px]",
+          },
+          {
+            id: 2,
+            img: "https://i.pinimg.com/736x/73/ef/e9/73efe902c531d2326c4f14b8c69b8fe0.jpg",
+            title: "Artisan Pastries",
+            height: "h-[350px] sm:h-[400px]",
+          },
+          {
+            id: 3,
+            img: "https://i.pinimg.com/736x/a6/21/40/a621408f03f2b1fb254629d81a7a6218.jpg",
+            title: "Fresh Ingredients",
+            height: "h-[300px]",
+          },
+          {
+            id: 4,
+            img: "https://i.pinimg.com/736x/2c/77/b3/2c77b32e45bf878baed1d1938ebb133a.jpg",
+            title: "Gourmet Desserts",
+            height: "h-[280px] sm:h-[320px]",
+          },
+          {
+            id: 5,
+            img: "https://i.pinimg.com/736x/46/8d/f7/468df78b2c349aac7e10e83853fdcdfd.jpg",
+            title: "Premium Blends",
+            height: "h-[250px]",
+          },
+          {
+            id: 6,
+            img: "https://i.pinimg.com/736x/e3/25/31/e325316debe22f5234e1c50d42e3a52f.jpg",
+            title: "Delicious Treats",
+            height: "h-[320px] sm:h-[360px]",
+          },
+          {
+            id: 7,
+            img: "https://i.pinimg.com/1200x/02/3d/44/023d4477676a81cc33432286a6f26962.jpg",
+            title: "Morning Favorites",
+            height: "h-[260px]",
+          },
+          {
+            id: 8,
+            img: "https://i.pinimg.com/736x/c9/f3/e5/c9f3e5c62c913c96a4556cafa66268d6.jpg",
+            title: "Perfect Brew",
+            height: "h-[290px] sm:h-[330px]",
+          },
+          {
+            id: 9,
+            img: "https://i.pinimg.com/1200x/02/3d/44/023d4477676a81cc33432286a6f26962.jpg",
+            title: "Bakery Selection",
+            height: "h-[270px]",
+          },
+          {
+            id: 10,
+            img: "https://i.pinimg.com/736x/f0/3e/7b/f03e7b7f7d263f51d9c075b9e0d92437.jpg",
+            title: "Coffee Art",
+            height: "h-[310px]",
+          }
+        ].map((item) => (
+          <motion.div
+            key={item.id}
+            className={`${item.height} mb-4 w-full break-inside-avoid rounded-xl overflow-hidden relative group`}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { duration: 0.7, ease: "easeOut" } 
+              }
+            }}
+          >
+            {/* Image with parallax effect on hover */}
+            <div className="absolute inset-0">
+              <motion.div
+                className="w-full h-full"
+                whileHover={{ scale: 1.08, transition: { duration: 0.8 } }}
+              >
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </div>
+            
+            {/* Overlay with gradual transition */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-4 sm:p-5">
+              <motion.h4
+                className="text-white font-bold text-lg sm:text-xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500"
+              >
+                {item.title}
+              </motion.h4>
+              
+              <motion.div 
+                className="mt-2 flex gap-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100"
+              >
+                <button className="bg-white/20 hover:bg-white/30 p-2 rounded-full backdrop-blur-sm transition-all duration-300">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </button>
+                
+                <button className="bg-white/20 hover:bg-white/30 p-2 rounded-full backdrop-blur-sm transition-all duration-300">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </button>
+              </motion.div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+
+    <motion.div
+      className="text-center mt-16"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
+      <motion.a
+        href="#gallery"
+        className="px-8 py-3 bg-gradient-to-r from-[#d16b02] to-[#d16b02]/90 text-white rounded-full hover:from-[#8dcb3f] hover:to-[#8dcb3f]/90 transition-all duration-300 inline-flex items-center gap-2 shadow-lg hover:shadow-xl group"
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+      >
+        <span>View Full Gallery</span>
+        <svg 
+          className="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </motion.a>
+      
+      <p className="text-gray-500 text-sm mt-4">Discover more of our delicious creations</p>
+    </motion.div>
+    
+    {/* Instagram-style promotion */}
+    <motion.div 
+      className="mt-20 text-center"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      viewport={{ once: true }}
+    >
+      <div className="flex items-center justify-center gap-3 mb-4">
+        <div className="h-[1px] w-16 bg-gray-300"></div>
+        <svg className="w-6 h-6 text-gray-500" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+        <div className="h-[1px] w-16 bg-gray-300"></div>
+      </div>
+      <h4 className="text-lg text-gray-700 mb-2">Follow Us on Instagram</h4>
+      <p className="text-gray-500 text-sm max-w-md mx-auto">
+        Tag your photos with <span className="text-[#d16b02] font-medium">#BarestoCoffee</span> for a chance to be featured
+      </p>
+    </motion.div>
+  </div>
+</section>
 
       {/* Customer Review Section */}
       <section ref={reviewRef} className="bg-[#d16b02] text-white py-24">
@@ -1554,39 +1711,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="py-14 bg-[#8dcb3f] bg-opacity-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="flex flex-col md:flex-row items-center justify-between"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-xl md:text-2xl font-bold mb-6 md:mb-0 text-black">
-              <i className="fas fa-phone text-[#d16b02] mr-3"></i>
-              Call us now and get special offers!
-            </h3>
-            <motion.a
-              href="tel:+123456789"
-              className="px-8 py-3 border-2 border-[#d16b02] text-[#d16b02] hover:bg-[#d16b02] hover:text-white transition-all duration-300 flex items-center"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mr-2"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-              </svg>
-              Call Us Now
-            </motion.a>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* Opening Hours Section */}
       <section
@@ -1598,7 +1723,7 @@ const HomePage = () => {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="text-center mb-16"
@@ -1606,8 +1731,8 @@ const HomePage = () => {
             animate={hoursControls}
             variants={fadeInUp}
           >
-            <h2 className="text-[#8dcb3f] text-2xl mb-4 font-bold">We are</h2>
-            <h3 className="text-4xl md:text-5xl font-bold mb-16">Open</h3>
+            <h2 className="text-[#8dcb3f] text-2xl mb-4 font-bold font-sacramento text-[clamp(60px,10vw,100px)]">We are</h2>
+            <h3 className="text-4xl md:text-5xl font-bold mb-16 ">Open</h3>
 
             <motion.div
               className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
