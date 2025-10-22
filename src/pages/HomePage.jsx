@@ -1525,6 +1525,18 @@ const HomePage = () => {
             img: "https://i.pinimg.com/736x/f0/3e/7b/f03e7b7f7d263f51d9c075b9e0d92437.jpg",
             title: "Coffee Art",
             height: "h-[310px]",
+          },
+          {
+            id: 11,
+            img: "https://i.pinimg.com/1200x/4c/05/11/4c051173e1006c99c86265b2b3536a7b.jpg",
+            title: "Coffee Art",
+            height: "h-[310px]",
+          },
+          {
+            id: 12,
+            img: "https://i.pinimg.com/1200x/3f/cc/b1/3fccb1412bb85b910b75a3d1af42a078.jpg",
+            title: "Coffee Art",
+            height: "h-[310px]",
           }
         ].map((item) => (
           <motion.div
