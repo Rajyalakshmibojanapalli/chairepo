@@ -230,7 +230,6 @@ import icon from "../assets/logo.png";
 const Header = ({ currentPage, navigateTo }) => {
   // Track scroll position
   const [scrollY, setScrollY] = useState(0);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(null);
   // New state for mobile menu
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -244,33 +243,19 @@ const Header = ({ currentPage, navigateTo }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleDropdown = (index) => {
-    if (isDropdownOpen === index) {
-      setIsDropdownOpen(null);
-    } else {
-      setIsDropdownOpen(index);
-    }
-  };
-
   // Toggle mobile menu
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Navigation items with possible submenus
+  // Navigation items (with Gallery as a separate item)
   const navItems = [
     { title: "Home", link: "home" },
     { title: "Menu", link: "menu" },
     { title: "Booking", link: "booking" },
     // Logo will be positioned here
-    { 
-      title: "About", 
-      link: "about",
-      submenu: [
-        { title: "About", link: "about" },
-        { title: "Gallery", link: "gallery" }
-      ]
-    },
+    { title: "About", link: "about" },
+    { title: "Gallery", link: "gallery" },
     { title: "Blog", link: "blog" },
     { title: "Contact", link: "contact" }
   ];
@@ -317,7 +302,7 @@ const Header = ({ currentPage, navigateTo }) => {
                   onClick={(e) => {
                     e.preventDefault();
                     navigateTo(item.link);
-                    setIsMobileMenuOpen(false); // Close menu after navigation
+                    setIsMobileMenuOpen(false);
                   }}
                   className={`
                     block md:inline-block font-medium transition-all w-full
@@ -327,37 +312,6 @@ const Header = ({ currentPage, navigateTo }) => {
                 >
                   {item.title}
                 </a>
-                {item.submenu && (
-                  <>
-                    <span 
-                      className="ml-1 cursor-pointer" 
-                      onClick={() => toggleDropdown(index)}
-                    >
-                      ▼
-                    </span>
-                    
-                    {/* Dropdown menu */}
-                    {isDropdownOpen === index && (
-                      <ul className="absolute md:top-full md:left-0 static md:static bg-[#d16b02] min-w-[160px] shadow-md text-left z-10 w-full md:w-auto">
-                        {item.submenu.map((subitem, subindex) => (
-                          <li key={subindex} className="block w-full">
-                            <a 
-                              href={`#${subitem.link}`}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                navigateTo(subitem.link);
-                                setIsMobileMenuOpen(false);
-                              }}
-                              className="block px-4 py-2 text-white hover:text-[#8dcb3f] border-b border-[#8dcb3f] border-opacity-20 w-full"
-                            >
-                              {subitem.title}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </>
-                )}
               </li>
             ))}
             
@@ -398,37 +352,6 @@ const Header = ({ currentPage, navigateTo }) => {
                 >
                   {item.title}
                 </a>
-                {item.submenu && (
-                  <>
-                    <span 
-                      className="ml-1 cursor-pointer" 
-                      onClick={() => toggleDropdown(index + leftNavItems.length)}
-                    >
-                      ▼
-                    </span>
-                    
-                    {/* Dropdown menu */}
-                    {isDropdownOpen === (index + leftNavItems.length) && (
-                      <ul className="absolute md:top-full md:left-0 static md:static bg-[#d16b02] min-w-[160px] shadow-md text-left z-10 w-full md:w-auto">
-                        {item.submenu.map((subitem, subindex) => (
-                          <li key={subindex} className="block w-full">
-                            <a 
-                              href={`#${subitem.link}`}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                navigateTo(subitem.link);
-                                setIsMobileMenuOpen(false);
-                              }}
-                              className="block px-4 py-2 text-white hover:text-[#8dcb3f] border-b border-[#8dcb3f] border-opacity-20 w-full"
-                            >
-                              {subitem.title}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </>
-                )}
               </li>
             ))}
           </ul>
@@ -453,25 +376,6 @@ const Header = ({ currentPage, navigateTo }) => {
                     >
                       {item.title}
                     </a>
-                    {item.submenu && (
-                      <ul className="bg-[#c36400] w-full">
-                        {item.submenu.map((subitem, subindex) => (
-                          <li key={subindex} className="w-full border-b border-[#8dcb3f] border-opacity-10 last:border-0">
-                            <a 
-                              href={`#${subitem.link}`}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                navigateTo(subitem.link);
-                                setIsMobileMenuOpen(false);
-                              }}
-                              className="block py-3 px-10 text-white hover:text-[#8dcb3f]"
-                            >
-                              {subitem.title}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
                   </li>
                 ))}
               </ul>
@@ -479,31 +383,34 @@ const Header = ({ currentPage, navigateTo }) => {
           )}
         </nav>
         
-        {/* Mobile Navigation Button */}
-        <div className="md:hidden absolute right-4 top-1/2 transform -translate-y-1/2">
-          <button 
-            className="text-white focus:outline-none p-2"
-            onClick={toggleMobileMenu}
-          >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              {isMobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-        
-        {/* Mobile Logo */}
-        <div className="md:hidden absolute left-4 top-1/2 transform -translate-y-1/2">
-          <img 
-            src={icon} 
-            alt="Logo" 
-            className="h-12" 
-            onClick={() => navigateTo("home")}
-            style={{ cursor: 'pointer' }}
-          />
+        {/* Mobile header container with fixed height */}
+        <div className="md:hidden h-[70px] flex items-center justify-between px-4">
+          {/* Mobile Logo */}
+          <div className="flex items-center">
+            <img 
+              src={icon} 
+              alt="Logo" 
+              className="h-12" 
+              onClick={() => navigateTo("home")}
+              style={{ cursor: 'pointer' }}
+            />
+          </div>
+          
+          {/* Mobile Navigation Button */}
+          <div className="flex items-center">
+            <button 
+              className="text-white focus:outline-none p-2"
+              onClick={toggleMobileMenu}
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </header>
