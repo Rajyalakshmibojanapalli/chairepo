@@ -157,7 +157,7 @@ const Gallery = () => {
     return (
         <div className="min-h-screen bg-[#18191b]">
             {/* Hero Section */}
-            <section
+            {/* <section
                 className="relative text-white overflow-hidden min-h-[500px] flex items-center"
                 style={{
                     backgroundImage: `url(${icon})`,
@@ -211,7 +211,66 @@ const Gallery = () => {
                         </nav>
                     </motion.div>
                 </div>
+            </section> */}
+
+            <section
+                className="relative text-white overflow-hidden min-h-[500px] flex items-center"
+                style={{
+                    backgroundImage: `url(${icon})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundAttachment: 'fixed', // added fixed background
+                    padding: '170px 0 80px 0'
+                }}
+            >
+                <div className="absolute inset-0 bg-black/60 z-0"></div>
+
+                <div className="container mx-auto px-4 relative z-10 w-full">
+                    <motion.div
+                        className="text-center"
+                        style={{ opacity: heroOpacity, y: heroY }}
+                    >
+                        <h2
+                            className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4"
+                            style={{
+                                fontFamily: "'Sacramento', cursive",
+                                fontWeight: 400,
+                                fontStyle: "normal",
+                                fontSize: "clamp(36px, 8vw, 72px)",
+                                color: "#d16b02",
+                                margin: 0,
+                                textShadow: "0 2px 4px rgba(0,0,0,0.1)"
+                            }}
+                        >
+                            Discover
+                        </h2>
+                        <h2
+                            className="uppercase font-bold inline-block border-y border-white/50 border-opacity-50 m-0"
+                            style={{
+                                fontSize: '40px',
+                                lineHeight: '40px',
+                                letterSpacing: '10px',
+                                fontFamily: 'serif',
+                                color: '#fff'
+                            }}
+                        >
+                            Gallery
+                        </h2>
+                        <nav>
+                            <ol className="flex justify-center items-center space-x-3 text-sm">
+                                <li>
+                                    <a href="#" className="hover:text-gray-300">
+                                        Home
+                                    </a>
+                                </li>
+                                <li className="text-gray-400">/</li>
+                                <li className="text-gray-400">Gallery</li>
+                            </ol>
+                        </nav>
+                    </motion.div>
+                </div>
             </section>
+
 
             {/* Gallery Grid */}
             <section className="py-16 px-4">

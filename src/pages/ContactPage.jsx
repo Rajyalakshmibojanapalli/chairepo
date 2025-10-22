@@ -769,9 +769,9 @@ export default function ContactSection() {
                 }
             `}</style>
 
-            <div className="w-full bg-gray-900">
+            <div className="w-full bg-white/5">
                 {/* Subheader with Scroll Fade */}
-                <section
+                {/* <section
                     className="relative text-white overflow-hidden min-h-[500px] flex items-center"
                     style={{
                         background: '#222',
@@ -834,7 +834,68 @@ export default function ContactSection() {
                             </nav>
                         </motion.div>
                     </div>
+                </section> */}
+                <section
+                    className="relative text-white overflow-hidden min-h-[500px] flex items-center"
+                    style={{
+                        background: '#222',
+                        backgroundImage: `url(${icon})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundAttachment: 'fixed', // added fixed background here
+                        padding: '170px 0 80px 0'
+                    }}
+                >
+                    <div className="absolute inset-0 bg-black/50 z-0"></div>
+
+                    <div className="container mx-auto px-4 relative z-10 w-full">
+                        <motion.div
+                            className="text-center"
+                            style={{ opacity: heroOpacity, y: heroY }}
+                        >
+                            <h2
+                                className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4"
+                                style={{
+                                    fontFamily: "'Sacramento', cursive",
+                                    fontWeight: 400,
+                                    fontStyle: "normal",
+                                    fontSize: "clamp(36px, 8vw, 72px)",
+                                    color: "#d16b02",
+                                    margin: 0,
+                                    textShadow: "0 2px 4px rgba(0,0,0,0.1)"
+                                }}
+                            >
+                                Get In
+                            </h2>
+                            <h2
+                                className="uppercase font-bold inline-block border-y border-white/50 border-opacity-50 m-0"
+                                style={{
+                                    fontSize: '40px',
+                                    lineHeight: '40px',
+                                    letterSpacing: '10px',
+                                    fontFamily: 'serif',
+                                    color: '#fff'
+                                }}
+                            >
+                                Touch
+                            </h2>
+                            <nav aria-label="breadcrumb">
+                                <ol className="flex justify-center items-center space-x-2 text-sm">
+                                    <li>
+                                        <a href="#" className="text-white hover:text-gray-300 transition-colors">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li className="text-gray-400">/</li>
+                                    <li className="text-gray-400" aria-current="page">
+                                        Contact
+                                    </li>
+                                </ol>
+                            </nav>
+                        </motion.div>
+                    </div>
                 </section>
+
 
                 {/* Contact Form */}
                 <section

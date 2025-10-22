@@ -614,7 +614,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#18191b] text-white">
       {/* Hero Section */}
-      <section
+      {/* <section
         className="relative text-white overflow-hidden min-h-[500px] flex items-center"
         style={{
           background: '#222',
@@ -672,7 +672,72 @@ export default function AboutPage() {
             </nav>
           </motion.div>
         </div>
+      </section> */}
+
+      {/* Discover Our Story Section */}
+      {/* Discover Our Story Section */}
+      <section
+        className="relative text-white overflow-hidden min-h-[500px] flex items-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=1600&h=600&fit=crop')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',  // <--- here it is
+          padding: '170px 0 80px 0'
+        }}
+      >
+        <div className="container mx-auto px-4 relative z-10 w-full text-center">
+          <FadeInWhenVisible>
+            <h2
+              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4"
+              style={{
+                fontFamily: "'Sacramento', cursive",
+                fontWeight: 400,
+                fontStyle: 'normal',
+                fontSize: 'clamp(36px, 8vw, 72px)',
+                color: '#d16b02',
+                margin: 0,
+                textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+              }}
+            >
+              Discover
+            </h2>
+          </FadeInWhenVisible>
+
+          <FadeInWhenVisible delay={0.2}>
+            <h2
+              className="uppercase font-bold inline-block border-y border-white/50 m-0"
+              style={{
+                fontSize: '40px',
+                lineHeight: '40px',
+                letterSpacing: '10px',
+                fontFamily: 'serif',
+                color: '#fff'
+              }}
+            >
+              Our Story
+            </h2>
+          </FadeInWhenVisible>
+
+          <FadeInWhenVisible delay={0.4}>
+            <nav aria-label="breadcrumb" className="mt-6 flex justify-center items-center space-x-2 text-sm">
+              <ol className="flex space-x-2">
+                <li>
+                  <a href="#" className="text-white hover:text-gray-300 transition-colors">
+                    Home
+                  </a>
+                </li>
+                <li className="text-gray-400">/</li>
+                <li className="text-gray-400" aria-current="page">
+                  About
+                </li>
+              </ol>
+            </nav>
+          </FadeInWhenVisible>
+        </div>
       </section>
+
 
       {/* Story Section */}
       <section
@@ -780,26 +845,46 @@ export default function AboutPage() {
       <section
         className="relative bg-cover bg-center py-20"
         style={{
-          backgroundImage: "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&h=400&fit=crop')"
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&h=400&fit=crop')",
+          backgroundAttachment: 'fixed'
         }}
       >
         <div className="container mx-auto px-4 text-center">
           <FadeInWhenVisible>
-            <h2 className="text-amber-500 text-3xl md:text-4xl mb-4 font-light">Meet Our</h2>
+            <h2
+              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4"
+              style={{
+                fontFamily: "'Sacramento', cursive",
+                fontWeight: 400,
+                fontStyle: "normal",
+                fontSize: "clamp(36px, 8vw, 72px)",
+                color: "#d16b02",
+                margin: 0,
+                textShadow: "0 2px 4px rgba(0,0,0,0.1)"
+              }}
+            >
+              Meet Our
+            </h2>
           </FadeInWhenVisible>
+
           <FadeInWhenVisible delay={0.2}>
-            {/* <h2 className="text-5xl md:text-7xl font-bold">Chefs</h2> */}
-            <h2 className="uppercase font-bold inline-block border-y border-white/50 border-opacity-50 m-0"
+            <h2
+              className="uppercase font-bold inline-block border-y border-white/50 m-0"
               style={{
                 fontSize: '40px',
                 lineHeight: '40px',
                 letterSpacing: '10px',
                 fontFamily: 'serif',
-                color: '#fff' // Optional: use conditionally if in .text-light
-              }}>Chefs</h2>
+                color: '#fff'
+              }}
+            >
+              Chefs
+            </h2>
           </FadeInWhenVisible>
         </div>
       </section>
+
 
       {/* Team Grid */}
       <section
