@@ -715,7 +715,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const icon = "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600";
 
-
 export default function ContactSection() {
     const [formData, setFormData] = useState({
         name: '',
@@ -809,10 +808,13 @@ export default function ContactSection() {
                                 Get In
                             </h2>
                             <h2
-                                className="text-6xl md:text-7xl lg:text-8xl font-bold mb-10"
+                                className="uppercase font-bold inline-block border-y border-white/50 border-opacity-50 m-0"
                                 style={{
+                                    fontSize: '40px',
+                                    lineHeight: '40px',
+                                    letterSpacing: '10px',
                                     fontFamily: 'serif',
-                                    letterSpacing: '0.01em'
+                                    color: '#fff' // Optional: use conditionally if in .text-light
                                 }}
                             >
                                 Touch

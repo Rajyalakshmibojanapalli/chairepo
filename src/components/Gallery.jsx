@@ -155,7 +155,7 @@ const Gallery = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900">
+        <div className="min-h-screen bg-[#18191b]">
             {/* Hero Section */}
             <section
                 className="relative text-white overflow-hidden min-h-[500px] flex items-center"
@@ -189,13 +189,21 @@ const Gallery = () => {
                             Discover
                         </h2>
                         <h2
-                            className="text-6xl md:text-7xl lg:text-8xl font-bold mb-10"
-                            style={{ fontFamily: 'serif' }}
+                            // className="text-6xl md:text-7xl lg:text-8xl font-bold mb-10"
+                            // style={{ fontFamily: 'serif' }}
+                            className="uppercase font-bold inline-block border-y border-white/50 border-opacity-50 m-0"
+                            style={{
+                                fontSize: '40px',
+                                lineHeight: '40px',
+                                letterSpacing: '10px',
+                                fontFamily: 'serif',
+                                color: '#fff' // Optional: use conditionally if in .text-light
+                            }}
                         >
                             Gallery
                         </h2>
                         <nav>
-                            <ol className="flex justify-center items-center space-x-2 text-sm">
+                            <ol className="flex justify-center items-center space-x-3 text-sm">
                                 <li><a href="#" className="hover:text-gray-300">Home</a></li>
                                 <li className="text-gray-400">/</li>
                                 <li className="text-gray-400">Gallery</li>

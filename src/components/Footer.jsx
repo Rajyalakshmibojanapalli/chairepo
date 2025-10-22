@@ -206,7 +206,7 @@ export default function Footer() {
 
           {/* Social Icons Section */}
           <div className="text-center lg:text-right">
-            <div className="flex justify-center lg:justify-end gap-4">
+            <div className="flex justify-center lg:justify-end gap-1">
               <a
                 href="#"
                 className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
