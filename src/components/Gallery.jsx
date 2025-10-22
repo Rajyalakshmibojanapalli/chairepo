@@ -111,7 +111,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 const icon = "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800";
 
@@ -123,6 +124,22 @@ const galleryItems = [
     { id: 5, imgSrc: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=800" },
     { id: 6, imgSrc: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800" },
 ];
+
+const FadeInWhenVisible = ({ children, delay = 0 }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.6, delay }}
+        >
+            {children}
+        </motion.div>
+    );
+};
 
 const Gallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -230,43 +247,49 @@ const Gallery = () => {
                         className="text-center"
                         style={{ opacity: heroOpacity, y: heroY }}
                     >
-                        <h2
-                            className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4"
-                            style={{
-                                fontFamily: "'Sacramento', cursive",
-                                fontWeight: 400,
-                                fontStyle: "normal",
-                                fontSize: "clamp(36px, 8vw, 72px)",
-                                color: "#d16b02",
-                                margin: 0,
-                                textShadow: "0 2px 4px rgba(0,0,0,0.1)"
-                            }}
-                        >
-                            Discover
-                        </h2>
-                        <h2
-                            className="uppercase font-bold inline-block border-y border-white/50 border-opacity-50 m-0"
-                            style={{
-                                fontSize: '40px',
-                                lineHeight: '40px',
-                                letterSpacing: '10px',
-                                fontFamily: 'serif',
-                                color: '#fff'
-                            }}
-                        >
-                            Gallery
-                        </h2>
-                        <nav>
-                            <ol className="flex justify-center items-center space-x-3 text-sm">
-                                <li>
-                                    <a href="#" className="hover:text-gray-300">
-                                        Home
-                                    </a>
-                                </li>
-                                <li className="text-gray-400">/</li>
-                                <li className="text-gray-400">Gallery</li>
-                            </ol>
-                        </nav>
+                        <FadeInWhenVisible>
+                            <h2
+                                className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4"
+                                style={{
+                                    fontFamily: "'Sacramento', cursive",
+                                    fontWeight: 400,
+                                    fontStyle: "normal",
+                                    fontSize: "clamp(36px, 8vw, 72px)",
+                                    color: "#d16b02",
+                                    margin: 0,
+                                    textShadow: "0 2px 4px rgba(0,0,0,0.1)"
+                                }}
+                            >
+                                Discover
+                            </h2>
+                        </FadeInWhenVisible>
+                        <FadeInWhenVisible delay={0.}>
+                            <h2
+                                className="uppercase font-bold inline-block border-y border-white/50 border-opacity-50 m-0"
+                                style={{
+                                    fontSize: '40px',
+                                    lineHeight: '40px',
+                                    letterSpacing: '10px',
+                                    fontFamily: 'serif',
+                                    color: '#fff'
+                                }}
+                            >
+                                Gallery
+                            </h2>
+                        </FadeInWhenVisible>
+                        <FadeInWhenVisible delay={0.4}>
+                            <nav>
+                                <ol className="flex justify-center items-center space-x-3 text-sm">
+                                    <li>
+                                        <a href="#" className="hover:text-gray-300">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li className="text-gray-400">/</li>
+                                    <li className="text-gray-400">Gallery</li>
+                                </ol>
+                            </nav>
+                        </FadeInWhenVisible>
                     </motion.div>
                 </div>
             </section>

@@ -858,7 +858,7 @@ export default function AboutPage() {
                 fontFamily: "'Sacramento', cursive",
                 fontWeight: 400,
                 fontStyle: "normal",
-                fontSize: "clamp(36px, 8vw, 72px)",
+                fontSize: "clamp(36px, 8vw, 55px)",
                 color: "#d16b02",
                 margin: 0,
                 textShadow: "0 2px 4px rgba(0,0,0,0.1)"
