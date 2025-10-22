@@ -22,6 +22,7 @@ import ServicesPage from './pages/ServicesPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
+import Gallery from './components/Gallery';
 
 const App = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -56,6 +57,8 @@ const App = () => {
       <main>
         {currentPage === 'home' && <HomePage navigateTo={navigateTo} />}
         {currentPage === 'about' && <AboutPage />}
+        {currentPage === 'gallery' && <Gallery />}
+
         {currentPage === 'testimonials' && <TestimonialsPage navigateTo={navigateTo} />}
         {currentPage === 'services' && <ServicesPage />}
         {currentPage === 'contact' && <ContactPage />}

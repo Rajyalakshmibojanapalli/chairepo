@@ -166,7 +166,7 @@
 
 import React from 'react';
 import { Facebook, Twitter, Rss, Dribbble } from 'lucide-react';
-import icon from "../assets/logo2.jpg";
+
 
 export default function Footer() {
   return (
@@ -196,7 +196,7 @@ export default function Footer() {
             <div className="inline-block">
               <div className="bg-[#000000]rounded-full w-32 h-32 flex items-center justify-center overflow-hidden">
                 <img
-                  src={icon} // Replace with your image path
+                  src="/logo2.jpg" // Replace with your image path
                   alt="Logo"
                   className="w-28 h-28 object-cover rounded-full"
                 />

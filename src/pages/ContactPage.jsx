@@ -710,10 +710,11 @@
 // }
 
 
-
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import icon from "../assets/bg1.jpg";
+import { motion, useScroll, useTransform } from 'framer-motion';
+
+const icon = "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600";
+
 
 export default function ContactSection() {
     const [formData, setFormData] = useState({
@@ -725,6 +726,11 @@ export default function ContactSection() {
     const [showSuccess, setShowSuccess] = useState(false);
     const [showError, setShowError] = useState(false);
 
+    // Scroll-based fade effect
+    const { scrollY } = useScroll();
+    const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
+    const heroY = useTransform(scrollY, [0, 300], [0, -50]);
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -735,13 +741,11 @@ export default function ContactSection() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Simulate submission
         try {
             console.log('Form submitted:', formData);
             setShowSuccess(true);
             setShowError(false);
 
-            // Reset
             setFormData({
                 name: '',
                 email: '',
@@ -759,64 +763,61 @@ export default function ContactSection() {
     return (
         <>
             <style>{`
-        @media (prefers-reduced-motion: no-preference) {
-          :root {
-            scroll-behavior: smooth;
-          }
-        }
-      `}</style>
+                @media (prefers-reduced-motion: no-preference) {
+                    :root {
+                        scroll-behavior: smooth;
+                    }
+                }
+            `}</style>
 
-            <div className="w-full">
-                {/* Subheader */}
+            <div className="w-full bg-gray-900">
+                {/* Subheader with Scroll Fade */}
                 <section
-                    className="relative text-white overflow-hidden"
+                    className="relative text-white overflow-hidden min-h-[500px] flex items-center"
                     style={{
                         background: '#222',
-                        //   backgroundImage: 'url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600)',
-                        backgroundImage: 'url(' + icon + ')',
+                        backgroundImage: `url(${icon})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
-                        backgroundAttachment: 'fixed',
                         padding: '170px 0 80px 0'
                     }}
                 >
                     <div className="absolute inset-0 bg-black/50 z-0"></div>
 
-                    <div className="container mx-auto px-4 relative z-10">
-                        <div className="text-center">
-                            <motion.h2
-                                initial={{ opacity: 0, y: -50 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, ease: "easeOut" }}
+                    <div className="container mx-auto px-4 relative z-10 w-full">
+                        <motion.div
+                            className="text-center"
+                            style={{ opacity: heroOpacity, y: heroY }}
+                        >
+                            <h2
                                 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4"
+                                // style={{
+                                //     fontFamily: 'serif',
+                                //     letterSpacing: '0.02em',
+                                //     color: '#d16b02'
+                                // }}
                                 style={{
-                                    fontFamily: 'serif',
-                                    letterSpacing: '0.02em',
-                                    opacity: 1,
-                                    color: '#d16b02'
+                                    fontFamily: "'Sacramento', cursive",
+                                    fontWeight: 400,
+                                    fontStyle: "normal",
+                                    fontSize: "clamp(36px, 8vw, 72px)",
+                                    color: "#d16b02",
+                                    margin: 0,
+                                    textShadow: "0 2px 4px rgba(0,0,0,0.1)"
                                 }}
                             >
                                 Get In
-                            </motion.h2>
-                            <motion.h2
-                                initial={{ opacity: 0, y: -50 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                            </h2>
+                            <h2
                                 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-10"
                                 style={{
                                     fontFamily: 'serif',
-                                    letterSpacing: '0.01em',
-                                    opacity: 1
+                                    letterSpacing: '0.01em'
                                 }}
                             >
                                 Touch
-                            </motion.h2>
-                            <motion.nav
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-                                aria-label="breadcrumb"
-                            >
+                            </h2>
+                            <nav aria-label="breadcrumb">
                                 <ol className="flex justify-center items-center space-x-2 text-sm">
                                     <li>
                                         <a href="#" className="text-white hover:text-gray-300 transition-colors">
@@ -828,8 +829,8 @@ export default function ContactSection() {
                                         Contact
                                     </li>
                                 </ol>
-                            </motion.nav>
-                        </div>
+                            </nav>
+                        </motion.div>
                     </div>
                 </section>
 
