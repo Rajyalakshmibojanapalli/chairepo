@@ -27,9 +27,9 @@ const Header = ({ currentPage, navigateTo }) => {
   const navItems = [
     { title: "Home", link: "home" },
     { title: "StartUp Kit", link: "startupkit" },
-    { title: "Booking", link: "booking" },
-    // Logo will be positioned here
     { title: "About", link: "about" },
+    // { title: "Booking", link: "booking" },
+    // Logo will be positioned here
     { title: "Gallery", link: "gallery" },
     { title: "faqs", link: "faqs" },
     { title: "Blog", link: "blog" },
@@ -46,7 +46,7 @@ const Header = ({ currentPage, navigateTo }) => {
   // Always keep the header visible, just change its style
   const headerClasses = `
     fixed w-full transition-all duration-500 z-50
-    ${!isTop ? "header-bg bg-[#d16b02] bg-opacity-95 shadow-md" : "transparent"}
+    ${!isTop ? "header-bg bg-[#82390e] bg-opacity-95 shadow-md" : "transparent"}
   `;
 
   // Background gradient for when at top
@@ -66,7 +66,7 @@ const Header = ({ currentPage, navigateTo }) => {
             id="mainmenu"
             className={`
               hidden md:flex justify-center items-center h-full text-white text-center mx-auto relative
-              ${isMobileMenuOpen ? "flex flex-col absolute top-full left-0 w-full bg-[#d16b02] shadow-lg" : ""}
+              ${isMobileMenuOpen ? "flex flex-col absolute top-full left-0 w-full bg-[#82390e] shadow-lg" : ""}
             `}
             style={{ padding: isSmaller ? '0' : '50px 0 0 0', transition: 'all 0.3s ease' }}
           >
@@ -134,7 +134,7 @@ const Header = ({ currentPage, navigateTo }) => {
 
           {/* Mobile menu container - only visible when menu is open */}
           {isMobileMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 w-full bg-[#d16b02] shadow-lg z-50">
+            <div className="md:hidden absolute top-full left-0 w-full bg-amber-900 shadow-lg z-50">
               <ul className="flex flex-col w-full">
                 {[...leftNavItems, ...rightNavItems].map((item, index) => (
                   <li key={`mobile-${index}`} className="w-full border-b border-[#8dcb3f] border-opacity-20">

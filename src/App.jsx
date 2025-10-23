@@ -25,7 +25,7 @@ import Footer from './components/Footer';
 import Gallery from './components/Gallery';
 import BlogList from './pages/BlogPage';
 import Tea5Story from './components/Faqs';
-
+import StartupKit from './pages/StartupKit';
 const App = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');

@@ -171,7 +171,7 @@ import BottomBar from './BottomBar';
 export default function Footer() {
   return (
     <>
-      <footer className="bg-[#d16b02] text-white py-12">
+      <footer className="bg-[#82390e] text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             {/* Location Section */}
