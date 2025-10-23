@@ -26,7 +26,7 @@ const Header = ({ currentPage, navigateTo }) => {
   // Navigation items (with Gallery as a separate item)
   const navItems = [
     { title: "Home", link: "home" },
-    { title: "Menu", link: "menu" },
+    { title: "StartUp Kit", link: "startupkit" },
     { title: "Booking", link: "booking" },
     // Logo will be positioned here
     { title: "About", link: "about" },

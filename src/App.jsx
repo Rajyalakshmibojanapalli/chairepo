@@ -24,6 +24,7 @@ import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import Gallery from './components/Gallery';
 import BlogList from './pages/BlogPage';
+import StartupKit from './pages/StartupKit';
 
 const App = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -57,6 +58,7 @@ const App = () => {
 
       <main>
         {currentPage === 'home' && <HomePage navigateTo={navigateTo} />}
+        {currentPage === 'startupkit' && <StartupKit/>}
         {currentPage === 'about' && <AboutPage />}
         {currentPage === 'gallery' && <Gallery />}
         {currentPage === 'blog' && <BlogList navigateTo={navigateTo} />}
