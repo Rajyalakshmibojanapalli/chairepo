@@ -117,7 +117,7 @@ const BlogList = ({ blogs, navigateTo }) => {
       {/* Blog List Section */}
       <section
         id="section-blog"
-        className="py-16 bg-gray-900 text-white overflow-hidden"
+        className="py-16 bg-[#18191b] text-white overflow-hidden"
       >
         <div className="container mx-auto px-4">
           <FadeInWhenVisible>

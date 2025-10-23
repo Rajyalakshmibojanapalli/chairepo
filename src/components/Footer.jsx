@@ -162,29 +162,36 @@
 // export default Footer;
 
 
-
-
 import React from 'react';
 import { Facebook, Twitter, Rss, Dribbble } from 'lucide-react';
+import { motion } from 'framer-motion';
+import BottomBar from './BottomBar';
 
 
 export default function Footer() {
   return (
-    <footer className="bg-[#d16b02] text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-          {/* Location Section */}
-          <div className="text-center lg:text-left">
-            <h3 className="text-xl font-semibold mb-4">Our Location</h3>
-            <p className="leading-relaxed">
-              Collins Street West, Victoria 8007 Australia<br />
-              T. (208) 333 9296<br />
-              E. contact@baresto.com
-            </p>
-          </div>
+    <>
+      <footer className="bg-[#d16b02] text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+            {/* Location Section */}
+            <motion.div
+              className="text-center lg:text-left"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h3 className="text-xl font-semibold mb-4">Our Location</h3>
+              <p className="leading-relaxed">
+                Collins Street West, Victoria 8007 Australia<br />
+                T. (208) 333 9296<br />
+                E. contact@baresto.com
+              </p>
+            </motion.div>
 
-          {/* Logo Section */}
-          {/* <div className="text-center">
+            {/* Logo Section */}
+            {/* <div className="text-center">
             <div className="inline-block">
               <div className="bg-teal-600 rounded-full w-32 h-32 flex items-center justify-center">
                 <span className="text-4xl font-light italic text-white">baresto</span>
@@ -192,91 +199,121 @@ export default function Footer() {
             </div>
           </div> */}
 
-          <div className="text-center">
-            <div className="inline-block">
-              <div className="bg-[#000000]rounded-full w-32 h-32 flex items-center justify-center overflow-hidden">
-                <img
-                  src="/logo2.jpg" // Replace with your image path
-                  alt="Logo"
-                  className="w-28 h-28 object-cover rounded-full"
-                />
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="inline-block">
+                <motion.div
+                  className="bg-[#000000]rounded-full w-32 h-32 flex items-center justify-center overflow-hidden"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <img
+                    src="/logo2.jpg" // Replace with your image path
+                    alt="Logo"
+                    className="w-28 h-28 object-cover rounded-full"
+                  />
+                </motion.div>
               </div>
-            </div>
-          </div>
+            </motion.div>
 
-          {/* Social Icons Section */}
-          <div className="text-center lg:text-right">
-            <div className="flex justify-center lg:justify-end gap-1">
-              <a
-                href="#"
-                className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
-                aria-label="RSS"
-              >
-                <Rss size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
-                aria-label="Google Plus"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+            {/* Social Icons Section */}
+            <motion.div
+              className="text-center lg:text-right"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <div className="flex justify-center lg:justify-end gap-1">
+                <motion.a
+                  href="#"
+                  className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
+                  aria-label="Facebook"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  whileTap={{ scale: 0.9 }}
                 >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                  <path d="M12 6v6l4 2" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
-                aria-label="Skype"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  <Facebook size={20} />
+                </motion.a>
+                <motion.a
+                  href="#"
+                  className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
+                  aria-label="Twitter"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  whileTap={{ scale: 0.9 }}
                 >
-                  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" />
-                  <path d="M8 12h8" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
-                aria-label="Dribbble"
-              >
-                <Dribbble size={20} />
-              </a>
-            </div>
+                  <Twitter size={20} />
+                </motion.a>
+                <motion.a
+                  href="#"
+                  className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
+                  aria-label="RSS"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Rss size={20} />
+                </motion.a>
+                <motion.a
+                  href="#"
+                  className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
+                  aria-label="Google Plus"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                    <path d="M12 6v6l4 2" />
+                  </svg>
+                </motion.a>
+                <motion.a
+                  href="#"
+                  className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
+                  aria-label="Skype"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" />
+                    <path d="M8 12h8" />
+                  </svg>
+                </motion.a>
+                <motion.a
+                  href="#"
+                  className="w-10 h-10 flex items-center justify-center hover:bg-[#18191b] rounded transition-colors"
+                  aria-label="Dribbble"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Dribbble size={20} />
+                </motion.a>
+              </div>
+            </motion.div>
           </div>
         </div>
-      </div>
-    </footer>
+        <BottomBar />
+      </footer>
+    </>
   );
 }
