@@ -24,6 +24,7 @@ import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import Gallery from './components/Gallery';
 import BlogList from './pages/BlogPage';
+import Tea5Story from './components/Faqs';
 
 const App = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -63,6 +64,8 @@ const App = () => {
         {currentPage === 'testimonials' && <TestimonialsPage navigateTo={navigateTo} />}
         {currentPage === 'services' && <ServicesPage />}
         {currentPage === 'contact' && <ContactPage />}
+        {currentPage === "faqs" && (<Tea5Story />)}
+
       </main>
 
       <Footer navigateTo={navigateTo} />

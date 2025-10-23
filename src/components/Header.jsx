@@ -13,7 +13,7 @@ const Header = ({ currentPage, navigateTo }) => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -31,17 +31,18 @@ const Header = ({ currentPage, navigateTo }) => {
     // Logo will be positioned here
     { title: "About", link: "about" },
     { title: "Gallery", link: "gallery" },
+    { title: "faqs", link: "faqs" },
     { title: "Blog", link: "blog" },
     { title: "Contact", link: "contact" }
   ];
 
   const leftNavItems = navItems.slice(0, 3);
   const rightNavItems = navItems.slice(3);
-  
+
   // Determine header state
   const isTop = scrollY < 50;
   const isSmaller = scrollY > 100;
-  
+
   // Always keep the header visible, just change its style
   const headerClasses = `
     fixed w-full transition-all duration-500 z-50
@@ -54,15 +55,15 @@ const Header = ({ currentPage, navigateTo }) => {
   } : {};
 
   return (
-    <header 
-      className={headerClasses} 
+    <header
+      className={headerClasses}
       style={gradientStyle}
     >
       <div className="w-full mx-auto">
         {/* Main Navigation - Hidden on mobile unless menu is open */}
         <nav className="h-full">
-          <ul 
-            id="mainmenu" 
+          <ul
+            id="mainmenu"
             className={`
               hidden md:flex justify-center items-center h-full text-white text-center mx-auto relative
               ${isMobileMenuOpen ? "flex flex-col absolute top-full left-0 w-full bg-[#d16b02] shadow-lg" : ""}
@@ -72,7 +73,7 @@ const Header = ({ currentPage, navigateTo }) => {
             {/* Left side nav items */}
             {leftNavItems.map((item, index) => (
               <li key={`left-${index}`} className="relative md:inline-block text-center w-full md:w-auto">
-                <a 
+                <a
                   href={`#${item.link}`}
                   onClick={(e) => {
                     e.preventDefault();
@@ -89,18 +90,18 @@ const Header = ({ currentPage, navigateTo }) => {
                 </a>
               </li>
             ))}
-            
+
             {/* Center Logo - only shown on desktop */}
             <li className="logo_pos hidden md:inline-block mx-10 transition-all duration-300 relative">
-              <img 
-                src={icon} 
-                alt="Logo" 
+              <img
+                src={icon}
+                alt="Logo"
                 className={`
                   c_logo_light transition-all duration-300
                   ${isSmaller ? 'h-[45px]' : 'h-[105px]'}
-                `} 
+                `}
                 onClick={() => navigateTo("home")}
-                style={{ 
+                style={{
                   cursor: 'pointer',
                   marginTop: isSmaller ? '10px' : '-15px',
                   marginLeft: '40px',
@@ -108,11 +109,11 @@ const Header = ({ currentPage, navigateTo }) => {
                 }}
               />
             </li>
-            
+
             {/* Right side nav items */}
             {rightNavItems.map((item, index) => (
               <li key={`right-${index}`} className="relative md:inline-block text-center w-full md:w-auto">
-                <a 
+                <a
                   href={`#${item.link}`}
                   onClick={(e) => {
                     e.preventDefault();
@@ -137,7 +138,7 @@ const Header = ({ currentPage, navigateTo }) => {
               <ul className="flex flex-col w-full">
                 {[...leftNavItems, ...rightNavItems].map((item, index) => (
                   <li key={`mobile-${index}`} className="w-full border-b border-[#8dcb3f] border-opacity-20">
-                    <a 
+                    <a
                       href={`#${item.link}`}
                       onClick={(e) => {
                         e.preventDefault();
@@ -157,23 +158,23 @@ const Header = ({ currentPage, navigateTo }) => {
             </div>
           )}
         </nav>
-        
+
         {/* Mobile header container with fixed height */}
         <div className="md:hidden h-[70px] flex items-center justify-between px-4">
           {/* Mobile Logo */}
           <div className="flex items-center">
-            <img 
-              src={icon} 
-              alt="Logo" 
-              className="h-12" 
+            <img
+              src={icon}
+              alt="Logo"
+              className="h-12"
               onClick={() => navigateTo("home")}
               style={{ cursor: 'pointer' }}
             />
           </div>
-          
+
           {/* Mobile Navigation Button */}
           <div className="flex items-center">
-            <button 
+            <button
               className="text-white focus:outline-none p-2"
               onClick={toggleMobileMenu}
             >

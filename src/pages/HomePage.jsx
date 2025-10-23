@@ -574,7 +574,7 @@ const HomePage = () => {
                     </motion.div>
 
                     {/* Floating coffee icon */}
-                    <motion.div
+                    {/* <motion.div
                       className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full bg-white shadow-[0_15px_35px_rgba(209,107,2,0.25)] flex items-center justify-center z-20"
                       initial={{ scale: 0, rotate: -45 }}
                       whileInView={{ scale: 1, rotate: 0 }}
@@ -602,7 +602,33 @@ const HomePage = () => {
                           <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
                         </svg>
                       </div>
+                    </motion.div> */}
+                    <motion.div
+                      className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-white shadow-[0_15px_35px_rgba(209,107,2,0.25)] flex items-center justify-center z-20"
+                      initial={{ scale: 0, rotate: -45 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.7,
+                        delay: 1.1,
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 15,
+                      }}
+                      whileHover={{
+                        scale: 1.05,
+                        boxShadow: "0 20px 40px rgba(209,107,2,0.3)",
+                        rotate: 5,
+                        transition: { duration: 0.3 },
+                      }}
+                    >
+                      <img
+                        src="https://www.mrchai.in/images/background/franchise.webp" // replace with your actual cup image path
+                        alt="Cup Icon"
+                        className="w-35 h-35 object-contain"
+                      />
                     </motion.div>
+
                   </div>
                 </motion.div>
 
@@ -782,287 +808,206 @@ const HomePage = () => {
       </section>
 
       {/* Features Section */}
-<section className="features-section py-10 sm:py-16 lg:py-20 text-gray-800 relative overflow-hidden">
-  <div className="absolute inset-0 overflow-hidden opacity-10">
-    <div className="floating-dots"></div>
-  </div>
+      <section className="features-section py-10 sm:py-16 lg:py-20 text-gray-800 relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden opacity-10">
+          <div className="floating-dots"></div>
+        </div>
 
-  <div className="absolute -top-40 -right-40 w-60 sm:w-80 h-60 sm:h-80 bg-[#d16b02] opacity-5 rounded-full blur-3xl"></div>
-  <div className="absolute -bottom-40 -left-40 w-60 sm:w-80 h-60 sm:h-80 bg-[#d16b02] opacity-5 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-60 sm:w-80 h-60 sm:h-80 bg-[#d16b02] opacity-5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-60 sm:w-80 h-60 sm:h-80 bg-[#d16b02] opacity-5 rounded-full blur-3xl"></div>
 
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div className="mb-10 sm:mb-12 lg:mb-16 max-w-3xl mx-auto animate-fade-in">
-      <div className="flex items-center justify-center space-x-2 sm:space-x-4 mb-4 sm:mb-6">
-        <span className="h-[1px] w-6 sm:w-10 bg-[#d16b02]"></span>
-        <h2 className="text-[#d16b02] uppercase tracking-widest text-xs sm:text-sm font-bold text-center">
-          Exceptional Experience
-        </h2>
-        <span className="h-[1px] w-6 sm:w-10 bg-[#d16b02]"></span>
-      </div>
-
-      <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center leading-tight px-4 sm:px-0">
-        Why our customers{" "}
-        <span className="text-[#d16b02] relative inline-block">
-          keep coming back
-          <span className="absolute bottom-0 sm:bottom-1 left-0 w-full h-0.5 sm:h-1 bg-[#d16b02] opacity-20"></span>
-        </span>
-      </h3>
-    </div>
-
-    <div className="features-grid animate-fade-in-up">
-      {/* Mobile Carousel / Desktop Grid */}
-      <div className="block lg:hidden">
-        {/* Mobile horizontal scroll */}
-        <div className="overflow-x-auto pb-6 -mx-4 px-4">
-          <div className="flex space-x-4" style={{ width: 'max-content' }}>
-            {/* Main Feature Card */}
-            <div className="feature-card group w-72 sm:w-80 flex-shrink-0">
-              <div className="relative h-96 sm:h-[450px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(209,107,2,0.15)]">
-                <img
-                  src="https://i.pinimg.com/736x/9e/a7/ee/9ea7eee807b77d4d062ec54be39c6a92.jpg"
-                  alt="Premium Coffee Experience"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80"></div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 transform transition-transform duration-500 group-hover:translate-y-[-10px]">
-                  <span className="inline-block bg-[#d16b02] text-white px-3 sm:px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 sm:mb-4 shadow-lg">
-                    Signature
-                  </span>
-                  <h4 className="text-2xl sm:text-3xl font-bold mt-3 sm:mt-4 mb-2 text-white">
-                    Craft Coffee Experience
-                  </h4>
-                  <p className="text-neutral-200 text-sm sm:text-base mb-4 sm:mb-6 line-clamp-3">
-                    Single-origin beans roasted in-house daily, prepared by
-                    our award-winning baristas using precision techniques
-                    that bring out unique flavor profiles.
-                  </p>
-
-                  <div className="flex space-x-4 mt-3 sm:mt-4">
-                    <button className="btn-explore text-sm sm:text-base">
-                      <span>Explore Menu</span>
-                      <svg
-                        className="w-4 sm:w-5 h-4 sm:h-5 ml-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        ></path>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="mb-10 sm:mb-12 lg:mb-16 max-w-3xl mx-auto animate-fade-in">
+            <div className="flex items-center justify-center space-x-2 sm:space-x-4 mb-4 sm:mb-6">
+              <span className="h-[1px] w-6 sm:w-10 bg-[#d16b02]"></span>
+              <h2 className="text-[#d16b02] uppercase tracking-widest text-xs sm:text-sm font-bold text-center">
+                Exceptional Experience
+              </h2>
+              <span className="h-[1px] w-6 sm:w-10 bg-[#d16b02]"></span>
             </div>
 
-            {/* Small Feature Cards for Mobile */}
-            {[
-              {
-                icon: "🍽️",
-                title: "Chef-Crafted Cuisine",
-                description:
-                  "Seasonal ingredients transformed into memorable dishes that perfectly complement our beverages.",
-                image:
-                  "https://i.pinimg.com/736x/f0/31/1a/f0311a54b9e319e0bf18bdbedb57a0bb.jpg",
-              },
-              {
-                icon: "🎉",
-                title: "Unforgettable Events",
-                description:
-                  "Customize our space for celebrations, meetings, or private gatherings with our expert planning team.",
-                image:
-                  "https://i.pinimg.com/736x/4b/62/29/4b6229e49cba45cbbfc09be7f0159b91.jpg",
-              },
-              {
-                icon: "🌿",
-                title: "Sustainable Practices",
-                description:
-                  "Eco-conscious operations from bean sourcing to compostable packaging and energy-efficient facilities.",
-                image:
-                  "https://i.pinimg.com/736x/9d/f4/a5/9df4a5d5c3c4d7c16afaff80cfe4af6e.jpg",
-              },
-              {
-                icon: "💫",
-                title: "Digital Loyalty Program",
-                description:
-                  "Earn rewards with every visit through our app, with exclusive tastings and early access to seasonal offerings.",
-                image:
-                  "https://i.pinimg.com/736x/51/3b/3a/513b3a2cb93a0e1d4273a57b1a39fc32.jpg",
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="feature-small group w-72 sm:w-80 flex-shrink-0"
-              >
-                <div className="relative h-96 sm:h-[450px] rounded-xl overflow-hidden bg-white hover:bg-gradient-to-br from-white to-[#FDF8F3] shadow-md hover:shadow-[0_15px_35px_rgba(209,107,2,0.15)] transition-all duration-300 border border-transparent hover:border-[#d16b02]/10">
-                  <div className="absolute top-0 right-0 p-4 z-10">
-                    <div className="w-10 h-10 rounded-full bg-[#FDF8F3] flex items-center justify-center shadow-inner group-hover:bg-[#f8e3c8] transition-all duration-300">
-                      <span className="text-xl">{feature.icon}</span>
-                    </div>
-                  </div>
-
-                  <div className="p-6 h-full flex flex-col">
-                    <h4 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-[#d16b02] transition-colors duration-300 relative inline-block">
-                      {feature.title}
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#d16b02] transition-all duration-300 group-hover:w-full opacity-60"></span>
-                    </h4>
-                    <p className="text-gray-600 text-sm mb-4">
-                      {feature.description}
-                    </p>
-                    <div className="mt-auto">
-                      <button className="text-[#d16b02] group-hover:text-[#b25601] text-sm font-medium inline-flex items-center">
-                        <span>Learn more</span>
-                        <svg
-                          className="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M13 7l5 5m0 0l-5 5m5-5H6"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile Scroll Indicators */}
-        <div className="flex justify-center mt-4">
-          {[0, 1, 2, 3, 4].map((i) => (
-            <button
-              key={i}
-              className={`w-2 h-2 rounded-full mx-1 transition-all duration-300 ${
-                i === 0 ? "bg-[#d16b02] w-6" : "bg-[#d16b02]/30"
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-            ></button>
-          ))}
-        </div>
-      </div>
-
-      {/* Desktop Grid Layout */}
-      <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8">
-        {/* Large Feature Card */}
-        <div className="feature-card lg:col-span-5 xl:col-span-6 group">
-          <div className="relative h-[400px] xl:h-[500px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(209,107,2,0.15)]">
-            <img
-              src="https://i.pinimg.com/736x/9e/a7/ee/9ea7eee807b77d4d062ec54be39c6a92.jpg"
-              alt="Premium Coffee Experience"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80"></div>
-
-            <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 transform transition-transform duration-500 group-hover:translate-y-[-10px]">
-              <span className="inline-block bg-[#d16b02] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-lg">
-                Signature
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center leading-tight px-4 sm:px-0">
+              Why our customers{" "}
+              <span className="text-[#d16b02] relative inline-block">
+                keep coming back
+                <span className="absolute bottom-0 sm:bottom-1 left-0 w-full h-0.5 sm:h-1 bg-[#d16b02] opacity-20"></span>
               </span>
-              <h4 className="text-2xl lg:text-3xl font-bold mt-4 mb-2 text-white">
-                Craft Coffee Experience
-              </h4>
-              <p className="text-neutral-200 text-sm lg:text-base mb-6 line-clamp-3">
-                Single-origin beans roasted in-house daily, prepared by
-                our award-winning baristas using precision techniques
-                that bring out unique flavor profiles.
-              </p>
-
-              <div className="flex space-x-4 mt-4">
-                <button className="btn-explore">
-                  <span>Explore Menu</span>
-                  <svg
-                    className="w-5 h-5 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    ></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
+            </h3>
           </div>
-        </div>
 
-        {/* Small Feature Cards Grid */}
-        <div className="lg:col-span-7 xl:col-span-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 h-full">
-            {[
-              {
-                icon: "🍽️",
-                title: "Chef-Crafted Cuisine",
-                description:
-                  "Seasonal ingredients transformed into memorable dishes that perfectly complement our beverages.",
-                image:
-                  "https://i.pinimg.com/736x/f0/31/1a/f0311a54b9e319e0bf18bdbedb57a0bb.jpg",
-              },
-              {
-                icon: "🎉",
-                title: "Unforgettable Events",
-                description:
-                  "Customize our space for celebrations, meetings, or private gatherings with our expert planning team.",
-                image:
-                  "https://i.pinimg.com/736x/4b/62/29/4b6229e49cba45cbbfc09be7f0159b91.jpg",
-              },
-              {
-                icon: "🌿",
-                title: "Sustainable Practices",
-                description:
-                  "Eco-conscious operations from bean sourcing to compostable packaging and energy-efficient facilities.",
-                image:
-                  "https://i.pinimg.com/736x/9d/f4/a5/9df4a5d5c3c4d7c16afaff80cfe4af6e.jpg",
-              },
-              {
-                icon: "💫",
-                title: "Digital Loyalty Program",
-                description:
-                  "Earn rewards with every visit through our app, with exclusive tastings and early access to seasonal offerings.",
-                image:
-                  "https://i.pinimg.com/736x/51/3b/3a/513b3a2cb93a0e1d4273a57b1a39fc32.jpg",
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className={`feature-small group animate-fade-in-up-${
-                  index + 1
-                }`}
-              >
-                <div className="relative h-full min-h-[180px] lg:min-h-[190px] xl:min-h-[230px] rounded-xl overflow-hidden bg-white hover:bg-gradient-to-br from-white to-[#FDF8F3] shadow-md hover:shadow-[0_15px_35px_rgba(209,107,2,0.15)] transition-all duration-300 border border-transparent hover:border-[#d16b02]/10">
-                  <div className="absolute top-0 right-0 p-3 lg:p-4 z-10">
-                    <div className="w-8 lg:w-10 h-8 lg:h-10 rounded-full bg-[#FDF8F3] flex items-center justify-center shadow-inner group-hover:bg-[#f8e3c8] transition-all duration-300">
-                      <span className="text-lg lg:text-xl">{feature.icon}</span>
+          <div className="features-grid animate-fade-in-up">
+            {/* Mobile Carousel / Desktop Grid */}
+            <div className="block lg:hidden">
+              {/* Mobile horizontal scroll */}
+              <div className="overflow-x-auto pb-6 -mx-4 px-4">
+                <div className="flex space-x-4" style={{ width: 'max-content' }}>
+                  {/* Main Feature Card */}
+                  <div className="feature-card group w-72 sm:w-80 flex-shrink-0">
+                    <div className="relative h-96 sm:h-[450px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(209,107,2,0.15)]">
+                      <img
+                        src="https://i.pinimg.com/736x/9e/a7/ee/9ea7eee807b77d4d062ec54be39c6a92.jpg"
+                        alt="Premium Coffee Experience"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80"></div>
+
+                      <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 transform transition-transform duration-500 group-hover:translate-y-[-10px]">
+                        <span className="inline-block bg-[#d16b02] text-white px-3 sm:px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 sm:mb-4 shadow-lg">
+                          Signature
+                        </span>
+                        <h4 className="text-2xl sm:text-3xl font-bold mt-3 sm:mt-4 mb-2 text-white">
+                          Craft Coffee Experience
+                        </h4>
+                        <p className="text-neutral-200 text-sm sm:text-base mb-4 sm:mb-6 line-clamp-3">
+                          Single-origin beans roasted in-house daily, prepared by
+                          our award-winning baristas using precision techniques
+                          that bring out unique flavor profiles.
+                        </p>
+
+                        <div className="flex space-x-4 mt-3 sm:mt-4">
+                          <button className="btn-explore text-sm sm:text-base">
+                            <span>Explore Menu</span>
+                            <svg
+                              className="w-4 sm:w-5 h-4 sm:h-5 ml-2"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="p-4 lg:p-6 h-full flex flex-col">
-                    <h4 className="text-lg lg:text-xl font-bold mb-2 group-hover:text-[#d16b02] transition-colors duration-300 relative inline-block pr-12">
-                      {feature.title}
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#d16b02] transition-all duration-300 group-hover:w-full opacity-60"></span>
+                  {/* Small Feature Cards for Mobile */}
+                  {[
+                    {
+                      icon: "🍽️",
+                      title: "Chef-Crafted Cuisine",
+                      description:
+                        "Seasonal ingredients transformed into memorable dishes that perfectly complement our beverages.",
+                      image:
+                        "https://i.pinimg.com/736x/f0/31/1a/f0311a54b9e319e0bf18bdbedb57a0bb.jpg",
+                    },
+                    {
+                      icon: "🎉",
+                      title: "Unforgettable Events",
+                      description:
+                        "Customize our space for celebrations, meetings, or private gatherings with our expert planning team.",
+                      image:
+                        "https://i.pinimg.com/736x/4b/62/29/4b6229e49cba45cbbfc09be7f0159b91.jpg",
+                    },
+                    {
+                      icon: "🌿",
+                      title: "Sustainable Practices",
+                      description:
+                        "Eco-conscious operations from bean sourcing to compostable packaging and energy-efficient facilities.",
+                      image:
+                        "https://i.pinimg.com/736x/9d/f4/a5/9df4a5d5c3c4d7c16afaff80cfe4af6e.jpg",
+                    },
+                    {
+                      icon: "💫",
+                      title: "Digital Loyalty Program",
+                      description:
+                        "Earn rewards with every visit through our app, with exclusive tastings and early access to seasonal offerings.",
+                      image:
+                        "https://i.pinimg.com/736x/51/3b/3a/513b3a2cb93a0e1d4273a57b1a39fc32.jpg",
+                    },
+                  ].map((feature, index) => (
+                    <div
+                      key={index}
+                      className="feature-small group w-72 sm:w-80 flex-shrink-0"
+                    >
+                      <div className="relative h-96 sm:h-[450px] rounded-xl overflow-hidden bg-white hover:bg-gradient-to-br from-white to-[#FDF8F3] shadow-md hover:shadow-[0_15px_35px_rgba(209,107,2,0.15)] transition-all duration-300 border border-transparent hover:border-[#d16b02]/10">
+                        <div className="absolute top-0 right-0 p-4 z-10">
+                          <div className="w-10 h-10 rounded-full bg-[#FDF8F3] flex items-center justify-center shadow-inner group-hover:bg-[#f8e3c8] transition-all duration-300">
+                            <span className="text-xl">{feature.icon}</span>
+                          </div>
+                        </div>
+
+                        <div className="p-6 h-full flex flex-col">
+                          <h4 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-[#d16b02] transition-colors duration-300 relative inline-block">
+                            {feature.title}
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#d16b02] transition-all duration-300 group-hover:w-full opacity-60"></span>
+                          </h4>
+                          <p className="text-gray-600 text-sm mb-4">
+                            {feature.description}
+                          </p>
+                          <div className="mt-auto">
+                            <button className="text-[#d16b02] group-hover:text-[#b25601] text-sm font-medium inline-flex items-center">
+                              <span>Learn more</span>
+                              <svg
+                                className="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x-2"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Scroll Indicators */}
+              <div className="flex justify-center mt-4">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <button
+                    key={i}
+                    className={`w-2 h-2 rounded-full mx-1 transition-all duration-300 ${i === 0 ? "bg-[#d16b02] w-6" : "bg-[#d16b02]/30"
+                      }`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  ></button>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop Grid Layout */}
+            <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8">
+              {/* Large Feature Card */}
+              <div className="feature-card lg:col-span-5 xl:col-span-6 group">
+                <div className="relative h-[400px] xl:h-[500px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(209,107,2,0.15)]">
+                  <img
+                    src="https://i.pinimg.com/736x/9e/a7/ee/9ea7eee807b77d4d062ec54be39c6a92.jpg"
+                    alt="Premium Coffee Experience"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80"></div>
+
+                  <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 transform transition-transform duration-500 group-hover:translate-y-[-10px]">
+                    <span className="inline-block bg-[#d16b02] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-lg">
+                      Signature
+                    </span>
+                    <h4 className="text-2xl lg:text-3xl font-bold mt-4 mb-2 text-white">
+                      Craft Coffee Experience
                     </h4>
-                    <p className="text-gray-600 text-xs lg:text-sm mb-4">
-                      {feature.description}
+                    <p className="text-neutral-200 text-sm lg:text-base mb-6 line-clamp-3">
+                      Single-origin beans roasted in-house daily, prepared by
+                      our award-winning baristas using precision techniques
+                      that bring out unique flavor profiles.
                     </p>
-                    <div className="mt-auto">
-                      <button className="text-[#d16b02] group-hover:text-[#b25601] text-sm font-medium inline-flex items-center">
-                        <span>Learn more</span>
+
+                    <div className="flex space-x-4 mt-4">
+                      <button className="btn-explore">
+                        <span>Explore Menu</span>
                         <svg
-                          className="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x-2"
+                          className="w-5 h-5 ml-2"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -1071,7 +1016,7 @@ const HomePage = () => {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth="2"
-                            d="M13 7l5 5m0 0l-5 5m5-5H6"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
                           ></path>
                         </svg>
                       </button>
@@ -1079,40 +1024,118 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-            ))}
+
+              {/* Small Feature Cards Grid */}
+              <div className="lg:col-span-7 xl:col-span-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 h-full">
+                  {[
+                    {
+                      icon: "🍽️",
+                      title: "Chef-Crafted Cuisine",
+                      description:
+                        "Seasonal ingredients transformed into memorable dishes that perfectly complement our beverages.",
+                      image:
+                        "https://i.pinimg.com/736x/f0/31/1a/f0311a54b9e319e0bf18bdbedb57a0bb.jpg",
+                    },
+                    {
+                      icon: "🎉",
+                      title: "Unforgettable Events",
+                      description:
+                        "Customize our space for celebrations, meetings, or private gatherings with our expert planning team.",
+                      image:
+                        "https://i.pinimg.com/736x/4b/62/29/4b6229e49cba45cbbfc09be7f0159b91.jpg",
+                    },
+                    {
+                      icon: "🌿",
+                      title: "Sustainable Practices",
+                      description:
+                        "Eco-conscious operations from bean sourcing to compostable packaging and energy-efficient facilities.",
+                      image:
+                        "https://i.pinimg.com/736x/9d/f4/a5/9df4a5d5c3c4d7c16afaff80cfe4af6e.jpg",
+                    },
+                    {
+                      icon: "💫",
+                      title: "Digital Loyalty Program",
+                      description:
+                        "Earn rewards with every visit through our app, with exclusive tastings and early access to seasonal offerings.",
+                      image:
+                        "https://i.pinimg.com/736x/51/3b/3a/513b3a2cb93a0e1d4273a57b1a39fc32.jpg",
+                    },
+                  ].map((feature, index) => (
+                    <div
+                      key={index}
+                      className={`feature-small group animate-fade-in-up-${index + 1
+                        }`}
+                    >
+                      <div className="relative h-full min-h-[180px] lg:min-h-[190px] xl:min-h-[230px] rounded-xl overflow-hidden bg-white hover:bg-gradient-to-br from-white to-[#FDF8F3] shadow-md hover:shadow-[0_15px_35px_rgba(209,107,2,0.15)] transition-all duration-300 border border-transparent hover:border-[#d16b02]/10">
+                        <div className="absolute top-0 right-0 p-3 lg:p-4 z-10">
+                          <div className="w-8 lg:w-10 h-8 lg:h-10 rounded-full bg-[#FDF8F3] flex items-center justify-center shadow-inner group-hover:bg-[#f8e3c8] transition-all duration-300">
+                            <span className="text-lg lg:text-xl">{feature.icon}</span>
+                          </div>
+                        </div>
+
+                        <div className="p-4 lg:p-6 h-full flex flex-col">
+                          <h4 className="text-lg lg:text-xl font-bold mb-2 group-hover:text-[#d16b02] transition-colors duration-300 relative inline-block pr-12">
+                            {feature.title}
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#d16b02] transition-all duration-300 group-hover:w-full opacity-60"></span>
+                          </h4>
+                          <p className="text-gray-600 text-xs lg:text-sm mb-4">
+                            {feature.description}
+                          </p>
+                          <div className="mt-auto">
+                            <button className="text-[#d16b02] group-hover:text-[#b25601] text-sm font-medium inline-flex items-center">
+                              <span>Learn more</span>
+                              <svg
+                                className="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x-2"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Section */}
+          <div
+            ref={statsRef}
+            className="stats-section mt-12 sm:mt-16 lg:mt-24 border-t border-[#d16b02]/10 pt-8 sm:pt-12 lg:pt-16 animate-fade-in-up-delayed"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+              {counters.map((stat, index) => (
+                <div
+                  key={index}
+                  className={`text-center stat-counter animate-count-up-${index + 1
+                    }`}
+                >
+                  <div className="counter text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#d16b02] mb-1 sm:mb-2">
+                    {isStatsVisible
+                      ? formatNumber(stat.current, stat.suffix)
+                      : "0"}
+                  </div>
+                  <p className="text-gray-600 text-xs sm:text-sm uppercase tracking-wider">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    {/* Stats Section */}
-    <div
-      ref={statsRef}
-      className="stats-section mt-12 sm:mt-16 lg:mt-24 border-t border-[#d16b02]/10 pt-8 sm:pt-12 lg:pt-16 animate-fade-in-up-delayed"
-    >
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-        {counters.map((stat, index) => (
-          <div
-            key={index}
-            className={`text-center stat-counter animate-count-up-${
-              index + 1
-            }`}
-          >
-            <div className="counter text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#d16b02] mb-1 sm:mb-2">
-              {isStatsVisible
-                ? formatNumber(stat.current, stat.suffix)
-                : "0"}
-            </div>
-            <p className="text-gray-600 text-xs sm:text-sm uppercase tracking-wider">
-              {stat.label}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-
-  <style jsx>{`
+        <style jsx>{`
     .shadow-glow {
       box-shadow: 0 0 30px rgba(209, 107, 2, 0.25);
     }
@@ -1353,7 +1376,7 @@ const HomePage = () => {
       background: rgba(209, 107, 2, 0.5);
     }
   `}</style>
-</section>
+      </section>
 
       {/* Favorite Coffee Section */}
       <section
@@ -1597,289 +1620,289 @@ const HomePage = () => {
       </section>
 
       {/* Foods Menu Section */}
-<section
-  className="py-16 sm:py-20 md:py-28 bg-cover bg-fixed bg-center relative"
-  style={{
-    backgroundImage:
-      "url('https://i.pinimg.com/1200x/20/6c/16/206c16f3c0026aa8ddd68e980ab6401e.jpg')",
-  }}
->
-  {/* Enhanced overlay with gradient */}
-  <div className="absolute inset-0 bg-black/60"></div>
-
-  <div className="container mx-auto px-4 relative z-10">
-    <div className="flex justify-center lg:justify-end">
-      <motion.div
-        className="w-full max-w-2xl"
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-100px" }}
+      <section
+        className="py-16 sm:py-20 md:py-28 bg-cover bg-fixed bg-center relative"
+        style={{
+          backgroundImage:
+            "url('https://i.pinimg.com/1200x/20/6c/16/206c16f3c0026aa8ddd68e980ab6401e.jpg')",
+        }}
       >
-        {/* Title visible only on mobile/tablet */}
-        <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-white mb-6 text-center lg:hidden"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          Startup <span className="text-[#d16b02]">Kit</span> Package
-        </motion.h2>
+        {/* Enhanced overlay with gradient */}
+        <div className="absolute inset-0 bg-black/60"></div>
 
-        {/* Electronics Section */}
-        <motion.div
-          className="bg-black/40 backdrop-blur-sm p-6 sm:p-8 rounded-lg shadow-2xl border border-white/10 mb-6"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <div className="flex mb-6 font-bold text-[#8dcb3f] border-b border-white/20 pb-4">
-            <div className="flex-1 text-left uppercase tracking-wider">
-              Electronics & Equipment
-            </div>
-            <div className="w-24 sm:w-32 text-right uppercase tracking-wider">
-              Qty
-            </div>
-          </div>
-
-          {[
-            { name: "Deep Freezer", description: "320 Ltr capacity for storage", qty: "1", highlight: true },
-            { name: "Refrigerator", description: "190 Ltr for fresh ingredients", qty: "1" },
-            { name: "Induction Stove", description: "Energy efficient cooking", qty: "1" },
-            { name: "Mixer Butterfly", description: "Professional grade blending", qty: "1", highlight: true },
-            { name: "Sandwich Griller", description: "For quick snacks", qty: "1" },
-            { name: "Deep Fryer", description: "Commercial quality", qty: "1" },
-            { name: "LED TV 32 inch", description: "For customer entertainment", qty: "1" },
-            { name: "Washing Machine", description: "For maintaining hygiene", qty: "1" },
-          ].map((item, index) => (
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex justify-center lg:justify-end">
             <motion.div
-              key={index}
-              className="flex py-4 border-b border-white/10 items-center relative"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: index * 0.08,
-                duration: 0.5,
-              }}
-              viewport={{ once: true }}
-              whileHover={{
-                backgroundColor: "rgba(209, 107, 2, 0.15)",
-                transition: { duration: 0.2 },
-              }}
+              className="w-full max-w-2xl"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="flex-1 pr-4">
-                <div className="flex items-center">
-                  <h4 className="font-medium text-white">{item.name}</h4>
-                  {item.highlight && (
-                    <span className="ml-2 bg-[#d16b02] text-white text-xs px-1.5 py-0.5 rounded">
-                      Essential
-                    </span>
-                  )}
-                </div>
-                <p className="text-xs text-gray-400 mt-1 line-clamp-2">
-                  {item.description}
-                </p>
-              </div>
-              <div className="w-24 sm:w-32 text-[#d16b02] font-medium text-right">
-                {item.qty} Unit
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Kitchen Equipment Section */}
-        <motion.div
-          className="bg-black/40 backdrop-blur-sm p-6 sm:p-8 rounded-lg shadow-2xl border border-white/10 mb-6"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <div className="flex mb-6 font-bold text-[#8dcb3f] border-b border-white/20 pb-4">
-            <div className="flex-1 text-left uppercase tracking-wider">
-              Kitchen Essentials
-            </div>
-            <div className="w-24 sm:w-32 text-right uppercase tracking-wider">
-              Qty
-            </div>
-          </div>
-
-          {[
-            { name: "Gas Stove", description: "Commercial grade burner", qty: "1", highlight: true },
-            { name: "Milton Tea Flask", description: "For hot beverages", qty: "2" },
-            { name: "Stainless Vessels", description: "Various sizes for preparation", qty: "12" },
-            { name: "Steel Cups", description: "Durable serving cups", qty: "50" },
-            { name: "Glass Cups", description: "Premium serving option", qty: "50" },
-            { name: "Tea Strainers", description: "Professional grade", qty: "6" },
-            { name: "Cutting Board & Knives", description: "Food preparation essentials", qty: "Set" },
-            { name: "Storage Containers", description: "Airtight storage solutions", qty: "12" },
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              className="flex py-4 border-b border-white/10 items-center relative"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: index * 0.08,
-                duration: 0.5,
-              }}
-              viewport={{ once: true }}
-              whileHover={{
-                backgroundColor: "rgba(209, 107, 2, 0.15)",
-                transition: { duration: 0.2 },
-              }}
-            >
-              <div className="flex-1 pr-4">
-                <div className="flex items-center">
-                  <h4 className="font-medium text-white">{item.name}</h4>
-                  {item.highlight && (
-                    <span className="ml-2 bg-[#d16b02] text-white text-xs px-1.5 py-0.5 rounded">
-                      Essential
-                    </span>
-                  )}
-                </div>
-                <p className="text-xs text-gray-400 mt-1 line-clamp-2">
-                  {item.description}
-                </p>
-              </div>
-              <div className="w-24 sm:w-32 text-[#d16b02] font-medium text-right">
-                {item.qty}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Raw Materials Section */}
-        <motion.div
-          className="bg-black/40 backdrop-blur-sm p-6 sm:p-8 rounded-lg shadow-2xl border border-white/10"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <div className="flex mb-6 font-bold text-[#8dcb3f] border-b border-white/20 pb-4">
-            <div className="flex-1 text-left uppercase tracking-wider">
-              Raw Materials & Inventory
-            </div>
-            <div className="w-24 sm:w-32 text-right uppercase tracking-wider">
-              Package
-            </div>
-          </div>
-
-          {[
-            { name: "Premium Coffee", description: "Arabica & Robusta blends", qty: "5 Kg", highlight: true },
-            { name: "Tea Collection", description: "Green, Black, Blue, Rose, White varieties", qty: "10 Kg" },
-            { name: "Dairy Milk", description: "Fresh dairy products", qty: "Daily" },
-            { name: "Bournvita & Horlicks", description: "Health drinks", qty: "2 Kg" },
-            { name: "Syrup Collection", description: "Chocolate, Orange, Strawberry, Mango", qty: "1L Each", highlight: true },
-            { name: "Honey & Sugar", description: "Natural sweeteners", qty: "5 Kg" },
-            { name: "Spices & Herbs", description: "Pepper, Cardamom, Lemongrass", qty: "500g Each" },
-            { name: "Branding Setup", description: "Main board, menu boards, photo frames", qty: "Complete", highlight: true },
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              className="flex py-4 border-b border-white/10 items-center relative"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: index * 0.08,
-                duration: 0.5,
-              }}
-              viewport={{ once: true }}
-              whileHover={{
-                backgroundColor: "rgba(209, 107, 2, 0.15)",
-                transition: { duration: 0.2 },
-              }}
-            >
-              <div className="flex-1 pr-4">
-                <div className="flex items-center">
-                  <h4 className="font-medium text-white">{item.name}</h4>
-                  {item.highlight && (
-                    <span className="ml-2 bg-[#d16b02] text-white text-xs px-1.5 py-0.5 rounded">
-                      Premium
-                    </span>
-                  )}
-                </div>
-                <p className="text-xs text-gray-400 mt-1 line-clamp-2">
-                  {item.description}
-                </p>
-              </div>
-              <div className="w-24 sm:w-32 text-[#d16b02] font-medium text-right">
-                {item.qty}
-              </div>
-            </motion.div>
-          ))}
-
-          <motion.div
-            className="mt-8 flex flex-col sm:flex-row justify-between items-center gap-4"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <div className="text-sm text-gray-400 text-center sm:text-left">
-              * Complete turnkey solution for cafe startup
-            </div>
-
-            <motion.a
-              href="#contact"
-              className="px-6 py-3 bg-[#d16b02] text-white hover:bg-[#b55a01] transition-all duration-300 inline-flex items-center gap-2 group rounded-md font-semibold"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Get Started Today
-              <svg
-                className="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+              {/* Title visible only on mobile/tablet */}
+              <motion.h2
+                className="text-3xl sm:text-4xl font-bold text-white mb-6 text-center lg:hidden"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </motion.a>
-          </motion.div>
-        </motion.div>
+                Startup <span className="text-[#d16b02]">Kit</span> Package
+              </motion.h2>
 
-        {/* Package Summary */}
-        <motion.div
-          className="mt-6 bg-[#d16b02]/20 backdrop-blur-sm p-4 rounded-lg border border-[#d16b02]/30"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center text-white">
-            <p className="text-sm mb-2">Complete Startup Package Includes:</p>
-            <div className="flex flex-wrap justify-center gap-3 text-xs">
-              <span className="bg-white/10 px-3 py-1 rounded">✓ All Equipment</span>
-              <span className="bg-white/10 px-3 py-1 rounded">✓ Initial Inventory</span>
-              <span className="bg-white/10 px-3 py-1 rounded">✓ Branding Setup</span>
-              <span className="bg-white/10 px-3 py-1 rounded">✓ Training Support</span>
-            </div>
+              {/* Electronics Section */}
+              <motion.div
+                className="bg-black/40 backdrop-blur-sm p-6 sm:p-8 rounded-lg shadow-2xl border border-white/10 mb-6"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <div className="flex mb-6 font-bold text-[#8dcb3f] border-b border-white/20 pb-4">
+                  <div className="flex-1 text-left uppercase tracking-wider">
+                    Electronics & Equipment
+                  </div>
+                  <div className="w-24 sm:w-32 text-right uppercase tracking-wider">
+                    Qty
+                  </div>
+                </div>
+
+                {[
+                  { name: "Deep Freezer", description: "320 Ltr capacity for storage", qty: "1", highlight: true },
+                  { name: "Refrigerator", description: "190 Ltr for fresh ingredients", qty: "1" },
+                  { name: "Induction Stove", description: "Energy efficient cooking", qty: "1" },
+                  { name: "Mixer Butterfly", description: "Professional grade blending", qty: "1", highlight: true },
+                  { name: "Sandwich Griller", description: "For quick snacks", qty: "1" },
+                  { name: "Deep Fryer", description: "Commercial quality", qty: "1" },
+                  { name: "LED TV 32 inch", description: "For customer entertainment", qty: "1" },
+                  { name: "Washing Machine", description: "For maintaining hygiene", qty: "1" },
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex py-4 border-b border-white/10 items-center relative"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: index * 0.08,
+                      duration: 0.5,
+                    }}
+                    viewport={{ once: true }}
+                    whileHover={{
+                      backgroundColor: "rgba(209, 107, 2, 0.15)",
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    <div className="flex-1 pr-4">
+                      <div className="flex items-center">
+                        <h4 className="font-medium text-white">{item.name}</h4>
+                        {item.highlight && (
+                          <span className="ml-2 bg-[#d16b02] text-white text-xs px-1.5 py-0.5 rounded">
+                            Essential
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                        {item.description}
+                      </p>
+                    </div>
+                    <div className="w-24 sm:w-32 text-[#d16b02] font-medium text-right">
+                      {item.qty} Unit
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Kitchen Equipment Section */}
+              <motion.div
+                className="bg-black/40 backdrop-blur-sm p-6 sm:p-8 rounded-lg shadow-2xl border border-white/10 mb-6"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <div className="flex mb-6 font-bold text-[#8dcb3f] border-b border-white/20 pb-4">
+                  <div className="flex-1 text-left uppercase tracking-wider">
+                    Kitchen Essentials
+                  </div>
+                  <div className="w-24 sm:w-32 text-right uppercase tracking-wider">
+                    Qty
+                  </div>
+                </div>
+
+                {[
+                  { name: "Gas Stove", description: "Commercial grade burner", qty: "1", highlight: true },
+                  { name: "Milton Tea Flask", description: "For hot beverages", qty: "2" },
+                  { name: "Stainless Vessels", description: "Various sizes for preparation", qty: "12" },
+                  { name: "Steel Cups", description: "Durable serving cups", qty: "50" },
+                  { name: "Glass Cups", description: "Premium serving option", qty: "50" },
+                  { name: "Tea Strainers", description: "Professional grade", qty: "6" },
+                  { name: "Cutting Board & Knives", description: "Food preparation essentials", qty: "Set" },
+                  { name: "Storage Containers", description: "Airtight storage solutions", qty: "12" },
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex py-4 border-b border-white/10 items-center relative"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: index * 0.08,
+                      duration: 0.5,
+                    }}
+                    viewport={{ once: true }}
+                    whileHover={{
+                      backgroundColor: "rgba(209, 107, 2, 0.15)",
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    <div className="flex-1 pr-4">
+                      <div className="flex items-center">
+                        <h4 className="font-medium text-white">{item.name}</h4>
+                        {item.highlight && (
+                          <span className="ml-2 bg-[#d16b02] text-white text-xs px-1.5 py-0.5 rounded">
+                            Essential
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                        {item.description}
+                      </p>
+                    </div>
+                    <div className="w-24 sm:w-32 text-[#d16b02] font-medium text-right">
+                      {item.qty}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Raw Materials Section */}
+              <motion.div
+                className="bg-black/40 backdrop-blur-sm p-6 sm:p-8 rounded-lg shadow-2xl border border-white/10"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <div className="flex mb-6 font-bold text-[#8dcb3f] border-b border-white/20 pb-4">
+                  <div className="flex-1 text-left uppercase tracking-wider">
+                    Raw Materials & Inventory
+                  </div>
+                  <div className="w-24 sm:w-32 text-right uppercase tracking-wider">
+                    Package
+                  </div>
+                </div>
+
+                {[
+                  { name: "Premium Coffee", description: "Arabica & Robusta blends", qty: "5 Kg", highlight: true },
+                  { name: "Tea Collection", description: "Green, Black, Blue, Rose, White varieties", qty: "10 Kg" },
+                  { name: "Dairy Milk", description: "Fresh dairy products", qty: "Daily" },
+                  { name: "Bournvita & Horlicks", description: "Health drinks", qty: "2 Kg" },
+                  { name: "Syrup Collection", description: "Chocolate, Orange, Strawberry, Mango", qty: "1L Each", highlight: true },
+                  { name: "Honey & Sugar", description: "Natural sweeteners", qty: "5 Kg" },
+                  { name: "Spices & Herbs", description: "Pepper, Cardamom, Lemongrass", qty: "500g Each" },
+                  { name: "Branding Setup", description: "Main board, menu boards, photo frames", qty: "Complete", highlight: true },
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex py-4 border-b border-white/10 items-center relative"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: index * 0.08,
+                      duration: 0.5,
+                    }}
+                    viewport={{ once: true }}
+                    whileHover={{
+                      backgroundColor: "rgba(209, 107, 2, 0.15)",
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    <div className="flex-1 pr-4">
+                      <div className="flex items-center">
+                        <h4 className="font-medium text-white">{item.name}</h4>
+                        {item.highlight && (
+                          <span className="ml-2 bg-[#d16b02] text-white text-xs px-1.5 py-0.5 rounded">
+                            Premium
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                        {item.description}
+                      </p>
+                    </div>
+                    <div className="w-24 sm:w-32 text-[#d16b02] font-medium text-right">
+                      {item.qty}
+                    </div>
+                  </motion.div>
+                ))}
+
+                <motion.div
+                  className="mt-8 flex flex-col sm:flex-row justify-between items-center gap-4"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="text-sm text-gray-400 text-center sm:text-left">
+                    * Complete turnkey solution for cafe startup
+                  </div>
+
+                  <motion.a
+                    href="#contact"
+                    className="px-6 py-3 bg-[#d16b02] text-white hover:bg-[#b55a01] transition-all duration-300 inline-flex items-center gap-2 group rounded-md font-semibold"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Get Started Today
+                    <svg
+                      className="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </motion.a>
+                </motion.div>
+              </motion.div>
+
+              {/* Package Summary */}
+              <motion.div
+                className="mt-6 bg-[#d16b02]/20 backdrop-blur-sm p-4 rounded-lg border border-[#d16b02]/30"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-center text-white">
+                  <p className="text-sm mb-2">Complete Startup Package Includes:</p>
+                  <div className="flex flex-wrap justify-center gap-3 text-xs">
+                    <span className="bg-white/10 px-3 py-1 rounded">✓ All Equipment</span>
+                    <span className="bg-white/10 px-3 py-1 rounded">✓ Initial Inventory</span>
+                    <span className="bg-white/10 px-3 py-1 rounded">✓ Branding Setup</span>
+                    <span className="bg-white/10 px-3 py-1 rounded">✓ Training Support</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Decorative element */}
+              <motion.div
+                className="hidden lg:block absolute -left-16 top-1/2 -translate-y-1/2"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.9 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-8 h-8 border-t-2 border-l-2 border-[#8dcb3f] transform -rotate-45"></div>
+              </motion.div>
+            </motion.div>
           </div>
-        </motion.div>
-
-        {/* Decorative element */}
-        <motion.div
-          className="hidden lg:block absolute -left-16 top-1/2 -translate-y-1/2"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          viewport={{ once: true }}
-        >
-          <div className="w-8 h-8 border-t-2 border-l-2 border-[#8dcb3f] transform -rotate-45"></div>
-        </motion.div>
-      </motion.div>
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* Gallery Section */}
       <section
@@ -1963,11 +1986,10 @@ const HomePage = () => {
                 (category, index) => (
                   <motion.button
                     key={category}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                      index === 0
-                        ? "bg-[#d16b02] text-white"
-                        : "bg-white/80 text-gray-700 hover:bg-[#d16b02]/10"
-                    }`}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${index === 0
+                      ? "bg-[#d16b02] text-white"
+                      : "bg-white/80 text-gray-700 hover:bg-[#d16b02]/10"
+                      }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -2366,11 +2388,10 @@ const HomePage = () => {
                         {[...Array(5)].map((_, i) => (
                           <svg
                             key={i}
-                            className={`w-5 h-5 ${
-                              i < review.rating
-                                ? "text-yellow-400"
-                                : "text-gray-400"
-                            }`}
+                            className={`w-5 h-5 ${i < review.rating
+                              ? "text-yellow-400"
+                              : "text-gray-400"
+                              }`}
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
