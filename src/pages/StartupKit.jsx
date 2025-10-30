@@ -317,20 +317,35 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView, AnimatePresence, useScroll, useTransform } from "framer-motion";
+const FadeInWhenVisible = ({ children, delay = 0 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 const FranchiseInfo = () => {
   const [activeTab, setActiveTab] = useState('all');
   const scrollRef = useRef(null);
 
   const tabs = [
-    { id: 'all', label: 'All Categories', icon: '🏷️' },
-    { id: 'electronic', label: 'Electronics', icon: '⚡' },
-    { id: 'materials', label: 'Cafe Materials', icon: '☕' },
-    { id: 'boards', label: 'Boards & Setup', icon: '🎭' },
-    { id: 'kitchen', label: 'Kitchen Equipment', icon: '🍳' },
-    { id: 'glasses', label: 'Glasses Kit', icon: '🥛' },
-    { id: 'interior', label: 'Interior Design', icon: '🪑' },
-    { id: 'syrups', label: 'Syrups', icon: '🧃' },
+    { id: 'all', label: 'All Categories', icon: '' },
+    { id: 'electronic', label: 'Electronics', icon: '' },
+    { id: 'materials', label: 'Cafe Materials', icon: '' },
+    { id: 'boards', label: 'Boards & Setup', icon: '' },
+    { id: 'kitchen', label: 'Kitchen Equipment', icon: '' },
+    { id: 'glasses', label: 'Glasses Kit', icon: '' },
+    { id: 'interior', label: 'Interior Design', icon: '' },
+    { id: 'syrups', label: 'Syrups', icon: '' },
   ];
 
   // Premium Unsplash images for categories
@@ -681,80 +696,79 @@ const FranchiseInfo = () => {
       `}</style>
 
       {/* Hero Banner Section with Parallax */}
-      <motion.section
+      <section
         style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
         className="relative text-white overflow-hidden min-h-[600px] flex items-center"
       >
+        {/* Background with fixed image + overlay */}
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage:
-              "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&h=900&fit=crop')",
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&h=900&fit=crop')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
+            backgroundAttachment: "fixed", // ✅ keeps background fixed
           }}
         ></div>
 
-        {/* Animated Coffee Elements */}
-        <motion.div
-          className="absolute top-20 left-10 opacity-30 hidden lg:block"
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 0.3 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-        >
-          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop" alt="Coffee decoration" className="w-32 h-32 object-cover rounded-full" />
-        </motion.div>
+        <div className="absolute inset-0 bg-black/50 z-0"></div>
 
-        <motion.div
-          className="absolute bottom-20 right-10 opacity-30 hidden lg:block"
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 0.3 }}
-          transition={{ duration: 1.5, delay: 0.7 }}
-        >
-          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=200&h=200&fit=crop" alt="Coffee decoration" className="w-32 h-32 object-cover rounded-full" />
-        </motion.div>
+        {/* Import Google Font */}
+        <style jsx global>{`
+    @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 
+    .font-sacramento {
+      font-family: "Sacramento", cursive;
+    }
+  `}</style>
+
+        {/* Content */}
         <div className="container mx-auto px-4 relative z-10 w-full text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-6xl text-[#8dcb3f] md:text-7xl lg:text-8xl font-sacramento font-bold mb-4 text-[clamp(40px,6vw,80px)]">
-              Café Franchise
-            </h2>
-          </motion.div>
+          <motion.div className="text-center" style={{ opacity: heroOpacity, y: heroY }}>
+            <FadeInWhenVisible>
+              <h2 className="text-6xl text-[#8dcb3f] font-sacramento md:text-7xl lg:text-8xl font-bold mb-4">
+                Café Franchise
+              </h2>
+            </FadeInWhenVisible>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <h2
-              className="uppercase font-bold inline-block border-y-2 border-amber-400/70 py-2 px-6 m-0 font-playfair"
-              style={{
-                fontSize: "clamp(20px, 5vw, 40px)",
-                lineHeight: "1.2",
-                letterSpacing: "10px",
-                color: "#fff",
-              }}
-            >
-              PREMIUM OPPORTUNITY
-            </h2>
-          </motion.div>
+            <FadeInWhenVisible delay={0.2}>
+              <h2
+                className="uppercase font-bold inline-block border-y border-white/50 border-opacity-50 m-0"
+                style={{
+                  fontSize: "40px",
+                  lineHeight: "40px",
+                  letterSpacing: "10px",
+                  fontFamily: "serif",
+                  color: "#fff",
+                }}
+              >
+                Premium Opportunity
+              </h2>
+            </FadeInWhenVisible>
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-8"
-          >
-            <span className="inline-block bg-amber-600 text-white px-6 py-3 rounded-full text-lg font-medium shadow-lg hover:bg-amber-500 transition-all cursor-pointer">
-              Start Your Journey Today
-            </span>
+            <FadeInWhenVisible delay={0.4}>
+              <nav className="mt-6">
+                <ol className="flex justify-center items-center space-x-3 text-sm">
+                  <li>
+                    <a href="#" className="hover:text-gray-300">
+                      Home
+                    </a>
+                  </li>
+                  <li className="text-gray-400">/</li>
+                  <li className="text-gray-400">Franchise</li>
+                </ol>
+              </nav>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible delay={0.6}>
+              <span className="inline-block bg-white text-[#8dcb3f] px-6 py-3 rounded-full text-lg font-medium shadow-[0_20px_40px_rgba(141,203,63,0.3)] hover:bg-[#9fdb4f]  hover:text-white transition-all cursor-pointer mt-8">
+                Start Your Journey Today
+              </span>
+            </FadeInWhenVisible>
           </motion.div>
         </div>
-      </motion.section>
+      </section>
+
 
       {/* Introduction Banner */}
       <motion.div
@@ -930,7 +944,7 @@ const FranchiseInfo = () => {
                     whileHover={{ scale: 1.05 }}
                     className="bg-white/10 backdrop-blur-sm rounded-lg py-4 px-8 inline-block"
                   >
-                    <span className="text-amber-200 mr-2">☎️</span>
+                    {/* <span className="text-amber-200 mr-2">☎️</span> */}
                     <span className="text-white font-medium text-xl">93811 42553</span>
                   </motion.div>
 
@@ -938,7 +952,7 @@ const FranchiseInfo = () => {
                     whileHover={{ scale: 1.05 }}
                     className="bg-white/10 backdrop-blur-sm rounded-lg py-4 px-8 inline-block"
                   >
-                    <span className="text-amber-200 mr-2">📱</span>
+                    {/* <span className="text-amber-200 mr-2">📱</span> */}
                     <span className="text-white font-medium text-xl">8466066425</span>
                   </motion.div>
 

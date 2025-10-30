@@ -1610,7 +1610,7 @@ const HomePage = () => {
                 lineHeight: "40px",
                 letterSpacing: "10px",
                 fontFamily: "serif",
-                color: "#fff",
+                color: "#ffffff",
               }}
             >
               Coffee
@@ -1848,7 +1848,7 @@ const HomePage = () => {
 
                   <motion.a
                     href="#contact"
-                    className="px-6 py-3 bg-[#8dcb3f] text-white hover:bg-[#b55a01] transition-all duration-300 inline-flex items-center gap-2 group rounded-md font-semibold"
+                    className="px-6 py-3 bg-[#8dcb3f] text-white hover:bg-[#9fdb4f] transition-all duration-300 inline-flex items-center gap-2 group rounded-md font-semibold"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                   >
