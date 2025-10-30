@@ -560,7 +560,7 @@
 //                                 fontFamily: 'serif',
 //                                 letterSpacing: '0.02em',
 //                                 opacity: 1,
-//                                 color: '#d16b02'
+//                                 color: '#8dcb3f'
 
 //                             }}
 //                         >
@@ -672,7 +672,7 @@
 //                                         onClick={handleSubmit}
 //                                         className="px-8 py-3 text-white font-semibold transition-all duration-300 hover:scale-105 rounded"
 //                                         style={{
-//                                             background: '#d16b02',
+//                                             background: '#8dcb3f',
 //                                             border: 'none',
 //                                             cursor: 'pointer'
 //                                         }}
@@ -680,7 +680,7 @@
 //                                             e.currentTarget.style.background = '#bf5a02';
 //                                         }}
 //                                         onMouseLeave={(e) => {
-//                                             e.currentTarget.style.background = '#d16b02';
+//                                             e.currentTarget.style.background = '#8dcb3f';
 //                                         }}
 //                                     >
 //                                         Send Message
@@ -808,14 +808,14 @@ export default function ContactSection() {
                                 // style={{
                                 //     fontFamily: 'serif',
                                 //     letterSpacing: '0.02em',
-                                //     color: '#d16b02'
+                                //     color: '#8dcb3f'
                                 // }}
                                 style={{
                                     fontFamily: "'Sacramento', cursive",
                                     fontWeight: 400,
                                     fontStyle: "normal",
                                     fontSize: "clamp(36px, 8vw, 72px)",
-                                    color: "#d16b02",
+                                    color: "#8dcb3f",
                                     margin: 0,
                                     textShadow: "0 2px 4px rgba(0,0,0,0.1)"
                                 }}
@@ -862,7 +862,7 @@ export default function ContactSection() {
                     }}
                 >
                     <div className="absolute inset-0 bg-black/50 z-0"></div>
-  <style jsx global>{`
+                    <style jsx global>{`
         @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 
         .font-sacramento {
@@ -877,8 +877,8 @@ export default function ContactSection() {
                         >
                             <FadeInWhenVisible>
                                 <h2
-                                    className="text-6xl text-[#d16b02] md:text-7xl lg:text-8xl font-bold mb-4 font-sacramento text-[clamp(40px,6vw,80px)]"
-                                   
+                                    className="text-6xl text-[#8dcb3f] md:text-7xl lg:text-8xl font-bold mb-4 font-sacramento text-[clamp(40px,6vw,80px)]"
+
                                 >
                                     Get In
                                 </h2>
@@ -1016,7 +1016,7 @@ export default function ContactSection() {
                                             onClick={handleSubmit}
                                             className="px-8 py-3 text-white font-semibold transition-all duration-300"
                                             style={{
-                                                background: '#d16b02',
+                                                background: '#8dcb3f',
                                                 border: 'none',
                                                 cursor: 'pointer'
                                             }}
@@ -1024,7 +1024,7 @@ export default function ContactSection() {
                                                 e.currentTarget.style.background = '#e6780aff';
                                             }}
                                             onMouseLeave={(e) => {
-                                                e.currentTarget.style.background = '#d16b02';
+                                                e.currentTarget.style.background = '#8dcb3f';
                                             }}
                                         >
                                             Send Message

@@ -94,7 +94,7 @@ export default function Tea5Story() {
             >
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <motion.h2
-                        className="text-6xl text-[#d16b02] md:text-7xl lg:text-8xl font-bold mb-4 font-sacramento"
+                        className="text-6xl text-[#8dcb3f] md:text-7xl lg:text-8xl font-bold mb-4 font-sacramento"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
@@ -146,7 +146,7 @@ export default function Tea5Story() {
             <section className="py-20 bg-[#18191b]">
                 <div className="container mx-auto px-6">
                     <motion.h2
-                        className="text-center text-4xl font-bold text-[#d16b02] mb-12"
+                        className="text-center text-4xl font-bold text-[#8dcb3f] mb-12"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}

@@ -401,7 +401,7 @@
 
 //                 <FadeInWhenVisible delay={0.2}>
 //                   <motion.div
-//                     whileHover={{ scale: 1.05, backgroundColor: "#d97706" }}
+//                     whileHover={{ scale: 1.05, backgroundColor: "#8dcb3f" }}
 //                     transition={{ duration: 0.3 }}
 //                     className="bg-amber-600 rounded-3xl p-6 text-center cursor-pointer"
 //                   >
@@ -422,7 +422,7 @@
 //               <div className="space-y-4 pt-8">
 //                 <FadeInWhenVisible delay={0.1}>
 //                   <motion.div
-//                     whileHover={{ scale: 1.05, backgroundColor: "#d97706" }}
+//                     whileHover={{ scale: 1.05, backgroundColor: "#8dcb3f" }}
 //                     transition={{ duration: 0.3 }}
 //                     className="bg-amber-600 rounded-3xl p-6 text-center cursor-pointer"
 //                   >
@@ -504,7 +504,7 @@
 //                     {member.socials.facebook && (
 //                       <motion.a
 //                         href="#"
-//                         whileHover={{ scale: 1.2, backgroundColor: "#d97706" }}
+//                         whileHover={{ scale: 1.2, backgroundColor: "#8dcb3f" }}
 //                         whileTap={{ scale: 0.9 }}
 //                         transition={{ duration: 0.2 }}
 //                         className="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center"
@@ -515,7 +515,7 @@
 //                     {member.socials.twitter && (
 //                       <motion.a
 //                         href="#"
-//                         whileHover={{ scale: 1.2, backgroundColor: "#d97706" }}
+//                         whileHover={{ scale: 1.2, backgroundColor: "#8dcb3f" }}
 //                         whileTap={{ scale: 0.9 }}
 //                         transition={{ duration: 0.2 }}
 //                         className="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center"
@@ -526,7 +526,7 @@
 //                     {member.socials.instagram && (
 //                       <motion.a
 //                         href="#"
-//                         whileHover={{ scale: 1.2, backgroundColor: "#d97706" }}
+//                         whileHover={{ scale: 1.2, backgroundColor: "#8dcb3f" }}
 //                         whileTap={{ scale: 0.9 }}
 //                         transition={{ duration: 0.2 }}
 //                         className="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center"
@@ -638,7 +638,7 @@ export default function AboutPage() {
                 fontWeight: 400,
                 fontStyle: "normal",
                 fontSize: "clamp(36px, 8vw, 72px)",
-                color: "#d16b02",
+                color: "#8dcb3f",
                 margin: 0,
                 textShadow: "0 2px 4px rgba(0,0,0,0.1)"
               }}
@@ -676,7 +676,7 @@ export default function AboutPage() {
 
       {/* Discover Our Story Section */}
       {/* Discover Our Story Section */}
-        <style jsx global>{`
+      <style jsx global>{`
         @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 
         .font-sacramento {
@@ -698,8 +698,8 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative z-10 w-full text-center">
           <FadeInWhenVisible>
             <h2
-              className="text-6xl text-[#d16b02] md:text-7xl lg:text-8xl font-bold mb-4 font-sacramento"
-             
+              className="text-6xl text-[#8dcb3f] md:text-7xl lg:text-8xl font-bold mb-4 font-sacramento"
+
             >
               Discover
             </h2>
@@ -788,7 +788,7 @@ export default function AboutPage() {
 
                 <FadeInWhenVisible delay={0.2}>
                   <motion.div
-                    whileHover={{ scale: 1.05, backgroundColor: "#d97706" }}
+                    whileHover={{ scale: 1.05, backgroundColor: "#8dcb3f" }}
                     transition={{ duration: 0.3 }}
                     className="bg-amber-600 rounded-3xl p-6 text-center cursor-pointer"
                   >
@@ -809,7 +809,7 @@ export default function AboutPage() {
               <div className="space-y-4 pt-8">
                 <FadeInWhenVisible delay={0.1}>
                   <motion.div
-                    whileHover={{ scale: 1.05, backgroundColor: "#d97706" }}
+                    whileHover={{ scale: 1.05, backgroundColor: "#8dcb3f" }}
                     transition={{ duration: 0.3 }}
                     className="bg-amber-600 rounded-3xl p-6 text-center cursor-pointer"
                   >
@@ -859,7 +859,7 @@ export default function AboutPage() {
                 fontWeight: 400,
                 fontStyle: "normal",
                 fontSize: "clamp(36px, 8vw, 55px)",
-                color: "#d16b02",
+                color: "#8dcb3f",
                 margin: 0,
                 textShadow: "0 2px 4px rgba(0,0,0,0.1)"
               }}
@@ -929,7 +929,7 @@ export default function AboutPage() {
                   {member.socials.facebook && (
                     <motion.a
                       href="#"
-                      whileHover={{ scale: 1.2, backgroundColor: "#d97706" }}
+                      whileHover={{ scale: 1.2, backgroundColor: "#8dcb3f" }}
                       whileTap={{ scale: 0.9 }}
                       transition={{ duration: 0.2 }}
                       className="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center"
@@ -940,7 +940,7 @@ export default function AboutPage() {
                   {member.socials.twitter && (
                     <motion.a
                       href="#"
-                      whileHover={{ scale: 1.2, backgroundColor: "#d97706" }}
+                      whileHover={{ scale: 1.2, backgroundColor: "#8dcb3f" }}
                       whileTap={{ scale: 0.9 }}
                       transition={{ duration: 0.2 }}
                       className="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center"
@@ -951,7 +951,7 @@ export default function AboutPage() {
                   {member.socials.instagram && (
                     <motion.a
                       href="#"
-                      whileHover={{ scale: 1.2, backgroundColor: "#d97706" }}
+                      whileHover={{ scale: 1.2, backgroundColor: "#8dcb3f" }}
                       whileTap={{ scale: 0.9 }}
                       transition={{ duration: 0.2 }}
                       className="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center"

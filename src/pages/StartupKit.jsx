@@ -163,7 +163,7 @@
 //       >
 //         <div className="container mx-auto px-4 relative z-10 w-full text-center">
 //           <FadeInWhenVisible>
-//             <h2 className="text-6xl text-[#d16b02] md:text-7xl lg:text-8xl font-sacramento font-bold mb-4 text-[clamp(40px,6vw,80px)]">
+//             <h2 className="text-6xl text-[#8dcb3f] md:text-7xl lg:text-8xl font-sacramento font-bold mb-4 text-[clamp(40px,6vw,80px)]">
 //               Latest
 //             </h2>
 //           </FadeInWhenVisible>
@@ -212,7 +212,7 @@
 //           <p className="mt-2">LOW INVESTMENT HIGH RETURNS</p>
 //         </div>
 //       </header>
-      
+
 //       {/* Tab Navigation */}
 //       <div className="bg-amber-800 sticky top-0 z-10 shadow-md">
 //         <div className="container mx-auto px-4 overflow-x-auto">
@@ -249,7 +249,7 @@
 //               <div className="bg-amber-700 text-white py-3 px-4 uppercase font-bold text-center text-lg">
 //                 {getCategoryDisplayName(categoryId)}
 //               </div>
-              
+
 //               <div className="p-4">
 //                 <table className="w-full">
 //                   <thead>
@@ -276,13 +276,13 @@
 //             </motion.div>
 //           ))}
 //         </AnimatePresence>
-        
+
 //         {/* Benefits Section */}
 //         <div className="mt-12 bg-white rounded-lg shadow-lg overflow-hidden">
 //           <div className="bg-amber-700 text-white py-3 px-4 uppercase font-bold text-center text-lg">
 //             Franchise Benefits
 //           </div>
-          
+
 //           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
 //             {franchiseBenefits.map((benefit, index) => (
 //               <div 
@@ -294,7 +294,7 @@
 //             ))}
 //           </div>
 //         </div>
-        
+
 //         {/* Contact Section */}
 //         <div className="mt-8 text-center">
 //           <p className="text-lg font-semibold text-amber-900">For Franchise Enquiries:</p>
@@ -471,8 +471,8 @@ const FranchiseInfo = () => {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         type: "spring",
@@ -497,13 +497,13 @@ const FranchiseInfo = () => {
     const isEven = index % 2 === 0;
     const cardRef = useRef(null);
     const isInView = useInView(cardRef, { once: false, amount: 0.3 });
-    
+
     const imageVariants = {
       hidden: { opacity: 0, x: isEven ? -50 : 50 },
-      visible: { 
-        opacity: 1, 
+      visible: {
+        opacity: 1,
         x: 0,
-        transition: { 
+        transition: {
           type: "spring",
           stiffness: 100,
           damping: 20,
@@ -511,13 +511,13 @@ const FranchiseInfo = () => {
         }
       }
     };
-    
+
     const contentVariants = {
       hidden: { opacity: 0, x: isEven ? 50 : -50 },
-      visible: { 
-        opacity: 1, 
+      visible: {
+        opacity: 1,
         x: 0,
-        transition: { 
+        transition: {
           type: "spring",
           stiffness: 100,
           damping: 20,
@@ -525,9 +525,9 @@ const FranchiseInfo = () => {
         }
       }
     };
-    
+
     return (
-      <motion.div 
+      <motion.div
         ref={cardRef}
         className="my-16 relative"
         initial="hidden"
@@ -535,38 +535,38 @@ const FranchiseInfo = () => {
         variants={cardVariants}
       >
         {/* Decorative Coffee Beans */}
-        <motion.div 
+        <motion.div
           className="absolute -top-10 -left-5 z-0 opacity-20 hidden md:block"
           animate={floatAnimation}
         >
-          <img 
-            src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?w=100&h=100&fit=crop" 
-            alt="Coffee decoration" 
+          <img
+            src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?w=100&h=100&fit=crop"
+            alt="Coffee decoration"
             className="w-20 h-20 object-cover rounded-full"
           />
         </motion.div>
-        
+
         {isEven && (
-          <motion.div 
+          <motion.div
             className="absolute -bottom-10 -right-5 z-0 opacity-20 hidden md:block"
             animate={floatAnimation}
           >
-            <img 
-              src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=100&h=100&fit=crop" 
-              alt="Coffee decoration" 
+            <img
+              src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=100&h=100&fit=crop"
+              alt="Coffee decoration"
               className="w-16 h-16 object-cover rounded-full"
             />
           </motion.div>
         )}
-        
+
         <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} bg-white rounded-2xl overflow-hidden shadow-2xl relative z-10`}>
-          <motion.div 
+          <motion.div
             className="md:w-1/2 relative overflow-hidden"
             variants={imageVariants}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
-            <img 
-              src={categoryImages[categoryId] || "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&h=600&fit=crop"} 
+            <img
+              src={categoryImages[categoryId] || "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&h=600&fit=crop"}
               alt={getCategoryDisplayName(categoryId)}
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               style={{ minHeight: '400px', maxHeight: '500px' }}
@@ -576,8 +576,8 @@ const FranchiseInfo = () => {
               <div className="h-1 w-20 bg-amber-500 rounded-full"></div>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="md:w-1/2 p-0 flex flex-col"
             variants={contentVariants}
           >
@@ -587,7 +587,7 @@ const FranchiseInfo = () => {
                 <span className="text-amber-200 text-sm">Premium Quality</span>
               </div>
             </div>
-            
+
             <div className="p-6 flex-grow bg-gradient-to-b from-amber-50 to-white">
               <div className="bg-white rounded-xl p-4 shadow-md">
                 <table className="w-full border-collapse">
@@ -600,7 +600,7 @@ const FranchiseInfo = () => {
                   </thead>
                   <tbody>
                     {materials[categoryId]?.map((item, idx) => (
-                      <motion.tr 
+                      <motion.tr
                         key={idx}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -653,7 +653,7 @@ const FranchiseInfo = () => {
         }
         
         ::-webkit-scrollbar-thumb {
-          background: #d97706;
+          background: #8dcb3f;
           border-radius: 10px;
         }
         
@@ -685,7 +685,7 @@ const FranchiseInfo = () => {
         style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
         className="relative text-white overflow-hidden min-h-[600px] flex items-center"
       >
-        <div 
+        <div
           className="absolute inset-0 z-0"
           style={{
             backgroundImage:
@@ -694,9 +694,9 @@ const FranchiseInfo = () => {
             backgroundPosition: "center",
           }}
         ></div>
-        
+
         {/* Animated Coffee Elements */}
-        <motion.div 
+        <motion.div
           className="absolute top-20 left-10 opacity-30 hidden lg:block"
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 0.3 }}
@@ -704,8 +704,8 @@ const FranchiseInfo = () => {
         >
           <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop" alt="Coffee decoration" className="w-32 h-32 object-cover rounded-full" />
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="absolute bottom-20 right-10 opacity-30 hidden lg:block"
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 0.3 }}
@@ -720,7 +720,7 @@ const FranchiseInfo = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-6xl text-amber-400 md:text-7xl lg:text-8xl font-sacramento font-bold mb-4 text-[clamp(40px,6vw,80px)]">
+            <h2 className="text-6xl text-[#8dcb3f] md:text-7xl lg:text-8xl font-sacramento font-bold mb-4 text-[clamp(40px,6vw,80px)]">
               Café Franchise
             </h2>
           </motion.div>
@@ -769,34 +769,34 @@ const FranchiseInfo = () => {
           <p className="text-xl md:text-2xl italic font-light max-w-3xl mx-auto">
             Low Investment. High Returns. Proven Success.
           </p>
-          
+
           {/* Quick Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10 max-w-4xl mx-auto">
-            <motion.div 
+            <motion.div
               className="bg-amber-800/70 rounded-xl p-4 backdrop-blur-sm"
               whileHover={{ y: -5, scale: 1.03 }}
             >
               <div className="text-amber-300 text-4xl font-bold">90+</div>
               <div className="text-amber-100 mt-2">Sq. Ft. Only</div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="bg-amber-800/70 rounded-xl p-4 backdrop-blur-sm"
               whileHover={{ y: -5, scale: 1.03 }}
             >
               <div className="text-amber-300 text-4xl font-bold">3</div>
               <div className="text-amber-100 mt-2">Days Training</div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="bg-amber-800/70 rounded-xl p-4 backdrop-blur-sm"
               whileHover={{ y: -5, scale: 1.03 }}
             >
               <div className="text-amber-300 text-4xl font-bold">0%</div>
               <div className="text-amber-100 mt-2">Royalty</div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="bg-amber-800/70 rounded-xl p-4 backdrop-blur-sm"
               whileHover={{ y: -5, scale: 1.03 }}
             >
@@ -806,11 +806,11 @@ const FranchiseInfo = () => {
           </div>
         </div>
       </motion.div>
-      
+
       {/* Tab Navigation */}
       <div className="bg-gradient-to-r from-amber-800 to-amber-700 sticky top-0 z-30 shadow-xl">
         <div className="container mx-auto px-4 overflow-x-auto py-1">
-          <motion.div 
+          <motion.div
             className="flex whitespace-nowrap py-2 gap-1"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -820,11 +820,10 @@ const FranchiseInfo = () => {
               <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 mx-1 rounded-lg font-medium text-sm md:text-base transition-all ${
-                  activeTab === tab.id 
-                    ? 'bg-amber-100 text-amber-900 shadow-lg' 
-                    : 'text-amber-100 hover:bg-amber-600'
-                }`}
+                className={`px-4 py-2 mx-1 rounded-lg font-medium text-sm md:text-base transition-all ${activeTab === tab.id
+                  ? 'bg-amber-100 text-amber-900 shadow-lg'
+                  : 'text-amber-100 hover:bg-amber-600'
+                  }`}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -847,16 +846,16 @@ const FranchiseInfo = () => {
         >
           {/* Decorative Coffee Path */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-amber-200 z-0 hidden lg:block"></div>
-          
+
           {getCategoriesToShow().map((categoryId, index) => (
-            <CategoryCard 
-              key={categoryId} 
-              categoryId={categoryId} 
-              index={index} 
+            <CategoryCard
+              key={categoryId}
+              categoryId={categoryId}
+              index={index}
             />
           ))}
         </motion.div>
-        
+
         {/* Benefits Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -872,8 +871,8 @@ const FranchiseInfo = () => {
               Join our successful network of cafe owners and enjoy these exclusive advantages
             </p>
           </div>
-          
-          <motion.div 
+
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
             variants={containerVariants}
             initial="hidden"
@@ -881,7 +880,7 @@ const FranchiseInfo = () => {
             viewport={{ once: true, amount: 0.1 }}
           >
             {franchiseBenefits.map((benefit, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 variants={cardVariants}
                 whileHover={{ y: -10, boxShadow: '0 10px 25px -5px rgba(209, 107, 2, 0.3)' }}
@@ -896,7 +895,7 @@ const FranchiseInfo = () => {
             ))}
           </motion.div>
         </motion.div>
-        
+
         {/* Contact CTA Section */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -907,9 +906,9 @@ const FranchiseInfo = () => {
         >
           <div className="flex flex-col md:flex-row">
             <div className="md:w-1/2 relative">
-              <img 
-                src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&h=600&fit=crop" 
-                alt="Coffee shop" 
+              <img
+                src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&h=600&fit=crop"
+                alt="Coffee shop"
                 className="w-full h-full object-cover"
                 style={{ minHeight: '300px' }}
               />
@@ -920,29 +919,29 @@ const FranchiseInfo = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
               <div className="text-center text-white">
                 <h3 className="text-2xl font-bold mb-4">Contact Us Today</h3>
                 <p className="text-amber-200 text-lg mb-6">Our franchise experts are ready to guide you</p>
-                
+
                 <div className="flex flex-col space-y-4 items-center">
-                  <motion.div 
+                  <motion.div
                     whileHover={{ scale: 1.05 }}
                     className="bg-white/10 backdrop-blur-sm rounded-lg py-4 px-8 inline-block"
                   >
                     <span className="text-amber-200 mr-2">☎️</span>
                     <span className="text-white font-medium text-xl">93811 42553</span>
                   </motion.div>
-                  
-                  <motion.div 
+
+                  <motion.div
                     whileHover={{ scale: 1.05 }}
                     className="bg-white/10 backdrop-blur-sm rounded-lg py-4 px-8 inline-block"
                   >
                     <span className="text-amber-200 mr-2">📱</span>
                     <span className="text-white font-medium text-xl">8466066425</span>
                   </motion.div>
-                  
+
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -951,8 +950,8 @@ const FranchiseInfo = () => {
                     Request Information
                   </motion.button>
                 </div>
-                
-                <motion.div 
+
+                <motion.div
                   className="mt-10 border border-amber-400/30 rounded-lg py-3 px-6 text-amber-200 inline-block"
                   whileHover={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
                 >
@@ -963,7 +962,7 @@ const FranchiseInfo = () => {
           </div>
         </motion.div>
       </div>
-      
+
 
     </div>
   );

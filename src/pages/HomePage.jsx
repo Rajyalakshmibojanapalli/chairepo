@@ -249,7 +249,7 @@ const HomePage = () => {
                             damping: 20,
                           }}
                           className={`
-                      text-[#d16b02] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[100px] 
+                      text-[#8dcb3f] text-[40px] sm:text-[50px] md:text-[60px] lg:text-[100px] 
                       leading-[1] sm:leading-[1.1] m-0 tracking-wide
                       ${index === 0 ? "font-sacramento" : "font-sacramento"}
                     `}
@@ -322,9 +322,9 @@ const HomePage = () => {
                           }}
                           whileHover={{
                             scale: 1.05,
-                            backgroundColor: "#d16b02",
+                            backgroundColor: "#8dcb3f",
                           }}
-                          className="mt-6 md:mt-8 inline-block px-6 md:px-8 py-2 md:py-3 bg-[#d16b02] text-white text-sm md:text-base rounded-full hover:bg-[#8dcb3f]  "
+                          className="mt-6 md:mt-8 inline-block px-6 md:px-8 py-2 md:py-3 bg-[#8dcb3f] text-white text-sm md:text-base rounded-full hover:bg-[#8dcb3f]  "
                         >
                           View Our Menu
                         </motion.a>
@@ -395,7 +395,7 @@ const HomePage = () => {
 
         {/* Golden accent line */}
         <motion.div
-          className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#d16b02]/50 to-transparent"
+          className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#8dcb3f]/50 to-transparent"
           style={{ top: "15%" }}
           initial={{ scaleX: 0, opacity: 0 }}
           whileInView={{ scaleX: 1, opacity: 1 }}
@@ -420,7 +420,7 @@ const HomePage = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <span className="text-[#d16b02] text-sm tracking-[0.3em] uppercase font-light border-b border-[#d16b02]/30 pb-2 px-4">
+                <span className="text-[#8dcb3f] text-sm tracking-[0.3em] uppercase font-light border-b border-[#8dcb3f]/30 pb-2 px-4">
                   Since 2010
                 </span>
               </motion.div>
@@ -433,14 +433,14 @@ const HomePage = () => {
                 transition={{ duration: 1, delay: 0.2 }}
               >
                 The{" "}
-                <span className="text-[#d16b02] italic font-normal">
+                <span className="text-[#8dcb3f] italic font-normal">
                   Artistry
                 </span>{" "}
                 Behind Every Cup
               </motion.h2>
 
               <motion.div
-                className="h-[3px] w-20 bg-gradient-to-r from-[#d16b02]/20 via-[#d16b02] to-[#d16b02]/20 mx-auto my-6"
+                className="h-[3px] w-20 bg-gradient-to-r from-[#8dcb3f]/20 via-[#8dcb3f] to-[#8dcb3f]/20 mx-auto my-6"
                 initial={{ width: 0, opacity: 0 }}
                 whileInView={{ width: 80, opacity: 1 }}
                 viewport={{ once: true }}
@@ -463,7 +463,7 @@ const HomePage = () => {
             <div className="relative">
               {/* Diagonal golden accent line */}
               <motion.div
-                className="absolute w-[1px] h-[85%] bg-gradient-to-b from-transparent via-[#d16b02]/50 to-transparent -left-2 top-[5%] hidden lg:block"
+                className="absolute w-[1px] h-[85%] bg-gradient-to-b from-transparent via-[#8dcb3f]/50 to-transparent -left-2 top-[5%] hidden lg:block"
                 initial={{ scaleY: 0, opacity: 0 }}
                 whileInView={{ scaleY: 1, opacity: 1 }}
                 viewport={{ once: true }}
@@ -483,7 +483,7 @@ const HomePage = () => {
                   <div className="relative mx-auto max-w-md lg:max-w-full aspect-[4/5] overflow-visible">
                     {/* Decorative pattern behind image */}
                     <motion.div
-                      className="absolute top-4 left-4 right-4 bottom-4 border border-[#d16b02]/20 rounded-xl"
+                      className="absolute top-4 left-4 right-4 bottom-4 border border-[#8dcb3f]/20 rounded-xl"
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
@@ -492,7 +492,7 @@ const HomePage = () => {
 
                     {/* Shadow layer */}
                     <motion.div
-                      className="absolute top-6 left-6 -bottom-6 -right-6 bg-[#d16b02]/5 rounded-xl"
+                      className="absolute top-6 left-6 -bottom-6 -right-6 bg-[#8dcb3f]/5 rounded-xl"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -553,7 +553,7 @@ const HomePage = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 1 }}
                       >
-                        <p className="text-[#d16b02] text-xs font-medium">
+                        <p className="text-[#8dcb3f] text-xs font-medium">
                           Premium Quality
                         </p>
                       </motion.div>
@@ -593,7 +593,7 @@ const HomePage = () => {
                         transition: { duration: 0.3 },
                       }}
                     >
-                      <div className="w-12 h-12 text-[#d16b02]">
+                      <div className="w-12 h-12 text-[#8dcb3f]">
                         <svg
                           viewBox="0 0 24 24"
                           fill="currentColor"
@@ -617,7 +617,7 @@ const HomePage = () => {
                       }}
                       whileHover={{
                         scale: 1.05,
-                        boxShadow: "0 20px 40px rgba(209,107,2,0.3)",
+                        boxShadow: "0 20px 40px rgba(24,25,27,0.3)",
                         rotate: 5,
                         transition: { duration: 0.3 },
                       }}
@@ -644,7 +644,7 @@ const HomePage = () => {
                   <div className="relative">
                     {/* Stylized quote mark */}
                     <motion.div
-                      className="absolute -top-20 -left-4 text-[#d16b02] opacity-10 text-9xl font-serif transform -rotate-6"
+                      className="absolute -top-20 -left-4 text-[#8dcb3f] opacity-10 text-9xl font-serif transform -rotate-6"
                       initial={{ opacity: 0, scale: 0.5, x: -30 }}
                       whileInView={{ opacity: 0.1, scale: 1, x: 0 }}
                       viewport={{ once: true }}
@@ -665,11 +665,11 @@ const HomePage = () => {
                       >
                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#3A2A18] font-light leading-tight mb-3">
                           A Sensory{" "}
-                          <span className="text-[#d16b02] italic">Journey</span>{" "}
+                          <span className="text-[#8dcb3f] italic">Journey</span>{" "}
                           Through Every Cup
                         </h3>
                         <motion.div
-                          className="h-[2px] w-20 bg-gradient-to-r from-[#d16b02] to-[#d16b02]/10"
+                          className="h-[2px] w-20 bg-gradient-to-r from-[#8dcb3f] to-[#8dcb3f]/10"
                           initial={{ width: 0, opacity: 0 }}
                           whileInView={{ width: 80, opacity: 1 }}
                           viewport={{ once: true }}
@@ -741,9 +741,9 @@ const HomePage = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
                           >
-                            <div className="w-10 h-10 rounded-full bg-[#d16b02]/10 flex items-center justify-center flex-shrink-0 mt-1">
+                            <div className="w-10 h-10 rounded-full bg-[#8dcb3f]/10 flex items-center justify-center flex-shrink-0 mt-1">
                               <svg
-                                className="w-5 h-5 text-[#d16b02]"
+                                className="w-5 h-5 text-[#8dcb3f]"
                                 viewBox="0 0 24 24"
                                 fill="currentColor"
                               >
@@ -773,7 +773,7 @@ const HomePage = () => {
                       >
                         <motion.a
                           href="#menu"
-                          className="px-8 py-3 bg-[#d16b02] text-white rounded-full shadow-lg shadow-[#d16b02]/20 hover:shadow-[#d16b02]/30 hover:bg-[#c05e00] transition-all duration-300"
+                          className="px-8 py-3 bg-[#8dcb3f] text-white rounded-full shadow-lg shadow-[#8dcb3f]/20 hover:shadow-[#8dcb3f]/30 hover:bg-[#c05e00] transition-all duration-300"
                           whileHover={{
                             scale: 1.03,
                             boxShadow:
@@ -787,7 +787,7 @@ const HomePage = () => {
 
                         <motion.a
                           href="#about"
-                          className="px-8 py-3 border-2 border-[#d16b02] text-[#d16b02] rounded-full hover:bg-[#d16b02]/5 transition-all duration-300"
+                          className="px-8 py-3 border-2 border-[#8dcb3f] text-[#8dcb3f] rounded-full hover:bg-[#8dcb3f]/5 transition-all duration-300"
                           whileHover={{
                             scale: 1.03,
                             backgroundColor: "rgba(209, 107, 2, 0.05)",
@@ -813,24 +813,24 @@ const HomePage = () => {
           <div className="floating-dots"></div>
         </div>
 
-        <div className="absolute -top-40 -right-40 w-60 sm:w-80 h-60 sm:h-80 bg-[#d16b02] opacity-5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-60 sm:w-80 h-60 sm:h-80 bg-[#d16b02] opacity-5 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-60 sm:w-80 h-60 sm:h-80 bg-[#8dcb3f] opacity-5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-60 sm:w-80 h-60 sm:h-80 bg-[#8dcb3f] opacity-5 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mb-10 sm:mb-12 lg:mb-16 max-w-3xl mx-auto animate-fade-in">
             <div className="flex items-center justify-center space-x-2 sm:space-x-4 mb-4 sm:mb-6">
-              <span className="h-[1px] w-6 sm:w-10 bg-[#d16b02]"></span>
-              <h2 className="text-[#d16b02] uppercase tracking-widest text-xs sm:text-sm font-bold text-center">
+              <span className="h-[1px] w-6 sm:w-10 bg-[#8dcb3f]"></span>
+              <h2 className="text-[#8dcb3f] uppercase tracking-widest text-xs sm:text-sm font-bold text-center">
                 Exceptional Experience
               </h2>
-              <span className="h-[1px] w-6 sm:w-10 bg-[#d16b02]"></span>
+              <span className="h-[1px] w-6 sm:w-10 bg-[#8dcb3f]"></span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center leading-tight px-4 sm:px-0">
               Why our customers{" "}
-              <span className="text-[#d16b02] relative inline-block">
+              <span className="text-[#8dcb3f] relative inline-block">
                 keep coming back
-                <span className="absolute bottom-0 sm:bottom-1 left-0 w-full h-0.5 sm:h-1 bg-[#d16b02] opacity-20"></span>
+                <span className="absolute bottom-0 sm:bottom-1 left-0 w-full h-0.5 sm:h-1 bg-[#8dcb3f] opacity-20"></span>
               </span>
             </h3>
           </div>
@@ -852,7 +852,7 @@ const HomePage = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80"></div>
 
                       <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 transform transition-transform duration-500 group-hover:translate-y-[-10px]">
-                        <span className="inline-block bg-[#d16b02] text-white px-3 sm:px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 sm:mb-4 shadow-lg">
+                        <span className="inline-block bg-[#8dcb3f] text-white px-3 sm:px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 sm:mb-4 shadow-lg">
                           Signature
                         </span>
                         <h4 className="text-2xl sm:text-3xl font-bold mt-3 sm:mt-4 mb-2 text-white">
@@ -925,7 +925,7 @@ const HomePage = () => {
                       key={index}
                       className="feature-small group w-72 sm:w-80 flex-shrink-0"
                     >
-                      <div className="relative h-96 sm:h-[450px] rounded-xl overflow-hidden bg-white hover:bg-gradient-to-br from-white to-[#FDF8F3] shadow-md hover:shadow-[0_15px_35px_rgba(209,107,2,0.15)] transition-all duration-300 border border-transparent hover:border-[#d16b02]/10">
+                      <div className="relative h-96 sm:h-[450px] rounded-xl overflow-hidden bg-white hover:bg-gradient-to-br from-white to-[#FDF8F3] shadow-md hover:shadow-[0_15px_35px_rgba(209,107,2,0.15)] transition-all duration-300 border border-transparent hover:border-[#8dcb3f]/10">
                         <div className="absolute top-0 right-0 p-4 z-10">
                           <div className="w-10 h-10 rounded-full bg-[#FDF8F3] flex items-center justify-center shadow-inner group-hover:bg-[#f8e3c8] transition-all duration-300">
                             <span className="text-xl">{feature.icon}</span>
@@ -933,15 +933,15 @@ const HomePage = () => {
                         </div>
 
                         <div className="p-6 h-full flex flex-col">
-                          <h4 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-[#d16b02] transition-colors duration-300 relative inline-block">
+                          <h4 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-[#8dcb3f] transition-colors duration-300 relative inline-block">
                             {feature.title}
-                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#d16b02] transition-all duration-300 group-hover:w-full opacity-60"></span>
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#8dcb3f] transition-all duration-300 group-hover:w-full opacity-60"></span>
                           </h4>
                           <p className="text-gray-600 text-sm mb-4">
                             {feature.description}
                           </p>
                           <div className="mt-auto">
-                            <button className="text-[#d16b02] group-hover:text-[#b25601] text-sm font-medium inline-flex items-center">
+                            <button className="text-[#8dcb3f] group-hover:text-[#b25601] text-sm font-medium inline-flex items-center">
                               <span>Learn more</span>
                               <svg
                                 className="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x-2"
@@ -970,7 +970,7 @@ const HomePage = () => {
                 {[0, 1, 2, 3, 4].map((i) => (
                   <button
                     key={i}
-                    className={`w-2 h-2 rounded-full mx-1 transition-all duration-300 ${i === 0 ? "bg-[#d16b02] w-6" : "bg-[#d16b02]/30"
+                    className={`w-2 h-2 rounded-full mx-1 transition-all duration-300 ${i === 0 ? "bg-[#8dcb3f] w-6" : "bg-[#8dcb3f]/30"
                       }`}
                     aria-label={`Go to slide ${i + 1}`}
                   ></button>
@@ -991,7 +991,7 @@ const HomePage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80"></div>
 
                   <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 transform transition-transform duration-500 group-hover:translate-y-[-10px]">
-                    <span className="inline-block bg-[#d16b02] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-lg">
+                    <span className="inline-block bg-[#8dcb3f] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-lg">
                       Signature
                     </span>
                     <h4 className="text-2xl lg:text-3xl font-bold mt-4 mb-2 text-white">
@@ -1067,7 +1067,7 @@ const HomePage = () => {
                       className={`feature-small group animate-fade-in-up-${index + 1
                         }`}
                     >
-                      <div className="relative h-full min-h-[180px] lg:min-h-[190px] xl:min-h-[230px] rounded-xl overflow-hidden bg-white hover:bg-gradient-to-br from-white to-[#FDF8F3] shadow-md hover:shadow-[0_15px_35px_rgba(209,107,2,0.15)] transition-all duration-300 border border-transparent hover:border-[#d16b02]/10">
+                      <div className="relative h-full min-h-[180px] lg:min-h-[190px] xl:min-h-[230px] rounded-xl overflow-hidden bg-white hover:bg-gradient-to-br from-white to-[#FDF8F3] shadow-md hover:shadow-[0_15px_35px_rgba(209,107,2,0.15)] transition-all duration-300 border border-transparent hover:border-[#8dcb3f]/10">
                         <div className="absolute top-0 right-0 p-3 lg:p-4 z-10">
                           <div className="w-8 lg:w-10 h-8 lg:h-10 rounded-full bg-[#FDF8F3] flex items-center justify-center shadow-inner group-hover:bg-[#f8e3c8] transition-all duration-300">
                             <span className="text-lg lg:text-xl">{feature.icon}</span>
@@ -1075,15 +1075,15 @@ const HomePage = () => {
                         </div>
 
                         <div className="p-4 lg:p-6 h-full flex flex-col">
-                          <h4 className="text-lg lg:text-xl font-bold mb-2 group-hover:text-[#d16b02] transition-colors duration-300 relative inline-block pr-12">
+                          <h4 className="text-lg lg:text-xl font-bold mb-2 group-hover:text-[#8dcb3f] transition-colors duration-300 relative inline-block pr-12">
                             {feature.title}
-                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#d16b02] transition-all duration-300 group-hover:w-full opacity-60"></span>
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#8dcb3f] transition-all duration-300 group-hover:w-full opacity-60"></span>
                           </h4>
                           <p className="text-gray-600 text-xs lg:text-sm mb-4">
                             {feature.description}
                           </p>
                           <div className="mt-auto">
-                            <button className="text-[#d16b02] group-hover:text-[#b25601] text-sm font-medium inline-flex items-center">
+                            <button className="text-[#8dcb3f] group-hover:text-[#b25601] text-sm font-medium inline-flex items-center">
                               <span>Learn more</span>
                               <svg
                                 className="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x-2"
@@ -1112,7 +1112,7 @@ const HomePage = () => {
           {/* Stats Section */}
           <div
             ref={statsRef}
-            className="stats-section mt-12 sm:mt-16 lg:mt-24 border-t border-[#d16b02]/10 pt-8 sm:pt-12 lg:pt-16 animate-fade-in-up-delayed"
+            className="stats-section mt-12 sm:mt-16 lg:mt-24 border-t border-[#8dcb3f]/10 pt-8 sm:pt-12 lg:pt-16 animate-fade-in-up-delayed"
           >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {counters.map((stat, index) => (
@@ -1121,7 +1121,7 @@ const HomePage = () => {
                   className={`text-center stat-counter animate-count-up-${index + 1
                     }`}
                 >
-                  <div className="counter text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#d16b02] mb-1 sm:mb-2">
+                  <div className="counter text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#8dcb3f] mb-1 sm:mb-2">
                     {isStatsVisible
                       ? formatNumber(stat.current, stat.suffix)
                       : "0"}
@@ -1161,7 +1161,7 @@ const HomePage = () => {
     .btn-explore {
       display: inline-flex;
       align-items: center;
-      background: linear-gradient(to right, #d16b02, #e78a34);
+      background: linear-gradient(to right, #8dcb3f, #e78a34);
       color: white;
       font-weight: 600;
       padding: 0.5rem 1rem;
@@ -1427,7 +1427,7 @@ const HomePage = () => {
             </div>
 
             <motion.div
-              className="h-1 w-20 md:w-24 mx-auto mt-6 rounded-full bg-gradient-to-r from-[#d16b02] to-[#8dcb3f]"
+              className="h-1 w-20 md:w-24 mx-auto mt-6 rounded-full bg-gradient-to-r from-[#8dcb3f] to-[#8dcb3f]"
               initial={{ width: 0, opacity: 0 }}
               animate={{ width: "6rem", opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
@@ -1545,10 +1545,10 @@ const HomePage = () => {
                         {item.description}
                       </span>
                     </div>
-                    <div className="flex-1 text-[#d16b02] font-medium text-center">
+                    <div className="flex-1 text-[#8dcb3f] font-medium text-center">
                       ${item.medium}
                     </div>
-                    <div className="flex-1 text-[#d16b02] font-medium text-right">
+                    <div className="flex-1 text-[#8dcb3f] font-medium text-right">
                       ${item.large}
                     </div>
                   </motion.div>
@@ -1559,7 +1559,7 @@ const HomePage = () => {
 
               <motion.a
                 href="#menu"
-                className="px-6 sm:px-8 py-3 border-2 border-[#d16b02] text-[#d16b02] hover:bg-[#d16b02] hover:text-white transition-all duration-300 inline-flex items-center group"
+                className="px-6 sm:px-8 py-3 border-2 border-[#8dcb3f] text-[#8dcb3f] hover:bg-[#8dcb3f] hover:text-white transition-all duration-300 inline-flex items-center group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -1647,7 +1647,7 @@ const HomePage = () => {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                Startup <span className="text-[#d16b02]">Kit</span> Package
+                Startup <span className="text-[#8dcb3f]">Kit</span> Package
               </motion.h2>
 
               {/* Electronics Section */}
@@ -1696,7 +1696,7 @@ const HomePage = () => {
                       <div className="flex items-center">
                         <h4 className="font-medium text-white">{item.name}</h4>
                         {item.highlight && (
-                          <span className="ml-2 bg-[#d16b02] text-white text-xs px-1.5 py-0.5 rounded">
+                          <span className="ml-2 bg-[#8dcb3f] text-white text-xs px-1.5 py-0.5 rounded">
                             Essential
                           </span>
                         )}
@@ -1705,7 +1705,7 @@ const HomePage = () => {
                         {item.description}
                       </p>
                     </div>
-                    <div className="w-24 sm:w-32 text-[#d16b02] font-medium text-right">
+                    <div className="w-24 sm:w-32 text-[#8dcb3f] font-medium text-right">
                       {item.qty} Unit
                     </div>
                   </motion.div>
@@ -1758,7 +1758,7 @@ const HomePage = () => {
                       <div className="flex items-center">
                         <h4 className="font-medium text-white">{item.name}</h4>
                         {item.highlight && (
-                          <span className="ml-2 bg-[#d16b02] text-white text-xs px-1.5 py-0.5 rounded">
+                          <span className="ml-2 bg-[#8dcb3f] text-white text-xs px-1.5 py-0.5 rounded">
                             Essential
                           </span>
                         )}
@@ -1767,7 +1767,7 @@ const HomePage = () => {
                         {item.description}
                       </p>
                     </div>
-                    <div className="w-24 sm:w-32 text-[#d16b02] font-medium text-right">
+                    <div className="w-24 sm:w-32 text-[#8dcb3f] font-medium text-right">
                       {item.qty}
                     </div>
                   </motion.div>
@@ -1820,7 +1820,7 @@ const HomePage = () => {
                       <div className="flex items-center">
                         <h4 className="font-medium text-white">{item.name}</h4>
                         {item.highlight && (
-                          <span className="ml-2 bg-[#d16b02] text-white text-xs px-1.5 py-0.5 rounded">
+                          <span className="ml-2 bg-[#8dcb3f] text-white text-xs px-1.5 py-0.5 rounded">
                             Premium
                           </span>
                         )}
@@ -1829,7 +1829,7 @@ const HomePage = () => {
                         {item.description}
                       </p>
                     </div>
-                    <div className="w-24 sm:w-32 text-[#d16b02] font-medium text-right">
+                    <div className="w-24 sm:w-32 text-[#8dcb3f] font-medium text-right">
                       {item.qty}
                     </div>
                   </motion.div>
@@ -1848,7 +1848,7 @@ const HomePage = () => {
 
                   <motion.a
                     href="#contact"
-                    className="px-6 py-3 bg-[#d16b02] text-white hover:bg-[#b55a01] transition-all duration-300 inline-flex items-center gap-2 group rounded-md font-semibold"
+                    className="px-6 py-3 bg-[#8dcb3f] text-white hover:bg-[#b55a01] transition-all duration-300 inline-flex items-center gap-2 group rounded-md font-semibold"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -1872,7 +1872,7 @@ const HomePage = () => {
 
               {/* Package Summary */}
               <motion.div
-                className="mt-6 bg-[#d16b02]/20 backdrop-blur-sm p-4 rounded-lg border border-[#d16b02]/30"
+                className="mt-6 bg-[#8dcb3f]/20 backdrop-blur-sm p-4 rounded-lg border border-[#8dcb3f]/30"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
@@ -1912,7 +1912,7 @@ const HomePage = () => {
       >
         {/* Decorative background elements */}
         <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-white to-transparent opacity-70"></div>
-        <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#d16b02]/5 rounded-full blur-3xl"></div>
+        <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#8dcb3f]/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#8dcb3f]/5 rounded-full blur-3xl"></div>
 
         {/* Subtle pattern overlay */}
@@ -1939,12 +1939,12 @@ const HomePage = () => {
                 lineHeight: "40px",
                 letterSpacing: "10px",
                 fontFamily: "serif",
-                color: "#d16b02",
+                color: "#8dcb3f",
               }}
             >
               Our Story
               <motion.span
-                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#d16b02]"
+                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#8dcb3f]"
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
                 transition={{ delay: 0.4, duration: 0.6 }}
@@ -1987,8 +1987,8 @@ const HomePage = () => {
                   <motion.button
                     key={category}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${index === 0
-                      ? "bg-[#d16b02] text-white"
-                      : "bg-white/80 text-gray-700 hover:bg-[#d16b02]/10"
+                      ? "bg-[#8dcb3f] text-white"
+                      : "bg-white/80 text-gray-700 hover:bg-[#8dcb3f]/10"
                       }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
@@ -2171,7 +2171,7 @@ const HomePage = () => {
           >
             <motion.a
               href="#gallery"
-              className="px-8 py-3 bg-gradient-to-r from-[#d16b02] to-[#d16b02]/90 text-white rounded-full hover:from-[#8dcb3f] hover:to-[#8dcb3f]/90 transition-all duration-300 inline-flex items-center gap-2 shadow-lg hover:shadow-xl group"
+              className="px-8 py-3 bg-gradient-to-r from-[#8dcb3f] to-[#8dcb3f]/90 text-white rounded-full hover:from-[#8dcb3f] hover:to-[#8dcb3f]/90 transition-all duration-300 inline-flex items-center gap-2 shadow-lg hover:shadow-xl group"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -2204,7 +2204,7 @@ const HomePage = () => {
         className="py-20 md:py-28 relative overflow-hidden"
       >
         {/* Background with gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#d16b02] to-[#b45600] z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#8dcb3f] to-[#18191b] z-0"></div>
 
         {/* Decorative patterns and elements */}
         <div
@@ -2452,7 +2452,7 @@ const HomePage = () => {
               >
                 <motion.a
                   href="#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#d16b02] font-medium rounded-full hover:bg-[#8dcb3f] hover:text-white transition-all duration-300 shadow-lg group"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#8dcb3f] font-medium rounded-full hover:bg-[#8dcb3f] hover:text-white transition-all duration-300 shadow-lg group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
                 >
@@ -2550,7 +2550,7 @@ const HomePage = () => {
 
       {/* Back to Top Button */}
       <motion.button
-        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-[#d16b02] text-white flex items-center justify-center shadow-lg"
+        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-[#8dcb3f] text-white flex items-center justify-center shadow-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: scrollY > 300 ? 1 : 0 }}
         whileHover={{ scale: 1.1 }}

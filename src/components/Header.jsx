@@ -46,7 +46,7 @@ const Header = ({ currentPage, navigateTo }) => {
   // Always keep the header visible, just change its style
   const headerClasses = `
     fixed w-full transition-all duration-500 z-50
-    ${!isTop ? "header-bg bg-[#82390e] bg-opacity-95 shadow-md" : "transparent"}
+    ${!isTop ? "header-bg bg-[#8dcb3f] bg-opacity-95 shadow-md" : "transparent"}
   `;
 
   // Background gradient for when at top
@@ -66,7 +66,7 @@ const Header = ({ currentPage, navigateTo }) => {
             id="mainmenu"
             className={`
               hidden md:flex justify-center items-center h-full text-white text-center mx-auto relative
-              ${isMobileMenuOpen ? "flex flex-col absolute top-full left-0 w-full bg-[#82390e] shadow-lg" : ""}
+              ${isMobileMenuOpen ? "flex flex-col absolute top-full left-0 w-full bg-[#8dcb3f] shadow-lg" : ""}
             `}
             style={{ padding: isSmaller ? '0' : '50px 0 0 0', transition: 'all 0.3s ease' }}
           >

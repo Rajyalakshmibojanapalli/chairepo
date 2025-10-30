@@ -70,7 +70,7 @@ const BlogList = ({ blogs, navigateTo }) => {
       >
         <div className="container mx-auto px-4 relative z-10 w-full text-center">
           <FadeInWhenVisible>
-            <h2 className="text-6xl  text-[#d16b02] md:text-7xl lg:text-8xl font-sacramento font-bold mb-4 text-[clamp(40px,6vw,80px)]">
+            <h2 className="text-6xl  text-[#8dcb3f] md:text-7xl lg:text-8xl font-sacramento font-bold mb-4 text-[clamp(40px,6vw,80px)]">
               Latest
             </h2>
           </FadeInWhenVisible>

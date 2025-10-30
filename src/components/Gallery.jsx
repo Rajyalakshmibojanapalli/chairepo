@@ -41,7 +41,7 @@
 //                                 fontFamily: 'serif',
 //                                 letterSpacing: '0.02em',
 //                                 opacity: 1,
-//                                 color: '#d16b02'
+//                                 color: '#8dcb3f'
 //                             }}
 //                         >
 //                             Get In
@@ -192,13 +192,13 @@ const Gallery = () => {
                     >
                         <h2
                             className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4"
-                            // style={{ fontFamily: 'serif', color: '#d16b02' }}
+                            // style={{ fontFamily: 'serif', color: '#8dcb3f' }}
                             style={{
                                 fontFamily: "'Sacramento', cursive",
                                 fontWeight: 400,
                                 fontStyle: "normal",
                                 fontSize: "clamp(36px, 8vw, 72px)",
-                                color: "#d16b02",
+                                color: "#8dcb3f",
                                 margin: 0,
                                 textShadow: "0 2px 4px rgba(0,0,0,0.1)"
                             }}
@@ -241,7 +241,7 @@ const Gallery = () => {
                 }}
             >
                 <div className="absolute inset-0 bg-black/60 z-0"></div>
-  <style jsx global>{`
+                <style jsx global>{`
         @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 
         .font-sacramento {
@@ -256,8 +256,8 @@ const Gallery = () => {
                     >
                         <FadeInWhenVisible>
                             <h2
-                                className="text-6xl  text-[#d16b02]  font-sacramento md:text-7xl lg:text-8xl font-bold mb-4"
-                               
+                                className="text-6xl  text-[#8dcb3f]  font-sacramento md:text-7xl lg:text-8xl font-bold mb-4"
+
                             >
                                 Discover
                             </h2>
