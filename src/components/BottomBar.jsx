@@ -74,7 +74,7 @@ const BottomBar = () => {
                 {/* Social Links */}
                 <div className="flex items-center gap-4 mt-2 sm:mt-0 text-gray-400">
                     <a
-                        href="https://github.com/YOUR_GITHUB"
+                        href="https://github.com/abhiramkaleru"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-white transition-colors duration-200"
@@ -83,7 +83,7 @@ const BottomBar = () => {
                         <FaGithub size={22} />
                     </a>
                     <a
-                        href="https://linkedin.com/in/YOUR_LINKEDIN"
+                        href="https://linkedin.com/in/abhiram-kaleru-a81281246"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-blue-500 transition-colors duration-200"
@@ -92,7 +92,7 @@ const BottomBar = () => {
                         <FaLinkedin size={22} />
                     </a>
                     <a
-                        href="mailto:youremail@example.com"
+                        href="mailto:abhiramkaleru@gmail.com"
                         className="hover:text-red-500 transition-colors duration-200"
                         aria-label="Email"
                     >
