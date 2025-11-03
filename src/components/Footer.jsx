@@ -499,7 +499,7 @@ export default function Footer() {
         </svg>
       </div>
 
-      <footer className="relative bg-gradient-to-br from-[#8dcb3f] via-[#7db835] to-[#6ca52b] text-white overflow-hidden">
+      <footer className="relative bg-gradient-to-br from-[#8dcb3f] via-[#8dcb3f] to-[#8dcb3f] text-white overflow-hidden">
         {/* Subtle Background Animation */}
         <div className="absolute inset-0 overflow-hidden opacity-30">
           <motion.div

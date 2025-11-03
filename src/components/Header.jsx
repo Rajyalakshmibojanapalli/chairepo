@@ -134,7 +134,7 @@ const Header = ({ currentPage, navigateTo }) => {
 
           {/* Mobile menu container - only visible when menu is open */}
           {isMobileMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 w-full bg-amber-900 shadow-lg z-50">
+            <div className="md:hidden absolute top-full left-0 w-full bg-[#93ce49] shadow-lg z-50">
               <ul className="flex flex-col w-full">
                 {[...leftNavItems, ...rightNavItems].map((item, index) => (
                   <li key={`mobile-${index}`} className="w-full border-b border-[#8dcb3f] border-opacity-20">

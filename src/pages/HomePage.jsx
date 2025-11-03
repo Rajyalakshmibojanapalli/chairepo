@@ -207,18 +207,18 @@ const HomePage = () => {
               {
                 image:
                   "https://madebydesignesia.com/themes/baresto/02_images/slider/slide-1.jpg",
-                line1: "The Perfect",
+                line1: "Dream Blend",
                 line2: "Blend",
                 description:
-                  "Crafted with care and precision, this blend represents the pinnacle of coffee craftsmanship, where artistry meets expertise to create a symphony of flavor.",
+                  "Tea 5 cafe serves passion in every cup. Enjoy rich blends and rewarding franchise opportunities with a trusted brand loved for quality across India.",
               },
               {
                 image:
                   "https://madebydesignesia.com/themes/baresto/02_images/slider/slide-2.jpg",
-                line1: "Aromatic",
+                line1: "Tasty Growth",
                 line2: "Taste",
                 description:
-                  "Prepare to be enchanted by the seductive allure of our coffee's aromatic taste, a sensory symphony that begins the moment you lift the cup to your lips.",
+                  "Tea 5 cafe offers fresh tea and a proven business model with low investment and high returns. Join a trusted brand growing across India.",
               },
             ].map((slide, index) => (
               <SwiperSlide key={index}>
@@ -686,11 +686,7 @@ const HomePage = () => {
                           viewport={{ once: true }}
                           transition={{ duration: 0.8, delay: 0.4 }}
                         >
-                          In the heart of the bustling metropolis, where the
-                          rhythm of life pulses relentlessly, there exists a
-                          sanctuary hidden among the chaos—a place where time
-                          slows, and worries fade into the aroma of freshly
-                          ground coffee beans.
+                          In the heart of Hyderabad, Tea 5 cafe brings people together with the warmth of authentic tea and meaningful conversations. Every cup is brewed with care, using handpicked tea leaves to deliver freshness, purity, and a taste that lasts
                         </motion.p>
 
                         <motion.p
@@ -700,10 +696,7 @@ const HomePage = () => {
                           viewport={{ once: true }}
                           transition={{ duration: 0.8, delay: 0.5 }}
                         >
-                          Our passion for exceptional coffee drives us to source
-                          the finest beans from sustainable farms around the
-                          world, carefully roasting each batch to bring out its
-                          unique character and flavor profile.
+                          Tea 5 cafe is one of the most trusted <b className="text-[#93ce49]">tea cafe franchise in Hyderabad</b>  and a growing name across India. With a <b className="text-[#93ce49]">low investment tea franchise</b> , entrepreneurs can start a profitable business backed by a brand known for quality and consistency.
                         </motion.p>
                       </div>
 
@@ -719,18 +712,22 @@ const HomePage = () => {
                           {
                             icon: "M14,10H2V12H14V10M14,6H2V8H14V6M2,16H10V14H2V16M21.5,11.5L23,13L16,20L11.5,15.5L13,14L16,17L21.5,11.5Z",
                             title: "Ethically Sourced",
+                            description:"All ingredients are selected with responsibility to maintain freshness and quality."
                           },
                           {
                             icon: "M12,15C7.58,15 4,16.79 4,19V21H20V19C20,16.79 16.42,15 12,15M8,9A4,4 0 0,0 12,13A4,4 0 0,0 16,9M11.5,2C11.2,2 11,2.21 11,2.5V5.5H10V3C10,3 7.75,3.86 7.75,6.75C7.75,6.75 7,6.89 7,8H17C16.95,6.89 16.25,6.75 16.25,6.75C16.25,3.86 14,3 14,3V5.5H13V2.5C13,2.21 12.81,2 12.5,2H11.5Z",
                             title: "Master Roasters",
+                            description:"Every recipe is created to bring out the best tea flavors in India."
                           },
                           {
                             icon: "M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A9,9 0 0,0 21,12A9,9 0 0,0 12,3Z",
                             title: "Flavor Artistry",
+                            description:" We help every partner establish and grow a successful Tea 5 cafe franchise in India."
                           },
                           {
                             icon: "M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z",
                             title: "Quality Selection",
+                            description:" Every outlet follows the same standard to ensure the perfect cup each time."
                           },
                         ].map((feature, i) => (
                           <motion.div
@@ -755,8 +752,7 @@ const HomePage = () => {
                                 {feature.title}
                               </h4>
                               <p className="text-sm text-gray-600 font-light">
-                                We ensure every step of our process maintains
-                                the highest standards.
+                             {feature.description}
                               </p>
                             </div>
                           </motion.div>
