@@ -757,20 +757,26 @@ export default function AboutPage() {
 
               <FadeInWhenVisible delay={0.1}>
                 <p className="text-xl text-gray-300 mb-6 leading-relaxed">
-                  At "Baresto," we believe in the power of good coffee and warm hospitality. Our journey began with a simple vision: to create a welcoming space where friends, families, and strangers alike could come together to enjoy delicious beverages, homemade treats, and meaningful connections.
-                </p>
+At Tea 5 cafe, we believe great tea has the power to bring people together. Our journey began with a simple idea to serve authentic tea made with love and create a space where everyone feels welcome. From the first pour to the last sip, we focus on quality, comfort, and connection.                </p>
               </FadeInWhenVisible>
 
               <FadeInWhenVisible delay={0.2}>
                 <p className="text-gray-400 mb-4 leading-relaxed">
-                  Nestled in the heart of our community, "Baresto" is more than just a café; it's a gathering place, a refuge from the chaos of everyday life, and a beacon of positivity and warmth. From the moment you walk through our doors, you're greeted with the inviting aroma of freshly brewed coffee and the friendly smiles of our dedicated team. Our menu is a reflection of our commitment to quality and creativity. We source the finest beans from around the world and carefully craft each cup with precision and care. Whether you're craving a classic espresso, a creamy latte, or a refreshing iced tea, we have something to delight every palate.
-                </p>
+Started in Hyderabad, Tea 5 cafe soon became a favorite spot for families, friends, and entrepreneurs to relax and share good moments. Every cup is made from premium tea leaves that are carefully selected for freshness and taste.                </p>
               </FadeInWhenVisible>
 
               <FadeInWhenVisible delay={0.3}>
-                <p className="text-gray-400 leading-relaxed">
-                  As a proud member of the community, we're committed to giving back and making a positive impact wherever we can. From supporting local artisans and farmers to hosting events that celebrate diversity and inclusion, we believe in using our platform to spread joy and goodwill in our neighborhood and beyond.
-                </p>
+                <p className="text-gray-400 leading-relaxed mb-4">
+Tea 5 cafe is more than a tea shop. It is a growing business that connects India’s tea tradition with a modern franchise model. Through our tea cafe franchise in Hyderabad and across India, we help individuals start a low investment tea franchise and build a successful future.                </p>
+              </FadeInWhenVisible>
+              <FadeInWhenVisible delay={0.3}>
+                <p className="text-gray-400 leading-relaxed mb-4">
+Our goal is not only to serve tea but also to create opportunities. We believe in community growth, sustainability, and supporting every franchise partner to achieve lasting success. </p>
+              </FadeInWhenVisible>
+              <FadeInWhenVisible delay={0.3}>
+                <p className="text-gray-400 leading-relaxed mb-4">
+At Tea 5 cafe, every cup tells a story of trust, ambition, and togetherness.
+</p>
               </FadeInWhenVisible>
             </div>
 
