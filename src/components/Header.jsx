@@ -479,10 +479,10 @@ const Header = ({ currentPage, navigateTo }) => {
                   className={`
                     inline-block font-semibold transition-all
                     ${currentPage === item.link 
-                      ? (isTop ? "text-yellow-300" : "text-white bg-black bg-opacity-10 rounded-md") 
+                      ? (isTop ? "text-yellow-300" : "text-white rounded-md") 
                       : (isTop 
                         ? "text-white hover:text-yellow-300" 
-                        : "text-gray-800 hover:text-white hover:bg-black hover:bg-opacity-10 rounded-md")
+                        : "text-gray-800 hover:text-white  rounded-md")
                     }
                   `}
                   style={{ padding: isSmaller ? '18px 20px' : '18px 20px' }}
@@ -524,10 +524,10 @@ const Header = ({ currentPage, navigateTo }) => {
                   className={`
                     inline-block font-semibold transition-all
                     ${currentPage === item.link 
-                      ? (isTop ? "text-yellow-300" : "text-white bg-black bg-opacity-10 rounded-md") 
+                      ? (isTop ? "text-yellow-300" : "text-white  rounded-md") 
                       : (isTop 
                         ? "text-white hover:text-yellow-300" 
-                        : "text-gray-800 hover:text-white hover:bg-black hover:bg-opacity-10 rounded-md")
+                        : "text-gray-800 hover:text-white  rounded-md")
                     }
                   `}
                   style={{ padding: isSmaller ? '18px 20px' : '18px 20px' }}
