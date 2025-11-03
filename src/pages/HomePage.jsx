@@ -842,7 +842,7 @@ const HomePage = () => {
               <div className="overflow-x-auto pb-6 -mx-4 px-4">
                 <div className="flex space-x-4" style={{ width: 'max-content' }}>
                   {/* Main Feature Card */}
-                  <div className="feature-card group w-72 sm:w-80 flex-shrink-0">
+                  <div className="feature-card group w-72 sm:w-80 ">
                     <div className="relative h-96 sm:h-[450px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(209,107,2,0.15)]">
                       <img
                         src="https://i.pinimg.com/736x/9e/a7/ee/9ea7eee807b77d4d062ec54be39c6a92.jpg"
