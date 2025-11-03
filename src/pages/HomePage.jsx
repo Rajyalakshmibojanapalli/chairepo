@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, EffectFade } from "swiper/modules";
-
+import { Helmet } from 'react-helmet-async';
 const HomePage = () => {
   const [scrollY, setScrollY] = useState(0);
 
@@ -184,6 +184,17 @@ const HomePage = () => {
   return (
     <div className="w-full overflow-x-hidden bg-gradient-to-br from-[#FDF8F3] via-[#F8F1E9] to-[#F0E6DA]">
       {/* Hero Section */}
+      <Helmet>
+        <title>Tea 5 Cafe - Best Tea Cafe Franchise in Hyderabad | Low Investment</title>
+        <meta 
+          name="description" 
+          content="Tea 5 cafe offers the best tea cafe franchise in Hyderabad with low investment and high returns. Join India's most trusted tea franchise brand with complete startup support." 
+        />
+        <meta 
+          name="keywords" 
+          content="tea cafe franchise, coffee franchise Hyderabad, low investment franchise, Tea 5 cafe, franchise opportunities India, tea franchise in India" 
+        />
+      </Helmet>
       <section className="relative h-screen" id="home">
         <section className="relative w-full h-[100vh]">
           <Swiper
@@ -209,6 +220,7 @@ const HomePage = () => {
                   "https://madebydesignesia.com/themes/baresto/02_images/slider/slide-1.jpg",
                 line1: "Dream Blend",
                 line2: "Flavour",
+                buttonText: "Start Your Franchise Journey",
                 description:
                   "Tea 5 cafe serves passion in every cup. Enjoy rich blends and rewarding franchise opportunities with a trusted brand loved for quality across India.",
               },
@@ -217,6 +229,7 @@ const HomePage = () => {
                   "https://madebydesignesia.com/themes/baresto/02_images/slider/slide-2.jpg",
                 line1: "Tasty Growth",
                 line2: "Taste",
+                buttonText: "Explore Franchise Options",
                 description:
                   "Tea 5 cafe offers fresh tea and a proven business model with low investment and high returns. Join a trusted brand growing across India.",
               },
@@ -326,7 +339,7 @@ const HomePage = () => {
                           }}
                           className="mt-6 md:mt-8 inline-block px-6 md:px-8 py-2 md:py-3 bg-[#8dcb3f] text-white text-sm md:text-base rounded-full hover:bg-[#8dcb3f]  "
                         >
-                          View Our Menu
+                        {slide.buttonText}
                         </motion.a>
                       </div>
                     </div>
@@ -434,7 +447,7 @@ const HomePage = () => {
               >
                 The{" "}
                 <span className="text-[#8dcb3f] italic font-normal">
-                  Artistry
+                  Craft 
                 </span>{" "}
                 Behind Every Cup
               </motion.h2>
@@ -454,9 +467,16 @@ const HomePage = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                A journey of passion, dedication, and the pursuit of coffee
-                perfection
+                A journey of passion, dedication, and the love for perfect tea.
               </motion.p>
+              <motion.p
+                className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg font-light mb-4"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+Every cup at Tea 5 cafe is made with care, blending authentic flavor, freshness, and a deep respect for India’s tea culture. Our goal is simple: to serve quality tea that brings people together and creates a lasting impression.              </motion.p>
             </motion.div>
 
             {/* Content container with golden accent */}
