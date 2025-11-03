@@ -82,7 +82,7 @@ const Header = ({ currentPage, navigateTo }) => {
                   }}
                   className={`
                     block md:inline-block font-medium transition-all w-full
-                    ${currentPage === item.link ? "text-[#000000]" : "text-white hover:text-[#8dcb3f]"}
+                    ${currentPage === item.link ? "text-[#2bcc39]" : "text-white hover:text-[#8dcb3f]"}
                   `}
                   style={{ padding: isSmaller ? '18px 20px' : '18px 20px' }}
                 >

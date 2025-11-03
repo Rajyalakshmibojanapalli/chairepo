@@ -208,7 +208,7 @@ const HomePage = () => {
                 image:
                   "https://madebydesignesia.com/themes/baresto/02_images/slider/slide-1.jpg",
                 line1: "Dream Blend",
-                line2: "Blend",
+                line2: "Flavour",
                 description:
                   "Tea 5 cafe serves passion in every cup. Enjoy rich blends and rewarding franchise opportunities with a trusted brand loved for quality across India.",
               },
