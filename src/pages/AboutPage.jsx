@@ -788,9 +788,9 @@ export default function AboutPage() {
 
                 <FadeInWhenVisible delay={0.2}>
                   <motion.div
-                    whileHover={{ scale: 1.05, backgroundColor: "#8dcb3f" }}
+                    whileHover={{ scale: 1.05, backgroundColor: "#ffffff", color: "#000000" }}
                     transition={{ duration: 0.3 }}
-                    className="bg-amber-600 rounded-3xl p-6 text-center cursor-pointer"
+                    className="bg-[#8dcb3f] rounded-3xl p-6 text-center cursor-pointer  hover:shadow-[0_20px_40px_rgba(0,0,3,0.3)"
                   >
                     <motion.h3
                       initial={{ scale: 1 }}
@@ -809,9 +809,9 @@ export default function AboutPage() {
               <div className="space-y-4 pt-8">
                 <FadeInWhenVisible delay={0.1}>
                   <motion.div
-                    whileHover={{ scale: 1.05, backgroundColor: "#8dcb3f" }}
+                    whileHover={{ scale: 1.05, backgroundColor: "#ffffff", color: "#000000" }}
                     transition={{ duration: 0.3 }}
-                    className="bg-amber-600 rounded-3xl p-6 text-center cursor-pointer"
+                    className="bg-[#8dcb3f] rounded-3xl p-6 text-center cursor-pointer hover:shadow-[0_20px_40px_rgba(0,0,3,0.3)]"
                   >
                     <motion.h3
                       initial={{ scale: 1 }}

@@ -122,8 +122,8 @@ const BlogList = ({ blogs, navigateTo }) => {
         <div className="container mx-auto px-4">
           <FadeInWhenVisible>
             <h2 className="text-center mb-12">
-              <span className="text-4xl md:text-5xl font-bold text-white uppercase tracking-wide">
-                Latest <span className="text-amber-500">Articles</span>
+              <span className="text-4xl md:text-5xl font-bold text-white  tracking-wide">
+                Latest <span className="text-[#8dcb3f]">Articles</span>
               </span>
             </h2>
           </FadeInWhenVisible>
@@ -146,7 +146,7 @@ const BlogList = ({ blogs, navigateTo }) => {
                     <div className="w-full md:w-5/12 relative">
                       <div className="post-content">
                         <motion.div
-                          className="date-box absolute top-0 left-0 w-[74px] text-center border-2 border-amber-500 z-10"
+                          className="date-box absolute top-0 left-0 w-[74px] text-center border-2 border-[#8dcb3f] z-10"
                           whileHover={{ scale: 1.05 }}
                           transition={{ type: "spring", stiffness: 400 }}
                         >
@@ -161,7 +161,7 @@ const BlogList = ({ blogs, navigateTo }) => {
                         <div className="post-text pl-24 mt-2">
                           <h3 className="text-2xl font-bold mt-5 mb-4">
                             <motion.a
-                              className="text-white hover:text-amber-500 transition-colors cursor-pointer inline-block"
+                              className="text-white hover:text-[#8dcb3f] transition-colors cursor-pointer inline-block"
                               whileHover={{ x: 5 }}
                             >
                               {blog.title}
@@ -169,7 +169,7 @@ const BlogList = ({ blogs, navigateTo }) => {
                           </h3>
                           <p className="text-gray-300 mb-6">{blog.content}</p>
                           <motion.a
-                            className="btn-custom py-2 px-5 border-2 rounded-xl border-amber-500 hover:bg-amber-500 hover:text-gray-900 transition-all font-bold uppercase cursor-pointer inline-block"
+                            className="btn-custom py-2 px-5 border-2 rounded-xl border-[#8dcb3f] hover:bg-[#8dcb3f] hover:text-gray-900 transition-all font-bold uppercase cursor-pointer inline-block hover:shadow-[0_20px_40px_rgba(141,203,63,0.3)]"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -209,7 +209,7 @@ const BlogList = ({ blogs, navigateTo }) => {
                     <div className="w-full md:w-5/12 relative md:pl-8">
                       <div className="post-content">
                         <motion.div
-                          className="date-box absolute top-0 left-0 md:left-8 w-[74px] text-center border-2 border-amber-500 z-10"
+                          className="date-box absolute top-0 left-0 md:left-8 w-[74px] text-center border-2 border-[#8dcb3f] z-10"
                           whileHover={{ scale: 1.05 }}
                           transition={{ type: "spring", stiffness: 400 }}
                         >
@@ -225,7 +225,7 @@ const BlogList = ({ blogs, navigateTo }) => {
                           <h3 className="text-2xl font-bold mt-5 mb-4">
                             <motion.a
                               onClick={() => navigateTo("/blog-single")}
-                              className="text-white hover:text-amber-500 transition-colors cursor-pointer inline-block"
+                              className="text-white hover:text-[#8dcb3f] transition-colors cursor-pointer inline-block"
                               whileHover={{ x: 5 }}
                             >
                               {blog.title}
@@ -234,7 +234,7 @@ const BlogList = ({ blogs, navigateTo }) => {
                           <p className="text-gray-300 mb-6">{blog.content}</p>
                           <motion.a
                             onClick={() => navigateTo("/blog-single")}
-                            className="btn-custom py-2 px-5 border-2 border-amber-500 hover:bg-amber-500 hover:text-gray-900 transition-all font-bold uppercase cursor-pointer inline-block"
+                            className="btn-custom py-2 px-5 border-2 border-[#8dcb3f] hover:bg-[#8dcb3f] hover:text-gray-900 transition-all font-bold uppercase cursor-pointer inline-block rounded-xl hover:shadow-[0_20px_40px_rgba(141,203,63,0.3)]"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >

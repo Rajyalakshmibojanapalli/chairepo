@@ -1014,14 +1014,14 @@ export default function ContactSection() {
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
                                             onClick={handleSubmit}
-                                            className="px-8 py-3 text-white font-semibold transition-all duration-300"
+                                            className="px-8 py-3 text-white font-semibold transition-all duration-300 hover:scale-105 hover:text-black rounded shadow-[0_20px_40px_rgba(141,203,63,0.3)]"
                                             style={{
                                                 background: '#8dcb3f',
                                                 border: 'none',
                                                 cursor: 'pointer'
                                             }}
                                             onMouseEnter={(e) => {
-                                                e.currentTarget.style.background = '#e6780aff';
+                                                e.currentTarget.style.background = '#ffffff';
                                             }}
                                             onMouseLeave={(e) => {
                                                 e.currentTarget.style.background = '#8dcb3f';
