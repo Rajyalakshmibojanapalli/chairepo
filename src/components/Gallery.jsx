@@ -113,6 +113,7 @@ import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const icon = "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800";
 
@@ -173,6 +174,18 @@ const Gallery = () => {
 
     return (
         <div className="min-h-screen bg-[#18191b]">
+            <Helmet>
+        <title>Tea Moments and Franchise Highlights | Tea 5 cafe</title>
+        <meta 
+          name="description" 
+          content="Explore our gallery filled with tea moments, cafe interiors, and franchise stories from across India. See the taste and passion behind Tea 5 cafe."
+        />
+        <meta 
+          name="keywords" 
+          content="tea cafe franchise, coffee franchise Hyderabad, low investment franchise, Tea 5 cafe, franchise opportunities India, tea franchise in India" 
+        />
+        <link rel="canonical" href="https://www.tea5cafe.com/gallery" />
+      </Helmet>
             {/* Hero Section */}
             {/* <section
                 className="relative text-white overflow-hidden min-h-[500px] flex items-center"

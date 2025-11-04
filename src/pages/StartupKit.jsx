@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { Helmet } from 'react-helmet-async';
 const FadeInWhenVisible = ({ children, delay = 0 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -232,6 +233,18 @@ const FranchiseInfo = () => {
         animate={isInView ? "visible" : "hidden"}
         variants={cardVariants}
       >
+        <Helmet>
+                <title>Startup Kit for Tea Franchise Opportunities | Tea 5 cafe</title>
+                <meta 
+                  name="description" 
+                  content="Begin your tea franchise journey with our complete startup kit. Enjoy low investment, high returns, and full business support from Tea 5 cafe." 
+                />
+                <meta 
+                  name="keywords" 
+                  content="tea cafe franchise, coffee franchise Hyderabad, low investment franchise, Tea 5 cafe, franchise opportunities India, tea franchise in India" 
+                />
+                <link rel="canonical" href="https://www.tea5cafe.com/startup-kit" />
+              </Helmet>
         {/* Decorative Coffee Beans */}
         <motion.div
           className="absolute -top-10 -left-5 z-0 opacity-20 hidden md:block"

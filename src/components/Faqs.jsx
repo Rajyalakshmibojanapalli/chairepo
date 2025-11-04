@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-
+import { Helmet } from "react-helmet-async";
 const faqList = [
     {
         question: "What are your cafe timings?",
@@ -122,6 +122,18 @@ const Faqs = () => {
                     padding: "170px 0 80px 0",
                 }}
             >
+                <Helmet>
+        <title>Frequently Asked Questions | Tea 5 Cafe</title>
+        <meta 
+          name="description" 
+          content="Find clear answers to common franchise, cafe menu, and partner support questions. Get the information you need from Tea 5 Cafe."
+        />
+        <meta 
+          name="keywords" 
+          content="tea cafe franchise, coffee franchise Hyderabad, low investment franchise, Tea 5 cafe, franchise opportunities India, tea franchise in India" 
+        />
+        <link rel="canonical" href="https://www.tea5cafe.com/faqs" />
+      </Helmet>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <motion.h2
                         className="text-6xl text-[#8dcb3f] md:text-7xl lg:text-8xl font-bold mb-4 font-sacramento"

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Facebook, Twitter, Instagram } from 'lucide-react';
-
+import { Helmet } from 'react-helmet-async';
 const FadeInWhenVisible = ({ children, delay = 0 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -64,7 +64,18 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-[#18191b] text-white">
-
+<Helmet>
+        <title>Premium Tea Brand and Franchise Success | Tea 5 cafe</title>
+        <meta 
+          name="description" 
+          content="Discover how a simple idea grew into one of India’s most trusted tea franchise brands built on quality, trust, and growth with Tea 5 cafe."
+        />
+        <meta 
+          name="keywords" 
+          content="tea cafe franchise, coffee franchise Hyderabad, low investment franchise, Tea 5 cafe, franchise opportunities India, tea franchise in India" 
+        />
+    <link rel="canonical" href="https://www.tea5cafe.com/about" />
+      </Helmet>
       <style jsx global>{`
         @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 
