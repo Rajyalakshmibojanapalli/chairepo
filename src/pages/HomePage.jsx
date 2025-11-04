@@ -188,7 +188,7 @@ const HomePage = () => {
         <title>Best Low Investment Tea Franchise in India | Tea 5 Cafe</title>
         <meta 
           name="description" 
-          content="Start your Tea 5 cafe franchise in India. Enjoy low investment, high returns, and premium tea blends from one of India’s fastest-growing tea brands.
+          content="Start your Tea 5 cafe franchise in India. Enjoy low investment, high returns, and premium tea blends from one of India’s fastest-growing tea brands."
         />
         <meta 
           name="keywords" 
