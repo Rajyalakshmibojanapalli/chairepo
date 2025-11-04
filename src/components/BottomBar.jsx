@@ -62,7 +62,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const BottomBar = () => {
     return (
-        <div className="w-full text-gray-200 mt-8">
+        <div className="w-full text-gray-200">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-4">
                 <p
                     className="text-lg font-semibold bg-gradient-to-r from-gray-800 via-gray-400 to-gray-800 
