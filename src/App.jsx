@@ -157,7 +157,7 @@ const App = () => {
             <Route path="/blog" element={<BlogList />} />
             <Route path="/testimonials" element={<TestimonialsPage />} />
             <Route path="/services" element={<ServicesPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact-us" element={<ContactPage />} />
             <Route path="/faqs" element={<Tea5Story />} />
             {/* Inline 404 component */}
             <Route path="*" element={
