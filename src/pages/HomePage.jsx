@@ -185,10 +185,10 @@ const HomePage = () => {
     <div className="w-full overflow-x-hidden bg-gradient-to-br from-[#FDF8F3] via-[#F8F1E9] to-[#F0E6DA]">
       {/* Hero Section */}
       <Helmet>
-        <title>Best Low Investment Tea Franchise in India | Tea 5 Cafe</title>
+        <title>Best Tea Cafe Franchise in Hyderabad | Low Investment</title>
         <meta 
           name="description" 
-          content="Start your Tea 5 cafe franchise in India. Enjoy low investment, high returns, and premium tea blends from one of India’s fastest-growing tea brands."
+          content="Start your Tea 5 cafe franchise in Hyderabad. Enjoy low investment, high returns, and premium tea blends from one of India’s fastest-growing tea brands." 
         />
         <meta 
           name="keywords" 

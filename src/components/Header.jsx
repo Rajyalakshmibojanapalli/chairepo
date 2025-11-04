@@ -249,7 +249,7 @@ const Header = () => {
     { title: "Gallery", link: "/gallery" },
     { title: "FAQs", link: "/faqs" },
     { title: "Blog", link: "/blog" },
-    { title: "Contact Us", link: "/contact" }
+    { title: "Contact", link: "/contact" }
   ];
 
   const leftNavItems = navItems.slice(0, 3);
