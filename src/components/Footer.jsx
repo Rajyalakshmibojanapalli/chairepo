@@ -282,7 +282,7 @@ import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Rss, Dribbble, MapPin, Phone, Mail, Heart, Coffee } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import BottomBar from './BottomBar';
-import logo from '../assets/logo2.jpg'
+import logo from '../assets/logo2.png'
 export default function Footer() {
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
