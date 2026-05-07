@@ -63,4 +63,4 @@ User-agent: PerplexityBot
 Allow: /
 
 # --- Sitemap ---
-Sitemap: https://www.tea5cafe.com/sitemap.xml
+Sitemap: https://tea5cafe.com/sitemap.xml

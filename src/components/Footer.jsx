@@ -313,7 +313,7 @@ export default function Footer() {
     },
     {
       icon: Rss,
-      href: "https://www.tea5cafe.com/",
+      href: "https://tea5cafe.com/",
       label: "Website",
       bgGradient: "from-orange-400 to-orange-500"
     },

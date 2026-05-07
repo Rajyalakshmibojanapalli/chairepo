@@ -164,7 +164,7 @@ const Gallery = () => {
                     name="keywords"
                     content="tea cafe franchise, coffee franchise india, low investment franchise, Tea 5 cafe, franchise opportunities India, tea franchise in India"
                 />
-                <link rel="canonical" href="https://www.tea5cafe.com/gallery" />
+                <link rel="canonical" href="https://tea5cafe.com/gallery" />
             </Helmet>
 
             <style>{`
