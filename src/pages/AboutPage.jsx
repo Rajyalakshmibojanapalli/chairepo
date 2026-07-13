@@ -60,7 +60,7 @@ export default function AboutPage() {
       socials: { facebook: true, twitter: true, instagram: true }
     },
     {
-      name: "Sai Harsha Kakarla",
+      name: "Sai Harsha & Dileep Kakarla",
       role: "CFO & COO",
       // image: "https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=400&h=400&fit=crop",
       socials: { facebook: true, twitter: true, instagram: true }
@@ -343,8 +343,8 @@ export default function AboutPage() {
                     viewport={{ once: true }}
                   />
                 </div>
-                <h4 className="text-xl font-bold mb-1">{member.name}</h4>
-                <div className="text-[#8dcb3f] font-semibold mb-3">{member.role}</div>
+                <h4 className="text-xl font-bold mb-1 text-red-600">{member.name}</h4>
+                <div className="text-red-600 font-semibold mb-3">{member.role}</div>
                 <div className="flex justify-center gap-3">
                   {member.socials.facebook && (
                     <motion.a
